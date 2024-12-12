@@ -13,6 +13,10 @@
     
   
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 .sectionImage{
   height: 100vh;
@@ -31,6 +35,10 @@
   object-position: 50% 0%;
   transition: transform 0.3s ease, position 0.3s ease;
   z-index: 100;
+}
+.opacityTransition{
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .bordiImage {
