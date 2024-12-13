@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -59,15 +59,36 @@ const HomePage = () => {
       </Container>
       <Row className="d-flex justify-content-center align-items-center">
         <h1 className="text-center display-6 fw-bold mb-2">Alcuni Progetti:</h1>
-        <Col className="box me-3 mt-4" xs={12} md={3}>
-          <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png" fluid className="immagineCard" />
-        </Col>
-        <Col className="box me-3 mt-4" xs={12} md={3}>
-          <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png" fluid className="immagineCard" />
-        </Col>
-        <Col className="box me-3 mt-4" xs={12} md={3}>
-          <Image src="/public/projects/Screenshot 2024-12-13 alle 15.51.25.png" fluid className="immagineCard" />
-        </Col>
+
+        <Card className="projectsCards mx-2 p-1">
+          <Card.Img variant="top" src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png" />
+          <Card.Body className="pt-0 mt-0">
+            <Card.Title className="text-center mt-3">ILLBE</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="projectsCards mx-2 p-1">
+          <Card.Img variant="top" src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png" />
+          <Card.Body className="pt-0 mt-0">
+            <Card.Title className="text-center mt-3">SICILY FRESH</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="projectsCards mx-2 p-1">
+          <Card.Img variant="top" src="/public/projects/Screenshot 2024-12-13 alle 15.51.25.png" />
+          <Card.Body className="pt-0 mt-0">
+            <Card.Title className="text-center mt-3">METEO</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </Row>
       <div className="section ">
         <div>
