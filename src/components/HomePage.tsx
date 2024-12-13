@@ -23,7 +23,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Container className="border border-dark">
+      <Container>
         <Row>
           <div className={`section ${isFirstSectionVisible ? "" : "opacityTransition"}`}>
             <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-md-row`}>
@@ -40,7 +40,7 @@ const HomePage = () => {
                     La programmazione è ciò che mi entusiasma da sempre, un campo dove posso mettere in gioco la mia
                     creatività e risolvere problemi reali.
                   </p>
-                  <div className="d-flex  align-items-center">
+                  <div className="d-flex  align-items-center justify-content-lg-start justify-content-center">
                     <div className="mt-4 me-3">
                       <FaLinkedin size={50} />
                     </div>
@@ -56,24 +56,19 @@ const HomePage = () => {
             </Col>
           </div>
         </Row>
-        <div className="d-flex justify-content-center mb-5">
-          <h1 className="text-center display-1 fw-bold">Alcuni </h1>{" "}
-          <h1 className="text-center display-1 fw-bold"> Progetti</h1>
-        </div>
-        <Row>
-          <div className="d-flex justify-content-center ">
-            <Col xs={12} md={3} className="box me-5 mb-5">
-              box
-            </Col>
-            <Col xs={12} md={3} className="box me-5 mb-5">
-              box
-            </Col>
-            <Col xs={12} md={3} className="box me-5 mb-5">
-              box
-            </Col>
-          </div>
-        </Row>
       </Container>
+      <Row className="d-flex justify-content-center align-items-center">
+        <h1 className="text-center display-6 fw-bold mb-2">Alcuni Progetti:</h1>
+        <Col className="box me-3 mt-4" xs={12} md={3}>
+          <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png" fluid className="immagineCard" />
+        </Col>
+        <Col className="box me-3 mt-4" xs={12} md={3}>
+          <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png" fluid className="immagineCard" />
+        </Col>
+        <Col className="box me-3 mt-4" xs={12} md={3}>
+          <Image src="/public/projects/Screenshot 2024-12-13 alle 15.51.25.png" fluid className="immagineCard" />
+        </Col>
+      </Row>
       <div className="section ">
         <div>
           <CarouselLoghi />

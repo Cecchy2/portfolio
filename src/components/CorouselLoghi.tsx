@@ -24,6 +24,20 @@ const CarouselLoghi: React.FC = () => {
     "/public/BW/git.png",
     "/public/BW/GitHub-Mark-ea2971cee799.png",
     "/public/BW/hibernate.png",
+    "/public/BW/intellij.png",
+    "/public/BW/koyeb_logo_icon_247887.png",
+    "/public/BW/netlifyBW.png",
+    "/public/BW/html.png",
+    "/public/BW/css.png",
+    "/public/BW/bootstrap.png",
+    "/public/BW/sass.png",
+    "/public/BW/javascript.png",
+    "/public/BW/typescript.png",
+    "/public/BW/vite-js-logo.png",
+    "/public/BW/react.png",
+    "/public/BW/redux.png",
+    "/public/BW/java.png",
+    "/public/BW/spring.png",
   ];
 
   const [carouselPosition, setCarouselPosition] = useState<number>(0);
