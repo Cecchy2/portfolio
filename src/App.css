@@ -11,7 +11,7 @@ html {
 
 
 .sectionImage{
-  height: 80vh;
+  height: 107vh;
   width: 100%;
   position: fixed;
   top: 0;
@@ -103,17 +103,18 @@ html {
   display: flex;
   align-items: center;
   height: 120px;
+  margin-top: 30rem;
 }
 
-/* Carosello */
+
 .carousel {
   display: flex;
   gap: 20px;
   will-change: transform;
-  transition: transform 0.1s ease-out; /* Transizione fluida */
+  transition: transform 0.1s ease-out; 
 }
 
-/* Elementi del carosello */
+
 .item {
   flex-shrink: 0;
   width: 100px;
@@ -126,5 +127,14 @@ html {
 .logo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.box{
+ 
+  height: 500px;
+  background-color: rgb(22, 22, 22);
+  border: 2px solid rgb(22, 22, 22);
+  border-radius: 20px;
+  
 }

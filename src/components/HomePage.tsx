@@ -23,7 +23,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Container>
+      <Container className="border border-dark">
         <Row>
           <div className={`section ${isFirstSectionVisible ? "" : "opacityTransition"}`}>
             <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-md-row`}>
@@ -56,9 +56,26 @@ const HomePage = () => {
             </Col>
           </div>
         </Row>
+        <div className="d-flex justify-content-center mb-5">
+          <h1 className="text-center display-1 fw-bold">Alcuni </h1>{" "}
+          <h1 className="text-center display-1 fw-bold"> Progetti</h1>
+        </div>
+        <Row>
+          <div className="d-flex justify-content-center ">
+            <Col xs={12} md={3} className="box me-5 mb-5">
+              box
+            </Col>
+            <Col xs={12} md={3} className="box me-5 mb-5">
+              box
+            </Col>
+            <Col xs={12} md={3} className="box me-5 mb-5">
+              box
+            </Col>
+          </div>
+        </Row>
       </Container>
       <div className="section ">
-        <div className="striscia">
+        <div>
           <CarouselLoghi />
         </div>
       </div>
