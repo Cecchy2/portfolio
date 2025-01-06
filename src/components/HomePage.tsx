@@ -26,11 +26,11 @@ const HomePage = () => {
       <Container>
         <Row>
           <div className={`section ${isFirstSectionVisible ? "" : "opacityTransition"}`}>
-            <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-md-row`}>
+            <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-xl-row`}>
               <Col md={2}>
                 <Image src="../../Fotoprofilo.jpg" className={`profileImage object-fit-cover bordiImage`} /> <br />
               </Col>
-              <Col xs={12} md={5} className="text-center text-md-start">
+              <Col xs={12} xl={5} className="text-center text-xl-start">
                 <p className="m-0 fs-4 fw-bold">Ciao, sono</p>
                 <div>
                   <h1 className="m-0 display-3 fw-bold">Dario Cecchinato</h1>
@@ -40,7 +40,7 @@ const HomePage = () => {
                     La programmazione è ciò che mi entusiasma da sempre, un campo dove posso mettere in gioco la mia
                     creatività e risolvere problemi reali.
                   </p>
-                  <div className="d-flex  align-items-center justify-content-lg-start justify-content-center">
+                  <div className="d-flex  align-items-center justify-content-xl-start justify-content-center">
                     <div className="mt-4 me-3">
                       <FaLinkedin size={50} />
                     </div>
