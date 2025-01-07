@@ -12,7 +12,7 @@ const ThirdSection = () => {
               <Card.Img variant="top" src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png" />
             </Card>
           </Col>
-          <Col xs={12} xl={6} className="pb-4">
+          <Col xs={12} xl={6} className="pb-5 pt-3 px-5 px-xl-0">
             Sicily Fresh è il mio capstone per il diploma FullStack di Epicode. Il back-end è in Java con Spring Boot e
             Hibernate, usando PostgreSQL e un ERD per il mapping relazionale. Spring Security per autenticazione e
             autorizzazione, con ruoli per Clienti e Fornitori. Il front-end utilizza JavaScript, React e Redux per la
@@ -25,7 +25,7 @@ const ThirdSection = () => {
               <Card.Img variant="top" src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png" />
             </Card>
           </Col>
-          <Col xs={12} xl={6} className=" pb-4">
+          <Col xs={12} xl={6} className=" pb-5 pt-3 px-5 px-xl-0">
             SICILY FRESH è Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero ex ab cum labore facere esse
             vero dicta doloremque necessitatibus rem hic aspernatur, fugit dolorem amet, dolores illum dolore soluta.
             Delectus.
@@ -37,7 +37,7 @@ const ThirdSection = () => {
             </Card>
           </Col>
 
-          <Col xs={12} xl={6} className=" pb-4">
+          <Col xs={12} xl={6} className=" pb-5 pt-3 px-5 px-xl-0">
             SICILY FRESH è Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero ex ab cum labore facere esse
             vero dicta doloremque necessitatibus rem hic aspernatur, fugit dolorem amet, dolores illum dolore soluta.
             Delectus.
