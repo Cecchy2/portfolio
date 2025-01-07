@@ -7,7 +7,7 @@ const MyNavBar = () => {
         {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto ">
+          <Nav className="mx-auto">
             <Nav.Link href="#home">HOME</Nav.Link>
             <Nav.Link href="#link">ABOUT </Nav.Link>
             <Nav.Link href="#link">SKILLS </Nav.Link>
