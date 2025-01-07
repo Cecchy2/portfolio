@@ -13,7 +13,7 @@ const FourthSection = () => {
             <Col md={6} className="text-white">
               {" "}
               <p className="fs-5 mb-5 mt-2">
-                Sono un Full-Stack Developer con una forte passione per la tecnologia e della programmazione. Dopo aver
+                Sono un Full-Stack Developer con una forte passione per la tecnologia e la programmazione. Dopo aver
                 lavorato per anni nel settore commerciale ho deciso di interrompere la mia carriera per intraprenderne
                 una nuova in un ambito che da sempre mi affascina e mi stimola a creare soluzioni innovative. Così ho
                 completato un Bootcamp di oltre 1200 ore presso Epicode, dove, grazie alla mia determinazione e allo
