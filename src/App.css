@@ -11,12 +11,23 @@ html {
 
 
 .sectionImage{
-  height: 107vh;
   width: 100%;
   position: fixed;
-  top: 0;
+  top: 30%;
   left: 0;
   z-index: -1;
+}
+
+.stickyWrapper{
+  height: 200vh; 
+}
+
+.secondSection{
+  position: sticky;
+  top: 0;
+  
+  min-height: 100vh;
+  z-index: 10;
 }
 
 .profileImage{
@@ -78,7 +89,6 @@ html {
 }
 
 .section{
-  /* border: 2px solid rgb(22, 22, 22); */
   position: relative;
   z-index: 1;
   width: 100vw;
