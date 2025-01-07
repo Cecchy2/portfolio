@@ -1,4 +1,3 @@
-import CarouselLoghi from "./CorouselLoghi";
 import FirstSection from "./FirstSection";
 import SecondSection from "./SecondSection";
 import ThirdSection from "./ThirdSection";
@@ -7,14 +6,8 @@ const HomePage = () => {
   return (
     <>
       <FirstSection />
-
       <SecondSection />
       <ThirdSection />
-      <div className="section ">
-        <div>
-          <CarouselLoghi />
-        </div>
-      </div>
 
       <div className="section d-flex justify-content-center align-items-center align-content-center bg-dark">
         <div className="d-flex align-items-center align-content-center">
