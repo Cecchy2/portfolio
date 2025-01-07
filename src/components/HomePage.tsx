@@ -1,4 +1,5 @@
 import FirstSection from "./FirstSection";
+import FourthSection from "./FourthSection";
 import SecondSection from "./SecondSection";
 import ThirdSection from "./ThirdSection";
 
@@ -9,11 +10,7 @@ const HomePage = () => {
       <SecondSection />
       <ThirdSection />
 
-      <div className="section d-flex justify-content-center align-items-center align-content-center bg-dark">
-        <div className="d-flex align-items-center align-content-center">
-          <h1>ciao</h1>
-        </div>
-      </div>
+      <FourthSection />
 
       <div className="section ">
         <h1>Sezione 4</h1>
