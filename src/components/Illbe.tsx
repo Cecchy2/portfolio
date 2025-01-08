@@ -6,7 +6,7 @@ const Illbe = () => {
       <div className="illbe d-flex align-items-center">
         <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png" className="sicilyFreshImg ms-5" />
         <div>
-          <h1 className="mx-5 display-6 fw-bold">Sicily Fresh</h1>
+          <h1 className="mx-5 display-6 fw-bold">IllBe</h1>
           <h4 className="mx-5">Il mio capstone per il diploma FullStack di Epicode.</h4>
           <br />
           <h4 className="mx-5">

@@ -6,7 +6,7 @@ const Meteo = () => {
       <div className="meteo d-flex align-items-center">
         <Image src="/public/projects/Screenshot 2025-01-08 alle 14.30.16.png" className="sicilyFreshImg ms-5" />
         <div>
-          <h1 className="mx-5 display-6 fw-bold">Sicily Fresh</h1>
+          <h1 className="mx-5 display-6 fw-bold">Meteo</h1>
           <h4 className="mx-5">Il mio capstone per il diploma FullStack di Epicode.</h4>
           <br />
           <h4 className="mx-5">
