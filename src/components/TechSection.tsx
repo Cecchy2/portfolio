@@ -1,11 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import CarouselLoghi from "./CorouselLoghi";
 
-const SecondSection = () => {
+const TechSection = () => {
   return (
     <div className="stickyWrapper">
       <div className="secondSection">
-        <h1 className=" pt-5 text-center display-4  mb-5">Le tecnologie che uso:</h1>
+        <h1 className="mx-5 display-6 fw-bold text-center pt-5">Le tecnologie che uso:</h1>
         <Container>
           <Row className="gy-4 justify-content-between mt-5">
             <Col xs={4} md={3} lg={2}>
@@ -66,4 +66,4 @@ const SecondSection = () => {
   );
 };
 
-export default SecondSection;
+export default TechSection;

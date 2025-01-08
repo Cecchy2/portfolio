@@ -1,16 +1,15 @@
+import AboutMe from "./AboutMe";
 import FirstSection from "./FirstSection";
-import FourthSection from "./FourthSection";
-import SecondSection from "./SecondSection";
-import ThirdSection from "./ThirdSection";
+import ProjectsSections from "./ProjectsSections";
+import TechSection from "./TechSection";
 
 const HomePage = () => {
   return (
     <>
       <FirstSection />
-      <SecondSection />
-      <ThirdSection />
-
-      <FourthSection />
+      <AboutMe />
+      <TechSection />
+      <ProjectsSections />
 
       <div className="section ">
         <h1>Sezione 4</h1>

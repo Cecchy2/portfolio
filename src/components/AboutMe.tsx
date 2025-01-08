@@ -1,6 +1,6 @@
 import { Col, Container, Image, Row } from "react-bootstrap";
 
-const FourthSection = () => {
+const AboutMe = () => {
   return (
     <>
       <div className=" bg-dark">
@@ -10,7 +10,7 @@ const FourthSection = () => {
               <Image src="/public/Fotoprofilo.jpg" className="aboutImage mb-md-5 mt-5" />
             </Col>
             <Col md={6} className="text-white">
-              <h1 className="  text-center display-4 mb-2 text-white">Chi sono:</h1>
+              <h1 className="mx-5 display-6 fw-bold text-white">Chi sono:</h1>
               <p className="fs-5 mb-2 mt-2">
                 Sono un Full-Stack Developer con una forte passione per la tecnologia e la programmazione. Dopo anni nel
                 settore commerciale, ho deciso di inseguire il mio vero interesse avviando una nuova carriera in un
@@ -41,5 +41,4 @@ const FourthSection = () => {
     </>
   );
 };
-
-export default FourthSection;
+export default AboutMe;
