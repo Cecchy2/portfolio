@@ -123,7 +123,7 @@ html {
   display: flex;
   align-items: center;
   height: 120px;
-  margin-top: 14rem;
+  margin-top: 5rem;
 }
 
 
@@ -184,6 +184,7 @@ border-radius: 20px;
 .tech-card:hover .tech-image {
   transform: scale(1.05);
 }
+
 
 
 .tech-overlay {

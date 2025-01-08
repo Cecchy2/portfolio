@@ -8,14 +8,14 @@ const SecondSection = () => {
   return (
     <div className="stickyWrapper">
       <div className="secondSection">
-        <h1 className=" pt-5 text-center display-3 fw-bold mb-5">Le tecnologie che uso:</h1>
+        <h1 className=" pt-5 text-center display-4  mb-5">Le tecnologie che uso:</h1>
         <Container>
           <Row className="gy-4 justify-content-between mt-5">
             <Col xs={4} md={3} lg={2}>
               <div className="tech-card">
                 <img src="/public/javascript.png" alt="JavaScript" className="tech-image" />
                 <div className="tech-overlay">
-                  <h4>JavaScript per lo sviluppo di applicazioni web interattive e robuste</h4>
+                  <h4>JavaScript per sviluppare applicazioni interattive e robuste</h4>
                 </div>
               </div>
             </Col>
@@ -87,6 +87,10 @@ const SecondSection = () => {
             </Col>
           </Row>
         </Container>
+        <h4 className="text-center ">
+          Html5 | Css | Javascript | Typescript | Vite | React | Redux | Bootstrap | Sass | Java | Spring | Sql |
+          Hibernate | PostgreSql | Git | GitHub | VsCode | IntelliJ
+        </h4>
         <div>
           <div className="">
             <CarouselLoghi />

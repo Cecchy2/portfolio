@@ -5,7 +5,7 @@ const ThirdSection = () => {
     <>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
-          <h1 className="text-center display-3 fw-bold mb-4 mt-5">Alcuni Progetti:</h1>
+          <h1 className="text-center display-4  mb-4 mt-5">Alcuni Progetti:</h1>
 
           <Col xs={12} xl={5}>
             <Card className="projectsCards p-1 mb-xl-4 mx-auto">
