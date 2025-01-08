@@ -18,9 +18,15 @@ html {
   z-index: -1;
 }
 
+@media (max-width: 767px) {
+  .sectionImage {
+    top: 70px; 
+  }
+}
+
 
 .stickyWrapper{
-  height: 300vh; 
+  height: 260vh; 
 }
 
 .secondSection{
@@ -117,7 +123,7 @@ html {
   display: flex;
   align-items: center;
   height: 120px;
-  margin-top: 5rem;
+  margin-top: 14rem;
 }
 
 
@@ -165,10 +171,6 @@ border-radius: 20px;
   border-radius: 8px;  
   cursor: pointer;     
 }
-.javaImg{
-  width: 69%;
-  margin-left: 27px;
-}
 
 
 .tech-image {
@@ -204,4 +206,12 @@ border-radius: 20px;
 
 .tech-card:hover .tech-overlay {
   opacity: 1;
+}
+
+.iconTech {
+  transition: transform 0.5s ease; 
+}
+
+.iconTech:hover {
+  transform: scale(1.3); 
 }
