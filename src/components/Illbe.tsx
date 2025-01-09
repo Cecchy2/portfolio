@@ -18,7 +18,7 @@ const Illbe = () => {
             </Col>
             <Col xl={6}>
               <div>
-                <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">IllBe</h1>
+                <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">IllBe 💻</h1>
                 <h4 className="mx-5">App Social network </h4>
                 <br />
                 <h4 className="mx-5">

@@ -18,7 +18,7 @@ const SicilyFresh = () => {
             </Col>
             <Col xl={6}>
               <div>
-                <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Sicily Fresh</h1>
+                <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Sicily Fresh 🍝</h1>
                 <h4 className="mx-5">Il mio capstone per il diploma FullStack di Epicode.</h4>
                 <br />
 
