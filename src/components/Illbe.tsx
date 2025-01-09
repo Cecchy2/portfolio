@@ -12,6 +12,8 @@ const Illbe = () => {
               <Image
                 src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png"
                 className="sicilyFreshImg my-5 px-5"
+                onClick={() => window.open("https://illbe.netlify.app/", "_blank")}
+                style={{ cursor: "pointer" }}
               />
             </Col>
             <Col xl={6}>
