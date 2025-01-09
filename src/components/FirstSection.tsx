@@ -28,7 +28,6 @@ const FirstSection = () => {
               <Image src="../../Fotoprofilo.jpg" className={`profileImage object-fit-cover bordiImage`} /> <br />
             </Col>
             <Col xs={12} xl={5} className="text-center text-xl-start">
-              <p className="m-0 fs-4 fw-bold">Ciao, sono</p>
               <div>
                 <h1 className="m-0 display-3 fw-bold">Dario Cecchinato</h1>
                 <h2>Sviluppatore Web • Front-end • Back-end</h2>

@@ -4,8 +4,8 @@ import CarouselLoghi from "./CorouselLoghi";
 const TechSection = () => {
   return (
     <div className="stickyWrapper">
-      <div className="secondSection">
-        <h1 className="mx-5 display-6 fw-bold text-center pt-5">Le tecnologie che uso:</h1>
+      <div className="techSection">
+        <h1 className="mx-5 display-6 fw-bold text-center pt-5">Le tecnologie che uso per programmare</h1>
         <Container>
           <Row className="gy-4 justify-content-between mt-5">
             <Col xs={4} md={3} lg={2}>

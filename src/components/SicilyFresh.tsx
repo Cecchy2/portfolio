@@ -3,8 +3,14 @@ import { Image } from "react-bootstrap";
 const SicilyFresh = () => {
   return (
     <>
-      <div className="sicilyFresh d-flex align-items-center">
-        <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png" className="sicilyFreshImg ms-5" />
+      <div className="sicilyFresh d-flex align-items-center flex-column flex-xl-row p-5 p-xl-0">
+        <Image
+          src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png"
+          className="sicilyFreshImg ms-5"
+          onClick={() => window.open("https://sicilyfresh.netlify.app/", "_blank")}
+          style={{ cursor: "pointer" }}
+        />
+
         <div>
           <h1 className="mx-5 display-6 fw-bold">Sicily Fresh</h1>
           <h4 className="mx-5">Il mio capstone per il diploma FullStack di Epicode.</h4>

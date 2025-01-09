@@ -81,15 +81,17 @@ const CarouselLoghi: React.FC = () => {
   }, [totalWidth]);
 
   return (
-    <div className="striscia">
-      <div className="carousel " ref={carouselRef} style={{ transform: `translateX(${carouselPosition}px)` }}>
-        {loghi.concat(loghi).map((logo, index) => (
-          <div className="item me-3" key={index}>
-            <Image src={logo} alt={`Logo ${index + 1}`} className="logo" />
-          </div>
-        ))}
+    <>
+      <div className="striscia">
+        <div className="carousel " ref={carouselRef} style={{ transform: `translateX(${carouselPosition}px)` }}>
+          {loghi.concat(loghi).map((logo, index) => (
+            <div className="item me-3" key={index}>
+              <Image src={logo} alt={`Logo ${index + 1}`} className="logo" />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
