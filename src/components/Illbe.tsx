@@ -1,25 +1,32 @@
-import { Image } from "react-bootstrap";
+import { Image, Col, Container, Row } from "react-bootstrap";
 
 const Illbe = () => {
   return (
     <>
-      <div className="illbe d-flex align-items-center flex-column flex-xl-row p-5 p-xl-0">
-        <Image src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png" className="sicilyFreshImg ms-5" />
-        <div>
-          <h1 className="mx-5 display-6 fw-bold">IllBe</h1>
-          <h4 className="mx-5">App Social network con chat. </h4>
-          <br />
-          <h4 className="mx-5">
+      <div className="illbe ">
+        <Container fluid>
+          {" "}
+          <Row>
             {" "}
-            Il back-end è in Java con Spring Boot e Hibernate, WebSocket per gli endpoint della chat Spring Security per
-            autenticazione e autorizzazione.{" "}
-          </h4>
-          <br />
-          <h4 className="mx-5">
-            Il front-end utilizza JavaScript, React e Redux per la gestione dello stato. La comunicazione tra front-end
-            e back-end avviene tramite API REST, testate con Postman.
-          </h4>
-        </div>
+            <Col xl={6}>
+              <Image
+                src="/public/projects/Screenshot 2024-12-13 alle 15.50.55.png"
+                className="sicilyFreshImg my-5 px-5"
+              />
+            </Col>
+            <Col xl={6}>
+              <div>
+                <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">IllBe</h1>
+                <h4 className="mx-5">App Social network </h4>
+                <br />
+                <h4 className="mx-5">
+                  App che dopo una semplice registrazione permette, dopo essersi loggati, di aggiungere amici e
+                  chattare.
+                </h4>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     </>
   );
