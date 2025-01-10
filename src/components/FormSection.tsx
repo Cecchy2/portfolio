@@ -28,7 +28,7 @@ const FormSection = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
+        await response.json();
         alert("Messaggio inviato con successo!");
         setFormValues({
           nome: "",
