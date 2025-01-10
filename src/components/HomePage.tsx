@@ -1,5 +1,6 @@
 import AboutMe from "./AboutMe";
 import FirstSection from "./FirstSection";
+import Footer from "./Footer";
 import FormSection from "./FormSection";
 import ProjectsSections from "./ProjectsSections";
 import TechSection from "./TechSection";
@@ -13,6 +14,7 @@ const HomePage = () => {
       <ProjectsSections />
 
       <FormSection />
+      <Footer />
     </>
   );
 };
