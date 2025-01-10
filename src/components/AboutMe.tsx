@@ -7,7 +7,7 @@ const AboutMe = () => {
         <Container>
           <Row className="align-items-center">
             <Col md={6}>
-              <Image src="/public/Fotoprofilo.jpg" className="aboutImage mb-md-5 mt-5" />
+              <Image src="/Fotoprofilo.jpg" className="aboutImage mb-md-5 mt-5" />
             </Col>
             <Col md={6} className="text-white">
               <h1 className="mx-5 display-6 fw-bold text-white">Chi sono:</h1>

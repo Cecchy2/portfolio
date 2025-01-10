@@ -62,7 +62,7 @@ const FirstSection = () => {
                       <MdEmail size={50} />
                     </a>
                   </div>
-                  <a href="/public/curriculum  2024.pdf" className="mt-4">
+                  <a href="/curriculum  2024.pdf" className="mt-4">
                     <Button variant="warning"> Scarica il CV</Button>
                   </a>
                 </div>

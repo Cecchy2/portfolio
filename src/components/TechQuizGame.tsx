@@ -10,7 +10,7 @@ const TechQuizGame = () => {
             {" "}
             <Col xl={6}>
               <Image
-                src="/public/projects/Screenshot 2025-01-09 alle 09.17.52.png"
+                src="/projects/Screenshot 2025-01-09 alle 09.17.52.png"
                 className="sicilyFreshImg my-5 px-5"
                 onClick={() => window.open("https://techquizgame.netlify.app/", "_blank")}
                 style={{ cursor: "pointer" }}

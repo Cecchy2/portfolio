@@ -12,7 +12,7 @@ const SicilyFresh = () => {
             {" "}
             <Col xl={6}>
               <Image
-                src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png"
+                src="/projects/Screenshot 2024-12-13 alle 15.50.33.png"
                 className="sicilyFreshImg my-5 px-5"
                 onClick={() => window.open("https://sicilyfresh.netlify.app/", "_blank")}
               />

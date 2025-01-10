@@ -10,7 +10,7 @@ const Meteo = () => {
             {" "}
             <Col xl={6}>
               <Image
-                src="/public/projects/Screenshot 2025-01-08 alle 14.30.16.png"
+                src="/projects/Screenshot 2025-01-08 alle 14.30.16.png"
                 className="sicilyFreshImg my-5 px-5"
                 onClick={() => window.open("https://meteocecchy.netlify.app/", "_blank")}
                 style={{ cursor: "pointer" }}

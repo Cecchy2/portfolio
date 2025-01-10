@@ -10,7 +10,7 @@ const TechSection = () => {
           <Row className="gy-4 justify-content-between mt-5">
             <Col xs={4} md={3} lg={2}>
               <div className="tech-card">
-                <img src="/public/javascript.png" alt="JavaScript" className="tech-image" />
+                <img src="/javascript.png" alt="JavaScript" className="tech-image" />
                 <div className="tech-overlay">
                   <h4>JavaScript per sviluppare applicazioni interattive e robuste</h4>
                 </div>
@@ -19,7 +19,7 @@ const TechSection = () => {
 
             <Col xs={4} md={3} lg={2}>
               <div className="tech-card">
-                <img src="/public/typescript.png" alt="TypeScript" className="tech-image" />
+                <img src="/typescript.png" alt="TypeScript" className="tech-image" />
                 <div className="tech-overlay">
                   <h4>TypeScript per un maggiore controllo del codice</h4>
                 </div>
@@ -27,7 +27,7 @@ const TechSection = () => {
             </Col>
             <Col xs={4} md={3} lg={2}>
               <div className="tech-card">
-                <img src="/public/react.png" alt="React" className="tech-image" />
+                <img src="/react.png" alt="React" className="tech-image" />
                 <div className="tech-overlay">
                   <h4>React per la creazione di interfacce utente dinamiche e performanti</h4>
                 </div>
@@ -36,7 +36,7 @@ const TechSection = () => {
 
             <Col xs={4} md={3} lg={2}>
               <div className="tech-card ">
-                <img src="/public/java 2.png" alt="Java" className="tech-image " />
+                <img src="/java 2.png" alt="Java" className="tech-image " />
                 <div className="tech-overlay">
                   <h4>Java per lo sviluppo del backend</h4>
                 </div>
@@ -44,7 +44,7 @@ const TechSection = () => {
             </Col>
             <Col xs={4} md={4} lg={2}>
               <div className="tech-card">
-                <img src="/public/spring.png" alt="Spring" className="tech-image " />
+                <img src="/spring.png" alt="Spring" className="tech-image " />
                 <div className="tech-overlay">
                   <h4>Spring e Spring Boot per la sicurezza e un'architettura REST manutenibile</h4>
                 </div>
