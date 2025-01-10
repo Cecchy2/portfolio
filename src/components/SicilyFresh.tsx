@@ -3,9 +3,11 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 const SicilyFresh = () => {
   return (
     <>
-      <div className="sicilyFresh">
+      <div className="sicilyFresh" id="sicilyFresh">
         <Container fluid>
-          {" "}
+          <Row>
+            <Col></Col>
+          </Row>{" "}
           <Row>
             {" "}
             <Col xl={6}>
@@ -13,7 +15,6 @@ const SicilyFresh = () => {
                 src="/public/projects/Screenshot 2024-12-13 alle 15.50.33.png"
                 className="sicilyFreshImg my-5 px-5"
                 onClick={() => window.open("https://sicilyfresh.netlify.app/", "_blank")}
-                style={{ cursor: "pointer" }}
               />
             </Col>
             <Col xl={6}>
