@@ -16,8 +16,35 @@ const FormSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3001/messaggi", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert("Messaggio inviato con successo!");
+        setFormValues({
+          nome: "",
+          cognome: "",
+          email: "",
+          messaggio: "",
+        });
+      } else {
+        const error = await response.json();
+        console.error("Errore nell'invio del messaggio:", error);
+        alert("Si è verificato un errore durante l'invio del messaggio.");
+      }
+    } catch (error) {
+      console.error("Errore nella richiesta:", error);
+      alert("Errore di connessione. Controlla il server.");
+    }
   };
 
   return (
