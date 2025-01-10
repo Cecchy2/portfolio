@@ -20,7 +20,7 @@ const FirstSection = () => {
   }, []);
 
   return (
-    <Container>
+    <Container id="home">
       <Row>
         <div className={`section ${isFirstSectionVisible ? "" : "opacityTransition"}`}>
           <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-xl-row`}>
@@ -38,13 +38,29 @@ const FirstSection = () => {
                 </p>
                 <div className="d-flex  align-items-center justify-content-xl-start justify-content-center">
                   <div className="mt-4 me-3">
-                    <FaLinkedin size={50} />
+                    <a
+                      href="https://www.linkedin.com/in/cecchy2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "inherit" }}
+                    >
+                      <FaLinkedin size={50} />
+                    </a>
                   </div>
                   <div className="mt-4 me-3">
-                    <FaGithub size={50} />
+                    <a
+                      href="https://github.com/Cecchy2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "inherit" }}
+                    >
+                      <FaGithub size={50} />
+                    </a>
                   </div>
                   <div className="mt-4 me-3">
-                    <MdEmail size={50} />
+                    <a href="mailto:dariocecchinato@gmail.com" style={{ color: "inherit" }}>
+                      <MdEmail size={50} />
+                    </a>
                   </div>
                   <a href="/public/curriculum  2024.pdf" className="mt-4">
                     <Button variant="warning"> Scarica il CV</Button>
