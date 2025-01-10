@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Image, Row, Spinner } from "react-bootstrap";
 
 const FormSection = () => {
   const [formValues, setFormValues] = useState({
@@ -8,6 +8,7 @@ const FormSection = () => {
     email: "",
     messaggio: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({
@@ -18,6 +19,7 @@ const FormSection = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch("https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi", {
         method: "POST",
@@ -44,6 +46,8 @@ const FormSection = () => {
     } catch (error) {
       console.error("Errore nella richiesta:", error);
       alert("Errore di connessione. Controlla il server.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -107,8 +111,13 @@ const FormSection = () => {
                   />
                 </Form.Group>
                 <Button variant="warning" className="w-100" type="submit">
-                  {" "}
-                  Invia
+                  {isLoading ? (
+                    <>
+                      <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> Inviando...
+                    </>
+                  ) : (
+                    "Invia"
+                  )}
                 </Button>
               </Form>
             </Col>
