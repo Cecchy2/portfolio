@@ -3,9 +3,9 @@ import CarouselLoghi from "./CorouselLoghi";
 
 const TechSection = () => {
   return (
-    <div className="stickyWrapper" id="skills">
-      <div className="techSection">
-        <h1 className="mx-5 display-6 fw-bold text-center pt-5">Le tecnologie che uso per programmare</h1>
+    <div className="stickyWrapper " id="skills">
+      <div className="techSection pt-5">
+        <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">Tecnologie che uso per programmare 👨‍💻</h1>
         <Container>
           <Row className="gy-4 justify-content-between mt-5">
             <Col xs={4} md={3} lg={2}>
@@ -59,6 +59,9 @@ const TechSection = () => {
         <div>
           <div className="">
             <CarouselLoghi />
+          </div>
+          <div className="mt-5 pt-5">
+            <h1 className="text-center pt-5">⬇ Alcuni progetti ⬇</h1>
           </div>
         </div>
       </div>
