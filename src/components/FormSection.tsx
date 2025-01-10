@@ -58,7 +58,7 @@ const FormSection = () => {
             <Col md={5}>
               <Image src="/photo-1432821596592-e2c18b78144f.avif" alt="macchina da scrivere" className="formImage" />
             </Col>
-            <Col md={7} class>
+            <Col md={7}>
               <h2 className="mt-5 display-6 fw-bold text-center">Lasciami un messaggio</h2>
               <Form className="my-5" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formGroupNome">
