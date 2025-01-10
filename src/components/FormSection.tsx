@@ -19,7 +19,7 @@ const FormSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/messaggi", {
+      const response = await fetch("https://dpg-cu0hoqhu0jms73d1pva0-a/messaggi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
