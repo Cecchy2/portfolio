@@ -19,7 +19,7 @@ const FormSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi", {
+      const response = await fetch("https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

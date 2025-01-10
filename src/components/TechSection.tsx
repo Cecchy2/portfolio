@@ -61,7 +61,7 @@ const TechSection = () => {
             <CarouselLoghi />
           </div>
           <div className="mt-5 pt-5">
-            <h1 className="text-center pt-5">⬇ Alcuni progetti ⬇</h1>
+            <h1 className="text-center ">⬇ Alcuni progetti ⬇</h1>
           </div>
         </div>
       </div>
