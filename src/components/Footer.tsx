@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer">
         <Container className="text-white">
           <Row>
-            <Col className="mt-5">
+            <Col className="mt-5" md={8}>
               <p>Hai un progetto in mente? Contattami: dariocecchinato@gmail.com</p>
 
               <Nav.Link href="https://www.linkedin.com/in/cecchy2">
@@ -16,7 +16,7 @@ const Footer = () => {
                 <p>GitHub : github.com/Cecchy2</p>
               </Nav.Link>
             </Col>
-            <Col className="mt-5">
+            <Col className="mt-5" md={4}>
               <p>Realizzato da Dario Cecchinato </p>
               <p>Creato con React e Spring Boot | Deploy: Koyeb, Render & Netlify</p>
             </Col>

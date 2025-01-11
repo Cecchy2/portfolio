@@ -21,7 +21,7 @@ const Illbe = () => {
                 <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">IllBe 💻</h1>
                 <h4 className="mx-5">App Social network </h4>
                 <br />
-                <h4 className="mx-5">
+                <h4 className="mx-5 pb-5 pb-xl-0">
                   App che dopo una semplice registrazione permette, dopo essersi loggati, di aggiungere amici e
                   chattare.
                 </h4>

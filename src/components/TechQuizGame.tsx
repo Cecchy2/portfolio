@@ -24,7 +24,7 @@ const TechQuizGame = () => {
 
                 <h4 className="mx-5">L' applicazione è in Vanilla Javascript,HTML, CSS e DOM Manipulation.</h4>
 
-                <h4 className="mx-5">L’interfaccia non è responsive, va aperto in schermi grandi.</h4>
+                <h4 className="mx-5 pb-5 pb-xl-0">L’interfaccia non è responsive, va aperto in schermi grandi.</h4>
               </div>
             </Col>
           </Row>

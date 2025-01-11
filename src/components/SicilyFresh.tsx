@@ -23,7 +23,7 @@ const SicilyFresh = () => {
                 <h4 className="mx-5">Il mio capstone per il diploma FullStack di Epicode.</h4>
                 <br />
 
-                <h4 className="mx-5">
+                <h4 className="mx-5 pb-5 pb-xl-0">
                   L’interfaccia permette di sfogliare ricette, aggiungerle al carrello e completare ordini.
                 </h4>
               </div>

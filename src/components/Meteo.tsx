@@ -20,7 +20,7 @@ const Meteo = () => {
               <div>
                 <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Meteo 🔆</h1>
 
-                <h4 className="mx-5">
+                <h4 className="mx-5 pb-5 pb-xl-0">
                   {" "}
                   L'app consente agli utenti di cercare il meteo corrente e le previsioni a breve termine per una città
                   specifica. L'utente può inserire il nome di una città per ottenere le condizioni meteo attuali.{" "}
