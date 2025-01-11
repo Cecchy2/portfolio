@@ -25,7 +25,7 @@ const FirstSection = () => {
         <div className={`section ${isFirstSectionVisible ? "" : "opacityTransition"}`}>
           <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-xl-row`}>
             <Col md={2}>
-              <Image src="../../Fotoprofilo.jpg" className={`profileImage object-fit-cover bordiImage`} /> <br />
+              <Image src="../../Fotoprofilo.jpg" className={`profileImage object-fit-cover bordiImage mb-4`} /> <br />
             </Col>
             <Col xs={12} xl={5} className="text-center text-xl-start">
               <div>
