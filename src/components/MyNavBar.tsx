@@ -5,7 +5,6 @@ const MyNavBar = () => {
   const [expanded, setExpanded] = useState(false);
 
   const handleToggle = () => setExpanded(!expanded);
-
   const handleClose = () => setExpanded(false);
 
   return (
@@ -13,7 +12,7 @@ const MyNavBar = () => {
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto">
+          <Nav className="mx-auto nav-links">
             <Nav.Link href="#home" onClick={handleClose}>
               HOME
             </Nav.Link>

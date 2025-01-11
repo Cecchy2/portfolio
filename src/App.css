@@ -14,6 +14,14 @@ html {
 
 }
 
+.navbarIndex .nav-links {
+  justify-content: center; 
+}
+
+.navbarIndex .navbar-collapse {
+  text-align: center; 
+}
+
 
 .sectionImage{
   width: 100%;
