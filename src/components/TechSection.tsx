@@ -12,7 +12,7 @@ const TechSection = () => {
               <div className="tech-card">
                 <img src="/javascript.png" alt="JavaScript" className="tech-image" />
                 <div className="tech-overlay">
-                  <h4 className="fs-6">JavaScript per sviluppare applicazioni interattive e robuste</h4>
+                  <h4>JavaScript per sviluppare applicazioni interattive e robuste</h4>
                 </div>
               </div>
             </Col>
@@ -21,7 +21,7 @@ const TechSection = () => {
               <div className="tech-card">
                 <img src="/typescript.png" alt="TypeScript" className="tech-image" />
                 <div className="tech-overlay">
-                  <h4 className="fs-6">TypeScript per un maggiore controllo del codice</h4>
+                  <h4>TypeScript per un maggiore controllo del codice</h4>
                 </div>
               </div>
             </Col>
@@ -29,7 +29,7 @@ const TechSection = () => {
               <div className="tech-card">
                 <img src="/react.png" alt="React" className="tech-image" />
                 <div className="tech-overlay">
-                  <h4 className="fs-6">React per la creazione di interfacce utente dinamiche e performanti</h4>
+                  <h4>React per la creazione di interfacce utente dinamiche e performanti</h4>
                 </div>
               </div>
             </Col>
@@ -38,7 +38,7 @@ const TechSection = () => {
               <div className="tech-card ">
                 <img src="/java 2.png" alt="Java" className="tech-image " />
                 <div className="tech-overlay">
-                  <h4 className="fs-6">Java per lo sviluppo del backend</h4>
+                  <h4>Java per lo sviluppo del backend</h4>
                 </div>
               </div>
             </Col>
@@ -46,7 +46,7 @@ const TechSection = () => {
               <div className="tech-card">
                 <img src="/spring.png" alt="Spring" className="tech-image " />
                 <div className="tech-overlay">
-                  <h4 className="fs-6">Spring e Spring Boot per la sicurezza e un'architettura REST manutenibile</h4>
+                  <h4>Spring e Spring Boot per la sicurezza e un'architettura REST manutenibile</h4>
                 </div>
               </div>
             </Col>
