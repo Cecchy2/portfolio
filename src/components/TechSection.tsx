@@ -7,7 +7,7 @@ const TechSection = () => {
       <div className="techSection pt-5">
         <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">Tecnologie che uso per programmare 👨‍💻</h1>
         <Container>
-          <Row className="gy-4 justify-content-between mt-5">
+          <Row className="gy-4 justify-content-between mt-3">
             <Col xs={4} md={4} lg={2}>
               <div className="tech-card">
                 <img src="/javascript.png" alt="JavaScript" className="tech-image" />
