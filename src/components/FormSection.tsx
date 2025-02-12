@@ -21,7 +21,7 @@ const FormSection = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi", {
+      const response = await fetch("http://localhost:3001/messaggi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,8 +30,8 @@ const FormSection = () => {
       });
 
       if (response.ok) {
-        await response.json();
-        alert("Messaggio inviato con successo!");
+        const data = await response.json();
+        alert(data.message); // Mostra il messaggio restituito dal backend
         setFormValues({
           nome: "",
           cognome: "",
@@ -41,7 +41,7 @@ const FormSection = () => {
       } else {
         const error = await response.json();
         console.error("Errore nell'invio del messaggio:", error);
-        alert("Si è verificato un errore durante l'invio del messaggio.");
+        alert(error.message || "Si è verificato un errore durante l'invio del messaggio.");
       }
     } catch (error) {
       console.error("Errore nella richiesta:", error);
