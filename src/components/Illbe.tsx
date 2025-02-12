@@ -23,7 +23,7 @@ const Illbe = () => {
                 <br />
                 <h4 className="mx-5 pb-5 pb-xl-0">
                   App che dopo una semplice registrazione permette, dopo essersi loggati, di aggiungere amici e
-                  chattare.
+                  chattare. App ancora in costruzione ma chat funzionante
                 </h4>
               </div>
             </Col>
