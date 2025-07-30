@@ -22,10 +22,20 @@ const FirstSection = () => {
   return (
     <Container id="home">
       <Row>
-        <div className={`section ${isFirstSectionVisible ? "" : "opacityTransition"}`}>
-          <Col className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-xl-row`}>
+        <div
+          className={`section ${
+            isFirstSectionVisible ? "" : "opacityTransition"
+          }`}
+        >
+          <Col
+            className={`d-flex justify-content-center align-items-center sectionImage flex-column flex-xl-row`}
+          >
             <Col md={2}>
-              <Image src="../../Fotoprofilo.jpg" className={`profileImage object-fit-cover bordiImage mb-4`} /> <br />
+              <Image
+                src="../../Fotoprofilo.jpg"
+                className={`profileImage object-fit-cover bordiImage mb-4`}
+              />{" "}
+              <br />
             </Col>
             <Col xs={12} xl={5} className="text-center text-xl-start">
               <div>
@@ -33,8 +43,9 @@ const FirstSection = () => {
                 <h2>Sviluppatore Web • Front-end • Back-end</h2>
                 <hr className="w-75 mx-auto mt-4" />
                 <p className="m-0 fs-5 mt-4">
-                  La programmazione è ciò che mi entusiasma da sempre, un campo dove posso mettere in gioco la mia
-                  creatività e risolvere problemi reali.
+                  La programmazione è ciò che mi entusiasma da sempre, un campo
+                  dove posso mettere in gioco la mia creatività e risolvere
+                  problemi reali.
                 </p>
                 <div className="d-flex  align-items-center justify-content-xl-start justify-content-center">
                   <div className="mt-4 me-3">
@@ -58,11 +69,14 @@ const FirstSection = () => {
                     </a>
                   </div>
                   <div className="mt-4 me-3">
-                    <a href="mailto:dariocecchinato@gmail.com" style={{ color: "inherit" }}>
+                    <a
+                      href="mailto:dariocecchinato@gmail.com"
+                      style={{ color: "inherit" }}
+                    >
                       <MdEmail size={50} />
                     </a>
                   </div>
-                  <a href="/curriculum  2024.pdf" className="mt-4">
+                  <a href="/curriculum2025.pdf" className="mt-4">
                     <Button variant="warning"> Scarica il CV</Button>
                   </a>
                 </div>
