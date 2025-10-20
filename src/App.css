@@ -1,29 +1,24 @@
 * {
-  
-    font-family: "Lato", serif;
-    font-style: normal;
-    
-  
+  font-family: "Lato", serif;
+  font-style: normal;
 }
 html {
   scroll-behavior: smooth;
 }
 
-.navbarIndex{
+.navbarIndex {
   z-index: 3000;
-
 }
 
 .navbarIndex .nav-links {
-  justify-content: center; 
+  justify-content: center;
 }
 
 .navbarIndex .navbar-collapse {
-  text-align: center; 
+  text-align: center;
 }
 
-
-.sectionImage{
+.sectionImage {
   width: 100%;
   position: fixed;
   top: 25%;
@@ -33,29 +28,23 @@ html {
 
 @media (max-width: 767px) {
   .sectionImage {
-    top: 70px; 
+    top: 70px;
   }
 }
 
-
-.stickyWrapper{
-  height: 260vh; 
+.stickyWrapper {
+  height: 260vh;
 }
 
-
-
-.techSection{
+.techSection {
   position: sticky;
   top: 0;
   min-height: 100vh;
   z-index: 10;
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-
-
-  ;
 }
 
-.profileImage{
+.profileImage {
   border-radius: 50%;
   width: 300px;
   height: 300px;
@@ -64,11 +53,10 @@ html {
   transition: transform 0.3s ease, position 0.3s ease;
   z-index: 100;
 }
-.opacityTransition{
+.opacityTransition {
   opacity: 0;
-  transition: opacity 0.5s ease, 
+  transition: opacity 0.5s ease;
 }
-
 
 .bordiImage {
   border: 4px solid rgb(22, 22, 22);
@@ -76,8 +64,8 @@ html {
   height: 200px;
   object-fit: cover;
   object-position: 50% 0%;
-  animation: dynamicBorder 15s infinite; 
-  transition: border-radius 0.3s ease; 
+  animation: dynamicBorder 15s infinite;
+  transition: border-radius 0.3s ease;
 }
 
 @media (min-width: 1200px) {
@@ -90,52 +78,51 @@ html {
 
 @keyframes dynamicBorder {
   0% {
-    border-radius: 68% 48% 51% 66% / 39% 66% 37% 63% 
+    border-radius: 68% 48% 51% 66% / 39% 66% 37% 63%;
   }
   11% {
-    border-radius: 69% 32% 69% 28% / 74% 63% 38% 27%  
+    border-radius: 69% 32% 69% 28% / 74% 63% 38% 27%;
   }
   22% {
-    border-radius: 33% 68% 20% 78% / 47% 63% 38% 53% 
+    border-radius: 33% 68% 20% 78% / 47% 63% 38% 53%;
   }
   33% {
-    border-radius: 67% 33% 21% 79% / 73% 79% 22% 28%  
+    border-radius: 67% 33% 21% 79% / 73% 79% 22% 28%;
   }
   44% {
-    border-radius: 67% 33% 59% 41% / 36% 30% 68% 65%  
+    border-radius: 67% 33% 59% 41% / 36% 30% 68% 65%;
   }
   55% {
-    border-radius: 33% 68% 20% 78% / 47% 63% 38% 53%  
+    border-radius: 33% 68% 20% 78% / 47% 63% 38% 53%;
   }
   66% {
-    border-radius: 67% 33% 59% 41% / 36% 30% 68% 65%  
+    border-radius: 67% 33% 59% 41% / 36% 30% 68% 65%;
   }
   77% {
-    border-radius: 69% 32% 69% 28% / 74% 63% 38% 27% 
+    border-radius: 69% 32% 69% 28% / 74% 63% 38% 27%;
   }
   88% {
-    border-radius: 33% 68% 20% 78% / 47% 63% 38% 53%  
+    border-radius: 33% 68% 20% 78% / 47% 63% 38% 53%;
   }
   100% {
-    border-radius: 68% 48% 51% 66% / 39% 66% 37% 63%    
+    border-radius: 68% 48% 51% 66% / 39% 66% 37% 63%;
   }
 }
 
-.section{
+.section {
   position: relative;
   z-index: 1;
   width: 100vw;
   height: 100vh;
 }
 
-
-.icone{
+.icone {
   height: 50px;
   width: 50px;
   object-fit: cover;
 }
 
-.nav-link{
+.nav-link {
   font-weight: 800;
 }
 
@@ -149,80 +136,87 @@ html {
   margin-top: 2rem;
 }
 
-
 .carousel {
   display: flex;
-  gap: 20px;
   will-change: transform;
-  transition: transform 0.1s ease-out; 
+  transition: none; /* Remove transition for smoother scroll-based animation */
 }
-
 
 .item {
   flex-shrink: 0;
-  width: 100px;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .logo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Changed from cover to contain for better logo display */
+  max-width: 100%;
+  max-height: 100%;
 }
 
+/* Responsive adjustments for carousel */
+@media (max-width: 768px) {
+  .striscia {
+    height: 80px;
+    margin-top: 1rem;
+  }
+}
 
+@media (max-width: 480px) {
+  .striscia {
+    height: 60px;
+    margin-top: 0.5rem;
+  }
+}
 
-.aboutImage{
- width: 90%;
- height: 100vh;
-object-fit: cover;
-border-radius: 20px;
+.aboutImage {
+  width: 90%;
+  height: 100vh;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .tech-card {
   position: relative;
-  width: 100%;         
-  overflow: hidden;    
-  border-radius: 8px;  
-  cursor: pointer;     
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
 }
-
 
 .tech-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;   
-  transition: transform 0.5s ease; 
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
-
 
 .tech-card:hover .tech-image {
   transform: scale(1.05);
 }
 
-
-
 .tech-overlay {
   position: absolute;
   top: 0;
-  left: 0;  
+  left: 0;
   width: 100%;
   height: 100%;
-  
-  background: rgba(0, 0, 0, 0.6);  
-  opacity: 0;                     
-  color: #fff;                   
+
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-             
+
   text-align: center;
   transition: opacity 0.5s ease;
 }
-.tech-overlay h4{
+.tech-overlay h4 {
   font-size: 15px;
 }
 
@@ -231,59 +225,61 @@ border-radius: 20px;
 }
 
 .iconTech {
-  transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;
 }
 
 .iconTech:hover {
-  transform: scale(1.3); 
+  transform: scale(1.3);
 }
 
-.sicilyFresh{
-  background-color: #FBAB7E;
-  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+.sicilyFresh {
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
-.techQuizGame{
+.techQuizGame {
   background-color: #0b113a;
   background-image: linear-gradient(62deg, #0b113a 0%, #861b96 100%);
   color: white;
 }
 
-.sicilyFreshImg{
+.sicilyFreshImg {
   width: 100%;
   object-fit: cover;
   z-index: 2000;
-  position: relative ;
+  position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.sicilyFreshImg:hover{
+.sicilyFreshImg:hover {
   transform: scale(1.1);
 }
 
-.illbe{
+.illbe {
   background-color: #22252a;
   color: #d7d6c0;
 }
 
-.meteo{
+.meteo {
   background-color: #222f34;
-  background-image: linear-gradient(225deg, #222f34 0%, #c94e47 24%, #263858 100%);
+  background-image: linear-gradient(
+    225deg,
+    #222f34 0%,
+    #c94e47 24%,
+    #263858 100%
+  );
   color: white;
-  
 }
 
-.formSection{
+.formSection {
   position: relative;
   z-index: 1;
   width: 100vw;
-  
+
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-
-
 }
 
-.formImage{
+.formImage {
   width: 100%;
   margin-top: 5%;
   border-radius: 20px;
@@ -291,11 +287,7 @@ border-radius: 20px;
   object-fit: cover;
 }
 
-.footer{
-  
+.footer {
   min-height: 30vh;
   background-color: #22252a;
 }
-  
-
-
