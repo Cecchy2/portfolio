@@ -134,6 +134,7 @@ html {
   align-items: center;
   height: 120px;
   margin-top: 2rem;
+  padding: 5px 0; /* Reduced padding for desktop to maintain original size */
 }
 
 .carousel {
@@ -148,6 +149,7 @@ html {
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 2px; /* Reduced padding for desktop */
 }
 
 .logo {
@@ -161,15 +163,25 @@ html {
 /* Responsive adjustments for carousel */
 @media (max-width: 768px) {
   .striscia {
-    height: 80px;
+    height: 100px; /* Increased from 80px */
     margin-top: 1rem;
+    padding: 15px 0; /* More padding on mobile */
+  }
+
+  .item {
+    padding: 5px; /* More padding on tablet/mobile */
   }
 }
 
 @media (max-width: 480px) {
   .striscia {
-    height: 60px;
+    height: 90px; /* Increased from 60px */
     margin-top: 0.5rem;
+    padding: 15px 0; /* Consistent padding */
+  }
+
+  .item {
+    padding: 8px; /* Even more padding on small mobile */
   }
 }
 
