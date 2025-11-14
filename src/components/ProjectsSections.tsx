@@ -1,5 +1,5 @@
 import SicilyFresh from "./SicilyFresh";
-import Illbe from "./Illbe";
+
 import Meteo from "./Meteo";
 import TechQuizGame from "./TechQuizGame";
 import Smartwage from "./Smartwage";
