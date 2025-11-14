@@ -14,14 +14,21 @@ const AboutMe = () => {
             </Col>
             <Col md={6} className="text-white">
               <h1 className="mx-5 display-6 fw-bold text-white">Chi sono:</h1>
-              <p className="fs-5 mb-2 mt-2">
+              <p className="fs-3 mb-2 mt-2">
                 Lavoro come front-end developer e ogni giorno mi destreggio tra
-                JavaScript, TypeScript, React, React Native e Redux. Le API (con
-                le loro key) sono il mio pane quotidiano, e non manca una buona
-                dose di curiosità per nuovi framework e strumenti che possano
-                rendere il mio lavoro più fluido e divertente. Ho esperienza
-                anche con Java e Spring, che mi aiutano a vedere il quadro
-                completo quando serve.
+                <span className="text-warning">
+                  {" "}
+                  JavaScript, TypeScript, React, React Native e Redux.{" "}
+                </span>{" "}
+                <br />
+                <br />
+                Le API (con le loro key) sono il mio pane quotidiano, e non
+                manca una buona dose di curiosità per nuovi framework e
+                strumenti che possano rendere il mio lavoro più fluido e
+                divertente. <br /> <br />
+                Ho esperienza anche con{" "}
+                <span className="text-warning"> Java e Spring, </span>
+                che mi aiutano a vedere il quadro completo quando serve.
               </p>
               <br />
             </Col>

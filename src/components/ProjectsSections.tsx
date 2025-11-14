@@ -7,6 +7,9 @@ import Smartwage from "./Smartwage";
 const ProjectsSections = () => {
   return (
     <>
+      <div className=" py-3 bg-white">
+        <h1 className="text-center "> Alcuni progetti </h1>
+      </div>
       <Smartwage />
       <SicilyFresh />
       <TechQuizGame />
