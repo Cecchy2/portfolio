@@ -40,7 +40,7 @@ const FirstSection = () => {
             <Col xs={12} xl={5} className="text-center text-xl-start">
               <div>
                 <h1 className="m-0 display-3 fw-bold">Dario Cecchinato</h1>
-                <h2>Sviluppatore Web • Front-end • Back-end</h2>
+                <h2>Sviluppatore Front-end • React • Redux</h2>
                 <hr className="w-75 mx-auto mt-4" />
                 <p className="m-0 fs-5 mt-4">
                   La programmazione è ciò che mi entusiasma da sempre, un campo

@@ -248,6 +248,10 @@ html {
   background-color: #fbab7e;
   background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
+.smartwage {
+  background-color: #237e8c;
+  background-image: linear-gradient(62deg, #237e8c 0%, #35c0d6 100%);
+}
 .techQuizGame {
   background-color: #0b113a;
   background-image: linear-gradient(62deg, #0b113a 0%, #861b96 100%);
