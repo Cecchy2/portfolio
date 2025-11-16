@@ -1,23 +1,24 @@
 const Meteo = () => {
   return (
     <>
-      <div className="rounded-2xl meteo p-10 mx-64 mb-10">
-        <div className="flex items-center">
+      <div className="rounded-2xl meteo py-5  mx-3  md:mx-20 p-10  xl:mx-64 mb-10">
+        <div className="flex flex-col  items-center gap-5">
           <img
             src="/projects/Meteo.png"
-            className="sicilyFreshImg my-5 rounded-xl"
+            className="sicilyFreshImg rounded-xl"
             onClick={() =>
               window.open("https://meteocecchy.netlify.app/", "_blank")
             }
             style={{
               cursor: "pointer",
-              width: "500px",
-              height: "300px",
+              width: "100%",
+              maxWidth: "400px",
+              height: "auto",
               objectFit: "cover",
             }}
           />
 
-          <div>
+          <div className="text-center md:text-left">
             <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Meteo 🔆</h1>
 
             <h4 className="mx-5 pb-5 pb-xl-0">

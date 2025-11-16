@@ -1,26 +1,32 @@
 const Smartwage = () => {
   return (
     <>
-      <div className="rounded-2xl smartwage p-10 mx-64 mb-10">
-        <div className="flex items-center">
+      <div className="rounded-2xl smartwage py-5  mx-3  md:mx-20 p-10  xl:mx-64 mb-10">
+        <div className="flex flex-col  items-center gap-5">
           <img
             src="/projects/Smartwage.png"
-            className="sicilyFreshImg my-5 rounded-xl"
+            className="sicilyFreshImg rounded-xl"
             onClick={() => window.open("https://www.smartwage.it/", "_blank")}
-            style={{ width: "500px", height: "300px", objectFit: "cover" }}
+            style={{
+              cursor: "pointer",
+              width: "100%",
+              maxWidth: "400px",
+              height: "auto",
+              objectFit: "cover",
+            }}
           />
 
-          <div>
-            <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">
-              Smartwage 🎯
-            </h1>
-            <h4 className="mx-5">
-              Piattaforma che permette la gestione del Welfare
+          <div className="text-center md:text-left ">
+            <h1 className=" display-6 fw-bold  mb-2">Smartwage 🎯</h1>
+            <h4 className="">
+              Piattaforma che permette la gestione del Welfare Aziendale e
+              pubblico
             </h4>
             <br />
 
-            <h4 className="mx-5 pb-5 pb-xl-0">
-              Web app in React e App mobile collegata in React native
+            <h4 className="pb-xl-0">
+              Sono 2 applicazioni collegate, una web app per le aziende ed una
+              app mobile per i dipendenti.
             </h4>
           </div>
         </div>

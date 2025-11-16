@@ -262,11 +262,11 @@ html {
 }
 
 .sicilyFreshImg {
-  display: block !important;
-  width: 500px !important;
-  height: 300px !important;
-  object-fit: cover !important;
-  box-sizing: border-box !important;
+  display: block 
+  width: 100px 
+  
+  object-fit: cover 
+  box-sizing: border-box 
   z-index: 2000;
   position: relative;
   cursor: pointer;
