@@ -14,6 +14,7 @@ const AboutMe = () => {
             </Col>
             <Col md={6} className="text-white">
               <h1 className="mx-5 display-6 fw-bold text-white">Chi sono:</h1>
+
               <p className="fs-3 mb-2 mt-2">
                 Lavoro come front-end developer e ogni giorno mi destreggio tra
                 <span className="text-warning">
