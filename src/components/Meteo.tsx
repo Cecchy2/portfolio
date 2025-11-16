@@ -15,6 +15,7 @@ const Meteo = () => {
               maxWidth: "400px",
               height: "auto",
               objectFit: "cover",
+              zIndex: 9999,
             }}
           />
 
