@@ -1,9 +1,42 @@
-import { Image, Col, Container, Row } from "react-bootstrap";
-
 const TechQuizGame = () => {
   return (
     <>
-      <div className="techQuizGame ">
+      <div className="rounded-2xl techQuizGame p-10 mx-64 mb-10">
+        <div className="flex items-center">
+          <img
+            src="/projects/TechQuiz.png"
+            className="sicilyFreshImg my-5 rounded-xl"
+            onClick={() =>
+              window.open("https://techquizgame.netlify.app/", "_blank")
+            }
+            style={{
+              cursor: "pointer",
+              width: "500px",
+              height: "300px",
+              objectFit: "cover",
+            }}
+          />
+
+          <div>
+            <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">
+              Tech Quiz Game 🤔
+            </h1>
+            <h4 className="mx-5">Quiz game creato per Epicode.</h4>
+            <br />
+
+            <h4 className="mx-5">
+              L' applicazione è in Vanilla Javascript,HTML, CSS e DOM
+              Manipulation.
+            </h4>
+
+            <h4 className="mx-5 pb-5 pb-xl-0">
+              Divertiti e prova il mio Quiz.
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="techQuizGame ">
         <Container fluid>
           {" "}
           <Row>
@@ -38,7 +71,7 @@ const TechQuizGame = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div> */}
     </>
   );
 };

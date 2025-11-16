@@ -1,9 +1,36 @@
-import { Image, Col, Container, Row } from "react-bootstrap";
-
 const Meteo = () => {
   return (
     <>
-      <div className="meteo">
+      <div className="rounded-2xl meteo p-10 mx-64 mb-10">
+        <div className="flex items-center">
+          <img
+            src="/projects/Meteo.png"
+            className="sicilyFreshImg my-5 rounded-xl"
+            onClick={() =>
+              window.open("https://meteocecchy.netlify.app/", "_blank")
+            }
+            style={{
+              cursor: "pointer",
+              width: "500px",
+              height: "300px",
+              objectFit: "cover",
+            }}
+          />
+
+          <div>
+            <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Meteo 🔆</h1>
+
+            <h4 className="mx-5 pb-5 pb-xl-0">
+              {" "}
+              L'app consente agli utenti di cercare il meteo corrente e le
+              previsioni a breve termine per una città specifica. L'utente può
+              inserire il nome di una città per ottenere le condizioni meteo
+              attuali.{" "}
+            </h4>
+          </div>
+        </div>
+      </div>
+      {/* <div className="meteo">
         <Container fluid>
           {" "}
           <Row>
@@ -29,7 +56,7 @@ const Meteo = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div> */}
     </>
   );
 };

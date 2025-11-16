@@ -250,19 +250,23 @@ html {
   background-color: #fbab7e;
   background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
-.smartwage {
-  background-color: #237e8c;
-  background-image: linear-gradient(62deg, #237e8c 0%, #35c0d6 100%);
-}
+
 .techQuizGame {
   background-color: #0b113a;
   background-image: linear-gradient(62deg, #0b113a 0%, #861b96 100%);
   color: white;
 }
+.smartwage {
+  background-color: #237e8c;
+  background-image: linear-gradient(62deg, #237e8c 50%, #ffff 100%);
+}
 
 .sicilyFreshImg {
-  width: 100%;
-  object-fit: cover;
+  display: block !important;
+  width: 500px !important;
+  height: 300px !important;
+  object-fit: cover !important;
+  box-sizing: border-box !important;
   z-index: 2000;
   position: relative;
   cursor: pointer;
