@@ -3,16 +3,16 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 const AboutMe = () => {
   return (
     <>
-      <div className=" bg-dark mt-5" id="about-me">
+      <div className=" bg-dark mt-5 p-5" id="about-me">
         <Container>
-          <Row className="align-items-center">
-            <Col md={6}>
+          <Row className="align-items-center justify-content-center">
+            {/* <Col md={6}>
               <Image
                 src="/Fotoprofilo.jpg"
                 className="aboutImage mb-md-5 mt-5 ms-4 ms-xl-0"
               />
-            </Col>
-            <Col md={6} className="text-white">
+            </Col> */}
+            <Col md={7} className="text-white text-center p-5">
               <h1 className="mx-5 display-6 fw-bold text-white">Chi sono:</h1>
               <p className="fs-3 mb-2 mt-2">
                 Lavoro come front-end developer e ogni giorno mi destreggio tra

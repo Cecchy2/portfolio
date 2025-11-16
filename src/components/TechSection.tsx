@@ -6,7 +6,7 @@ const TechSection = () => {
     <div className="stickyWrapper " id="skills">
       <div className="techSection pt-5">
         <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">
-          Tecnologie che uso per programmare 👨‍💻
+          Alcune tecnologie che uso:
         </h1>
         <Container>
           <Row className="gy-4 justify-content-between mt-3">
