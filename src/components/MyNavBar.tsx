@@ -13,6 +13,7 @@ const MyNavBar = () => {
       className="bg-body-tertiary navbarIndex"
       fixed="top"
       expanded={expanded}
+      style={{ zIndex: 99999 }}
     >
       <Container>
         <Navbar.Toggle
