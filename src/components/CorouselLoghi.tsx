@@ -21,6 +21,8 @@ const CarouselLoghi: React.FC = () => {
       "/Icone/git.png",
       "/Icone/GitHub-Mark-ea2971cee799.png",
       "/Icone/hibernate.png",
+      "/Icone/Docker.png",
+      "/Icone/Three.png",
     ],
     []
   );

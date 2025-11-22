@@ -18,7 +18,13 @@ const AboutMe = () => {
                 JavaScript, TypeScript, React, React Native e Redux.
               </span>{" "}
               <br />
-              <span>Utilizzo svariati framework: da Tailwind a Bootstrap.</span>
+              <span>
+                Utilizzo svariati altri framework e librerie,{" "}
+                <span className="text-warning">
+                  Tailwind, Bootstrap, Three.js{" "}
+                </span>{" "}
+                e altro ancora.
+              </span>
               <br />
               Le API (con le loro key) sono il mio pane quotidiano, e non manca
               una buona dose di curiosità per nuovi framework e strumenti che
@@ -26,7 +32,9 @@ const AboutMe = () => {
               <br />
               <br />
               Ho esperienza anche con{" "}
-              <span className="text-warning">Java e Spring,</span>
+              <span className="text-warning">
+                Java e Spring, Docker e Database relazionali
+              </span>
               che mi permettono di avere una visione completa quando serve.
               <br />
               <br />
