@@ -11,8 +11,8 @@ const AboutMe = () => {
         ref={ref}
       >
         <div>
-          <div className="text-white text-center md:p-10">
-            <div className="font-bold text-4xl md:text-5xl py-5 text-white">
+          <div className="text-white  md:p-10">
+            <div className="font-bold text-4xl md:text-5xl py-5 text-white text-center">
               Ciao sono Dario
             </div>
 
@@ -23,6 +23,7 @@ const AboutMe = () => {
               <span className="text-warning">
                 JavaScript, TypeScript, React, React Native e Redux.
               </span>{" "}
+              <br />
               <br />
               <span>
                 Utilizzo svariati altri framework e librerie,{" "}
@@ -37,11 +38,12 @@ const AboutMe = () => {
               possano rendere il mio lavoro più fluido e divertente.
               <br />
               <br />
-              Ho esperienza anche con{" "}
+              Ho esperienza anche come Back-end e programmo con{" "}
               <span className="text-warning">
-                Java e Spring, Docker e Database relazionali
+                Java e Spring, Docker e Database relazionali{" "}
               </span>
-              che mi permettono di avere una visione completa quando serve.
+              questo mi permette di avere una visione completa quando serve e di
+              potere sviluppare appplicazioni complete.
               <br />
               <br />
               Inoltre, ho ottime doti comunicative sviluppate durante le mie

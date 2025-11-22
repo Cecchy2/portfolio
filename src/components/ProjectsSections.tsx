@@ -9,8 +9,14 @@ const ProjectsSections = () => {
   const ref = useSectionObserver("sicilyFresh");
   return (
     <div id="sicilyFresh" ref={ref}>
-      <div className=" py-3 bg-white">
-        <h1 className="text-center "> Alcuni progetti </h1>
+      <div className="py-3 bg-white my-10">
+        <div className="flex items-center justify-center">
+          <div className="border-t-2 w-full" />
+          <h1 className="text-center whitespace-nowrap  mx-10">
+            Alcuni progetti
+          </h1>
+          <div className="border-t-2 w-full" />
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-center gap-8 px-4 mb-10">
