@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useActiveSection } from "../context/ActiveSectionContext";
 
-export const useSectionObserver = (sectionId: string) => {
+export const useSectionObserver = (sectionId: string, threshold = 0.5) => {
   const { setActiveSection } = useActiveSection();
   const ref = useRef(null);
 
@@ -14,7 +14,7 @@ export const useSectionObserver = (sectionId: string) => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold }
     );
 
     if (ref.current) {
@@ -26,7 +26,7 @@ export const useSectionObserver = (sectionId: string) => {
         observer.unobserve(ref.current);
       }
     };
-  }, [sectionId, setActiveSection]);
+  }, [sectionId, setActiveSection, threshold]);
 
   return ref;
 };

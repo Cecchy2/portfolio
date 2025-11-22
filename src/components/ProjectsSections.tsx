@@ -7,13 +7,13 @@ import { useSectionObserver } from "../hooks/useSectionObserver";
 import Ristonic from "./Ristonic";
 
 const ProjectsSections = () => {
-  const ref = useSectionObserver("sicilyFresh");
+  const ref = useSectionObserver("sicilyFresh", 0.2);
   return (
     <div id="sicilyFresh" ref={ref}>
       <div className="py-3 bg-white my-10">
         <div className="flex items-center justify-center">
           <div className="border-t-2 w-full" />
-          <h1 className="text-center whitespace-nowrap  mx-10">
+          <h1 className="text-center mx-10 whitespace-nowrap">
             Alcuni progetti
           </h1>
           <div className="border-t-2 w-full" />
