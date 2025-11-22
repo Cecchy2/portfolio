@@ -6,7 +6,7 @@ const TechSection = () => {
   const ref = useSectionObserver("skills");
   return (
     <div id="skills" ref={ref}>
-      <div className="techSection pt-5">
+      <div className="techSection pt-5 ">
         <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">
           Alcune tecnologie che uso:
         </h1>

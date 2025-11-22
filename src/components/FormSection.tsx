@@ -69,12 +69,9 @@ const FormSection = () => {
 
   return (
     <>
-      <div className="formSection" id="formSection" ref={ref}>
+      <div className="formSection border-t" id="formSection" ref={ref}>
         <Container>
-          <Row className="pt-5">
-            <Col></Col>
-          </Row>
-          <Row className="pt-5">
+          <Row className="pt-5 ">
             <Col md={5}>
               <Image
                 src="/photo-1432821596592-e2c18b78144f.avif"
