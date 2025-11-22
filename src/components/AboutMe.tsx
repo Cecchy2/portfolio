@@ -1,4 +1,3 @@
-import { Col, Container, Row } from "react-bootstrap";
 import { useSectionObserver } from "../hooks/useSectionObserver";
 
 const AboutMe = () => {
