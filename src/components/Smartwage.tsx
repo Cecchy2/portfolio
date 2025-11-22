@@ -1,7 +1,7 @@
 const Smartwage = () => {
   return (
     <>
-      <div className="rounded-2xl smartwage py-5  mx-3  md:mx-20 p-10  xl:mx-64 mb-10">
+      <div className="rounded-2xl smartwage py-5 p-5 md:p-10 w-full h-full">
         <div className="flex flex-col  items-center gap-5">
           <img
             src="/projects/Smartwage.png"

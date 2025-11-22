@@ -11,10 +11,20 @@ const ProjectsSections = () => {
         <h1 className="text-center "> Alcuni progetti </h1>
       </div>
 
-      <Smartwage />
-      <SicilyFresh />
-      <TechQuizGame />
-      <Meteo />
+      <div className="flex flex-wrap justify-center gap-8 px-4 mb-10">
+        <div className="w-full xl:w-[45%]">
+          <Smartwage />
+        </div>
+        <div className="w-full xl:w-[45%]">
+          <SicilyFresh />
+        </div>
+        <div className="w-full xl:w-[45%]">
+          <TechQuizGame />
+        </div>
+        <div className="w-full xl:w-[45%]">
+          <Meteo />
+        </div>
+      </div>
     </>
   );
 };
