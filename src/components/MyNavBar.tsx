@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useActiveSection } from "../context/ActiveSectionContext";
 
 const MyNavBar = () => {
   const [expanded, setExpanded] = useState(false);
+  const { activeSection } = useActiveSection();
 
   const handleToggle = () => setExpanded(!expanded);
   const handleClose = () => setExpanded(false);
@@ -22,19 +24,39 @@ const MyNavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto nav-links">
-            <Nav.Link href="#home" onClick={handleClose}>
+            <Nav.Link
+              href="#home"
+              onClick={handleClose}
+              active={activeSection === "home"}
+            >
               HOME
             </Nav.Link>
-            <Nav.Link href="#about-me" onClick={handleClose}>
+            <Nav.Link
+              href="#about-me"
+              onClick={handleClose}
+              active={activeSection === "about-me"}
+            >
               CHI SONO
             </Nav.Link>
-            <Nav.Link href="#skills" onClick={handleClose}>
+            <Nav.Link
+              href="#skills"
+              onClick={handleClose}
+              active={activeSection === "skills"}
+            >
               SKILLS
             </Nav.Link>
-            <Nav.Link href="#sicilyFresh" onClick={handleClose}>
+            <Nav.Link
+              href="#sicilyFresh"
+              onClick={handleClose}
+              active={activeSection === "sicilyFresh"}
+            >
               PROGETTI
             </Nav.Link>
-            <Nav.Link href="#formSection" onClick={handleClose}>
+            <Nav.Link
+              href="#formSection"
+              onClick={handleClose}
+              active={activeSection === "formSection"}
+            >
               CONTATTAMI
             </Nav.Link>
           </Nav>

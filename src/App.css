@@ -123,6 +123,10 @@ html {
   font-weight: 800;
 }
 
+.navbarIndex .nav-link.active {
+  color: #ffc107 !important; /* Giallo/Arancione - Modifica questo codice esadecimale per cambiare colore */
+}
+
 .striscia {
   width: 100%;
   overflow: hidden;

@@ -1,11 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { useSectionObserver } from "../hooks/useSectionObserver";
 
 const AboutMe = () => {
+  const ref = useSectionObserver("about-me");
   return (
     <>
       <div
         className="md:mx-20 my-5  bg-dark  rounded-4xl border-8 border-amber-500"
         id="about-me"
+        ref={ref}
       >
         <div>
           <div className="text-white text-center md:p-10">

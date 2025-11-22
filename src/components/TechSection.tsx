@@ -1,9 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import CarouselLoghi from "./CorouselLoghi";
+import { useSectionObserver } from "../hooks/useSectionObserver";
 
 const TechSection = () => {
+  const ref = useSectionObserver("skills");
   return (
-    <div id="skills">
+    <div id="skills" ref={ref}>
       <div className="techSection pt-5">
         <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">
           Alcune tecnologie che uso:
@@ -76,7 +78,7 @@ const TechSection = () => {
           Hibernate | PostgreSql | Docker | Git | GitHub | VsCode | IntelliJ
         </h4>
         <div>
-          <div className="md:mt-20">
+          <div className="md:mt-10 md:mb-10">
             <CarouselLoghi direction="left" />
             <CarouselLoghi direction="right" />
           </div>

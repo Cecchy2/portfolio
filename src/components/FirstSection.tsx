@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { useSectionObserver } from "../hooks/useSectionObserver";
 
 const FirstSection = () => {
   const [isFirstSectionVisible, setIsFirstSectionVisible] = useState(true);
+  const ref = useSectionObserver("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +22,7 @@ const FirstSection = () => {
   }, []);
 
   return (
-    <Container id="home">
+    <Container id="home" ref={ref}>
       <Row>
         <div
           className={`section ${

@@ -1,7 +1,17 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Image, Row, Spinner } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  Image,
+  Row,
+  Spinner,
+} from "react-bootstrap";
+import { useSectionObserver } from "../hooks/useSectionObserver";
 
 const FormSection = () => {
+  const ref = useSectionObserver("formSection");
   const [formValues, setFormValues] = useState({
     nome: "",
     cognome: "",
@@ -21,13 +31,16 @@ const FormSection = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formValues),
-      });
+      const response = await fetch(
+        "https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formValues),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -41,7 +54,10 @@ const FormSection = () => {
       } else {
         const error = await response.json();
         console.error("Errore nell'invio del messaggio:", error);
-        alert(error.message || "Si è verificato un errore durante l'invio del messaggio.");
+        alert(
+          error.message ||
+            "Si è verificato un errore durante l'invio del messaggio."
+        );
       }
     } catch (error) {
       console.error("Errore nella richiesta:", error);
@@ -53,17 +69,23 @@ const FormSection = () => {
 
   return (
     <>
-      <div className="formSection" id="formSection">
+      <div className="formSection" id="formSection" ref={ref}>
         <Container>
           <Row className="pt-5">
             <Col></Col>
           </Row>
           <Row className="pt-5">
             <Col md={5}>
-              <Image src="/photo-1432821596592-e2c18b78144f.avif" alt="macchina da scrivere" className="formImage" />
+              <Image
+                src="/photo-1432821596592-e2c18b78144f.avif"
+                alt="macchina da scrivere"
+                className="formImage"
+              />
             </Col>
             <Col md={7}>
-              <h2 className="mt-5 display-6 fw-bold text-center">Lasciami un messaggio</h2>
+              <h2 className="mt-5 display-6 fw-bold text-center">
+                Lasciami un messaggio
+              </h2>
               <Form className="my-5" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formGroupNome">
                   <Form.Label>Nome</Form.Label>
@@ -113,7 +135,14 @@ const FormSection = () => {
                 <Button variant="warning" className="w-100" type="submit">
                   {isLoading ? (
                     <>
-                      <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> Inviando...
+                      <Spinner
+                        as="span"
+                        animation="grow"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      />{" "}
+                      Inviando...
                     </>
                   ) : (
                     "Invia"
