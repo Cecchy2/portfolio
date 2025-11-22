@@ -1,7 +1,7 @@
 const Meteo = () => {
   return (
     <>
-      <div className="rounded-2xl meteo py-5  mx-3  md:mx-20 p-10  xl:mx-64 mb-10">
+      <div className="rounded-2xl meteo py-5 p-5 md:p-10 w-full h-full">
         <div className="flex flex-col  items-center gap-5">
           <img
             src="/projects/Meteo.png"
@@ -22,7 +22,7 @@ const Meteo = () => {
           <div className="text-center md:text-left">
             <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Meteo 🔆</h1>
 
-            <h4 className="mx-5 pb-5 pb-xl-0">
+            <h4 className=" pb-5 pb-xl-0">
               {" "}
               L'app consente agli utenti di cercare il meteo corrente e le
               previsioni a breve termine per una città specifica. L'utente può
