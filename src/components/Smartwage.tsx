@@ -20,17 +20,16 @@ const Smartwage = () => {
           />
 
           <div className="text-center md:text-left ">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center mb-2">
               <img
                 src="/projects/Pittogramma.png"
                 alt="logo smartwage"
                 className="w-10 h-14 bg-white rounded-2xl p-1"
               />
-              <h1 className=" display-6 fw-bold  mb-2 ms-2">Smartwage</h1>
+              <h1 className=" display-6 fw-bold ms-2">Smartwage</h1>
             </div>
             <h4 className="">
-              Piattaforma che permette la gestione del Welfare Aziendale e
-              pubblico
+              Piattaforma che permette la gestione del Welfare Aziendale.
             </h4>
             <br />
 

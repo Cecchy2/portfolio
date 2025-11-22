@@ -20,13 +20,13 @@ const Ristonic = () => {
           />
 
           <div className="text-center md:text-left text-white">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center mb-2">
               <img
                 src="/projects/logoIcon.png"
                 alt="<logo ristonic"
                 className="w-13 h-13"
               />
-              <h1 className=" display-6 fw-bold  mb-2 ms-2">Ristonic </h1>
+              <h1 className=" display-6 fw-bold   ms-2">Ristonic </h1>
             </div>
             <h4 className="">
               Piattaforma che collega chi cerca lavoro e chi cerca personale nel

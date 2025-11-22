@@ -26,9 +26,7 @@ const SicilyFresh = () => {
                 alt="logo sicilyfresh"
                 className="w-20 h-20"
               />
-              <h1 className=" display-6 fw-bold mt-xl-5 mb-5 ms-2">
-                Sicily Fresh
-              </h1>
+              <h1 className=" display-6 fw-bold mt-xl-5  ms-2">Sicily Fresh</h1>
             </div>
             <h4 className="">
               Il mio capstone per il diploma FullStack di Epicode.
