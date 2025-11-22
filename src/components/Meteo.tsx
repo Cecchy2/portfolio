@@ -20,7 +20,7 @@ const Meteo = () => {
           />
 
           <div className="text-center md:text-left">
-            <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">Meteo 🔆</h1>
+            <h1 className="mx-5 display-6 fw-bold mt-xl-5 mb-5">🔆 Meteo </h1>
 
             <h4 className=" pb-5 pb-xl-0">
               {" "}

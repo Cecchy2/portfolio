@@ -20,7 +20,16 @@ const SicilyFresh = () => {
           />
 
           <div className="text-center md:text-left ">
-            <h1 className=" display-6 fw-bold mt-xl-5 mb-5">Sicily Fresh 🍝</h1>
+            <div className="flex items-center justify-center">
+              <img
+                src="/projects/limoni.svg"
+                alt="logo sicilyfresh"
+                className="w-20 h-20"
+              />
+              <h1 className=" display-6 fw-bold mt-xl-5 mb-5 ms-2">
+                Sicily Fresh
+              </h1>
+            </div>
             <h4 className="">
               Il mio capstone per il diploma FullStack di Epicode.
             </h4>

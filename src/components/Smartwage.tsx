@@ -6,7 +6,9 @@ const Smartwage = () => {
           <img
             src="/projects/Smartwage.png"
             className="sicilyFreshImg rounded-xl"
-            onClick={() => window.open("https://www.smartwage.it/", "_blank")}
+            onClick={() =>
+              window.open("https://app.smartwage.it/register", "_blank")
+            }
             style={{
               cursor: "pointer",
               width: "100%",
@@ -18,7 +20,14 @@ const Smartwage = () => {
           />
 
           <div className="text-center md:text-left ">
-            <h1 className=" display-6 fw-bold  mb-2">Smartwage 🎯</h1>
+            <div className="flex items-center justify-center">
+              <img
+                src="/projects/Pittogramma.png"
+                alt="logo smartwage"
+                className="w-10 h-14 bg-white rounded-2xl p-1"
+              />
+              <h1 className=" display-6 fw-bold  mb-2 ms-2">Smartwage</h1>
+            </div>
             <h4 className="">
               Piattaforma che permette la gestione del Welfare Aziendale e
               pubblico

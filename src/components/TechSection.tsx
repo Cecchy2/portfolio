@@ -78,7 +78,7 @@ const TechSection = () => {
           Hibernate | PostgreSql | Docker | Git | GitHub | VsCode | IntelliJ
         </h4>
         <div>
-          <div className="md:mt-10 md:mb-10">
+          <div className="md:mt-10 md:pb-20">
             <CarouselLoghi direction="left" />
             <CarouselLoghi direction="right" />
           </div>

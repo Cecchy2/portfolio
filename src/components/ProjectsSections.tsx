@@ -4,6 +4,7 @@ import Meteo from "./Meteo";
 import TechQuizGame from "./TechQuizGame";
 import Smartwage from "./Smartwage";
 import { useSectionObserver } from "../hooks/useSectionObserver";
+import Ristonic from "./Ristonic";
 
 const ProjectsSections = () => {
   const ref = useSectionObserver("sicilyFresh");
@@ -22,6 +23,9 @@ const ProjectsSections = () => {
       <div className="flex flex-wrap justify-center gap-8 px-4 mb-10">
         <div className="w-full xl:w-[45%]">
           <Smartwage />
+        </div>
+        <div className="w-full xl:w-[45%]">
+          <Ristonic />
         </div>
         <div className="w-full xl:w-[45%]">
           <SicilyFresh />

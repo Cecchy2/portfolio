@@ -21,7 +21,7 @@ const TechQuizGame = () => {
 
           <div className="text-center md:text-left">
             <h1 className=" display-6 fw-bold mt-xl-5 mb-5">
-              Tech Quiz Game 🤔
+              🤔 Tech Quiz Game
             </h1>
             <h4 className="">Quiz game creato per Epicode.</h4>
             <br />
