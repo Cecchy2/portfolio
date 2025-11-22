@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { Image } from "react-bootstrap";
 
-const CarouselLoghi: React.FC = () => {
+interface CarouselLoghiProps {
+  direction?: "left" | "right";
+}
+
+const CarouselLoghi: React.FC<CarouselLoghiProps> = ({
+  direction = "left",
+}) => {
   // Clean array without duplicates
   const loghi: string[] = useMemo(
     () => [
@@ -27,9 +33,12 @@ const CarouselLoghi: React.FC = () => {
     []
   );
 
-  const [carouselPosition, setCarouselPosition] = useState<number>(0);
-  const lastScrollY = useRef<number>(0);
   const carouselRef = useRef<HTMLDivElement | null>(null);
+  const positionRef = useRef<number>(0);
+  const scrollSpeedRef = useRef<number>(0);
+  const lastScrollY = useRef<number>(0);
+  const requestRef = useRef<number>();
+
   const [itemWidth, setItemWidth] = useState<number>(100); // Start with desktop size
   const [gap, setGap] = useState<number>(20); // Start with desktop gap
 
@@ -69,19 +78,67 @@ const CarouselLoghi: React.FC = () => {
     [loghi.length, itemWidth, gap]
   );
 
+  const animate = useCallback(() => {
+    const baseSpeed = 1; // Velocità costante di base
+
+    // Decelerazione inerziale dello scroll
+    scrollSpeedRef.current *= 0.95;
+    if (Math.abs(scrollSpeedRef.current) < 0.1) scrollSpeedRef.current = 0;
+
+    const currentSpeed = baseSpeed + scrollSpeedRef.current;
+
+    if (direction === "left") {
+      positionRef.current -= currentSpeed;
+    } else {
+      positionRef.current += currentSpeed;
+    }
+
+    const singleLoopWidth = totalWidth;
+
+    // Seamless infinite loop
+    if (singleLoopWidth > 0) {
+      if (positionRef.current <= -singleLoopWidth) {
+        positionRef.current += singleLoopWidth;
+      } else if (positionRef.current > 0) {
+        positionRef.current -= singleLoopWidth;
+      }
+    }
+
+    if (carouselRef.current) {
+      carouselRef.current.style.transform = `translateX(${positionRef.current}px)`;
+    }
+
+    requestRef.current = requestAnimationFrame(animate);
+  }, [totalWidth, direction]);
+
   useEffect(() => {
-    // Initial calculation after a short delay to ensure CSS is applied
-    const initialCalculation = () => {
-      calculateDimensions();
+    requestRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (requestRef.current) cancelAnimationFrame(requestRef.current);
+    };
+  }, [animate]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const delta = Math.abs(currentScrollY - lastScrollY.current);
+      lastScrollY.current = currentScrollY;
+
+      // Aumenta la velocità in base allo scroll
+      scrollSpeedRef.current += delta * 0.15;
+
+      // Limite massimo
+      if (scrollSpeedRef.current > 20) scrollSpeedRef.current = 20;
     };
 
-    const timeoutId = setTimeout(initialCalculation, 100);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", calculateDimensions, { passive: true });
 
-    const handleResize = () => {
-      calculateDimensions();
-    };
+    // Initial setup
+    lastScrollY.current = window.scrollY;
+    calculateDimensions();
 
-    // Use ResizeObserver to detect container size changes
+    // ResizeObserver for container
     let resizeObserver: ResizeObserver | null = null;
     if (carouselRef.current) {
       resizeObserver = new ResizeObserver(() => {
@@ -92,45 +149,14 @@ const CarouselLoghi: React.FC = () => {
       );
     }
 
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const delta = currentScrollY - lastScrollY.current;
-          lastScrollY.current = currentScrollY;
-
-          setCarouselPosition((prevPosition) => {
-            const newPosition = prevPosition - delta * 1.5; // Reduced multiplier for smoother movement
-            const singleLoopWidth = totalWidth;
-
-            // Seamless infinite loop
-            if (newPosition <= -singleLoopWidth) {
-              return newPosition + singleLoopWidth;
-            } else if (newPosition >= 0) {
-              return newPosition - singleLoopWidth;
-            }
-
-            return newPosition;
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize, { passive: true });
-
     return () => {
-      clearTimeout(timeoutId);
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", calculateDimensions);
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
     };
-  }, [totalWidth, calculateDimensions]);
+  }, [calculateDimensions]);
 
   return (
     <>
@@ -139,8 +165,8 @@ const CarouselLoghi: React.FC = () => {
           className="carousel"
           ref={carouselRef}
           style={{
-            transform: `translateX(${carouselPosition}px)`,
             gap: `${gap}px`,
+            willChange: "transform",
           }}
         >
           {/* Create seamless infinite loop by rendering the array three times */}

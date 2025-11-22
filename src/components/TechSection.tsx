@@ -3,7 +3,7 @@ import CarouselLoghi from "./CorouselLoghi";
 
 const TechSection = () => {
   return (
-    <div className="stickyWrapper " id="skills">
+    <div id="skills">
       <div className="techSection pt-5">
         <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">
           Alcune tecnologie che uso:
@@ -70,14 +70,15 @@ const TechSection = () => {
             </Col>
           </Row>
         </Container>
-        <h4 className="text-center mt-5">
+        <h4 className="text-center mt-5 mx-2 md:mx-5">
           Html5 | Css | Javascript | Typescript | Vite | React | Redux |
-          Bootstrap | Sass | Java | Spring | Sql | Hibernate | PostgreSql | Git
-          | GitHub | VsCode | IntelliJ
+          Three.js | Tailwind | Bootstrap | Sass | Java | Spring | Sql |
+          Hibernate | PostgreSql | Docker | Git | GitHub | VsCode | IntelliJ
         </h4>
         <div>
-          <div className="">
-            <CarouselLoghi />
+          <div className="md:mt-20">
+            <CarouselLoghi direction="left" />
+            <CarouselLoghi direction="right" />
           </div>
         </div>
       </div>

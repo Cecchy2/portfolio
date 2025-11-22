@@ -34,13 +34,8 @@ html {
   }
 }
 
-.stickyWrapper {
-  height: 260vh;
-}
-
 .techSection {
-  position: sticky;
-  top: 0;
+  position: relative;
   min-height: 100vh;
   z-index: 10;
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);

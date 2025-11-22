@@ -3,7 +3,10 @@ import { Col, Container, Row } from "react-bootstrap";
 const AboutMe = () => {
   return (
     <>
-      <div className=" bg-dark mt-5 " id="about-me">
+      <div
+        className="md:mx-20 my-5  bg-dark  rounded-4xl border-8 border-amber-500"
+        id="about-me"
+      >
         <div>
           <div className="text-white text-center md:p-10">
             <div className="font-bold text-4xl md:text-5xl py-5 text-white">
