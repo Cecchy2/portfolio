@@ -29,6 +29,10 @@ const CarouselLoghi: React.FC<CarouselLoghiProps> = ({
       "/Icone/hibernate.png",
       "/Icone/Docker.png",
       "/Icone/Three.png",
+      "/Icone/Figma.png",
+      "/Icone/Tailwind.png",
+      "/Icone/Firebase.png",
+      "/Icone/Bitbucket.png",
     ],
     []
   );
