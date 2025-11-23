@@ -72,12 +72,15 @@ const TechSection = () => {
             </Col>
           </Row>
         </Container>
-        <h4 className="text-center mt-5 mx-2 md:mx-5">
-          Html5 | Css | Javascript | Typescript | Vite | React | Redux |
-          Three.js | Tailwind | Bootstrap | Figma | Firebase | Sass | Java |
-          Spring | Sql | Hibernate | PostgreSql | Docker | Git | GitHub |
-          BitBucket | VsCode | IntelliJ
-        </h4>
+        <div className="mx-10 md:mx-20">
+          <h4 className="text-center mt-5 ">
+            Html5 | Css | Javascript | Typescript | Vite | React | Redux |
+            Three.js | Tailwind | Bootstrap | Figma | Firebase | Sass | Java |
+            Spring | Sql | Hibernate | PostgreSql | Docker | Git | GitHub |
+            BitBucket | VsCode | IntelliJ
+          </h4>
+        </div>
+
         <div>
           <div className="md:mt-10 md:pb-20">
             <CarouselLoghi direction="left" />
