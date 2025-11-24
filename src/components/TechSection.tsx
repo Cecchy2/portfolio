@@ -8,8 +8,9 @@ const TechSection = () => {
     <div id="skills" ref={ref}>
       <div className="techSection pt-5 ">
         <h1 className="mx-5 display-6 fw-bold text-center pt-5 ">
-          Alcune tecnologie che uso:
+          Alcune tecnologie che uso
         </h1>
+        <div className=" border-t-8 border-t-amber-400 w-2/6 mx-auto mb-10" />
         <Container>
           <Row className="gy-4 justify-content-between mt-3">
             <Col xs={4} md={4} lg={2}>
@@ -75,9 +76,9 @@ const TechSection = () => {
         <div className="mx-10 md:mx-20">
           <h4 className="text-center mt-5 ">
             Html5 | Css | Javascript | Typescript | Vite | React | Redux |
-            Three.js | Tailwind | Bootstrap | Figma | Firebase | Sass | Java |
-            Spring | Sql | Hibernate | PostgreSql | Docker | Git | GitHub |
-            BitBucket | VsCode | IntelliJ
+            Three.js | Tailwind | Bootstrap | Figma | Firebase | Sass | npm |
+            Java | Spring | Sql | Hibernate | PostgreSql | Docker | Git | GitHub
+            | BitBucket | VsCode | IntelliJ
           </h4>
         </div>
 
