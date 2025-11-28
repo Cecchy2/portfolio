@@ -6,9 +6,7 @@ const Smartwage = () => {
           <img
             src="/projects/Smartwage.png"
             className="sicilyFreshImg rounded-xl"
-            onClick={() =>
-              window.open("https://app.smartwage.it/register", "_blank")
-            }
+            onClick={() => window.open("https://www.smartwage.it/", "_blank")}
             style={{
               cursor: "pointer",
               width: "100%",
