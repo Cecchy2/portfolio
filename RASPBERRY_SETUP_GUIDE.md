@@ -561,3 +561,10 @@ Ogni step è stato testato e spiegato nel dettaglio.
 Se qualcosa non funziona, **rileggi attentamente lo step** e verifica di aver seguito tutti i passaggi.
 
 **Buon lavoro! 🚀**
+
+****\*\***** AGGIORNARE BUILD su PI **\*\*\*\***
+npm run build
+
+rsync -avz --delete dist/ pi@192.168.1.22:/var/www/portfolio/
+
+ssh pi@192.168.1.22 'sudo chown -R www-data:www-data /var/www/portfolio && sudo systemctl reload nginx'
