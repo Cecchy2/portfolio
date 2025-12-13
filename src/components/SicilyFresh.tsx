@@ -7,7 +7,7 @@ const SicilyFresh = () => {
             src="/projects/SicilyFresh.png"
             className="sicilyFreshImg rounded-xl"
             onClick={() =>
-              window.open("https://sicilyfresh.netlify.app/", "_blank")
+              window.open("http://sicilyfresh.duckdns.org/", "_blank")
             }
             style={{
               cursor: "pointer",
