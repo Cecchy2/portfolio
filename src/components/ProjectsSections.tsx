@@ -5,12 +5,15 @@ import TechQuizGame from "./TechQuizGame";
 import Smartwage from "./Smartwage";
 import { useSectionObserver } from "../hooks/useSectionObserver";
 import Ristonic from "./Ristonic";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const ProjectsSections = () => {
   const ref = useSectionObserver("sicilyFresh", 0.2);
+  const revealRef = useScrollReveal({ threshold: 0.05 });
   return (
     <div id="sicilyFresh" ref={ref}>
-      <div className="py-3 bg-white my-10">
+    <div ref={revealRef}>
+      <div className="py-3 my-0 projects-header">
         <div className="flex items-center justify-center">
           <div className="border-t-2 w-full" />
           <h1 className="text-center mx-10 whitespace-nowrap">
@@ -37,6 +40,7 @@ const ProjectsSections = () => {
           <Meteo />
         </div>
       </div>
+    </div>
     </div>
   );
 };

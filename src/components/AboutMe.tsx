@@ -1,61 +1,75 @@
 import { useSectionObserver } from "../hooks/useSectionObserver";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import { FaCode, FaServer, FaLightbulb, FaComments } from "react-icons/fa";
+
+const STATS = [
+  { value: "3+",  label: "Anni di\nesperienza" },
+  { value: "15+", label: "Progetti\nrealizzati" },
+  { value: "20+", label: "Tecnologie\npadroneggio" },
+];
+
+const BIO_CARDS = [
+  {
+    icon: <FaCode size={22} />,
+    title: "Front-end",
+    text: "React, TypeScript, Redux, React Native. Curo ogni dettaglio dell'interfaccia per creare esperienze utente fluide e performanti.",
+  },
+  {
+    icon: <FaServer size={22} />,
+    title: "Back-end",
+    text: "Java e Spring Boot per API REST solide, Docker per la containerizzazione, PostgreSQL per i dati.",
+  },
+  {
+    icon: <FaLightbulb size={22} />,
+    title: "Creatività",
+    text: "Unisco tecnica e creatività — Three.js, animazioni CSS, layout insoliti — per rendere ogni progetto memorabile.",
+  },
+  {
+    icon: <FaComments size={22} />,
+    title: "Comunicazione",
+    text: "Esperienza commerciale sul campo: so tradurre le esigenze del cliente in soluzioni chiare e concrete.",
+  },
+];
 
 const AboutMe = () => {
-  const ref = useSectionObserver("about-me");
+  const ref        = useSectionObserver("about-me");
+  const revealRef  = useScrollReveal({ threshold: 0.06 });
+
   return (
-    <>
+    <div ref={revealRef}>
       <div
-        className="md:mx-20 my-5  bg-dark  rounded-4xl border-4 border-amber-500"
         id="about-me"
         ref={ref}
+        className="about-section"
       >
-        <div>
-          <div className="text-white  md:p-10">
-            <div className="font-bold text-4xl md:text-5xl py-5 text-white text-center">
-              Ciao sono Dario
-            </div>
-
-            <div className="text-xl md:text-2xl mb-2 mt-2 px-4  text-white">
-              Sono un Front-end developer con una grande passione per la
-              programmazione, amo sviluppare applicazioni e curare ogni minimo
-              dettaglio per renderle perfette. Ogni giorno mi destreggio tra{" "}
-              <span className="text-warning">
-                JavaScript, TypeScript, React, React Native e Redux.
-              </span>{" "}
-              <br />
-              <br />
-              <span>
-                Utilizzo svariati altri framework e librerie,{" "}
-                <span className="text-warning">
-                  Tailwind, Bootstrap, Three.js{" "}
-                </span>{" "}
-                e altro ancora.
+        {/* ── Stats ──────────────────────────────────────── */}
+        <div className="about-stats">
+          {STATS.map((s) => (
+            <div key={s.value} className="about-stat-card">
+              <span className="about-stat-value">{s.value}</span>
+              <span className="about-stat-label">
+                {s.label.split("\n").map((l, i) => (
+                  <span key={i} style={{ display: "block" }}>{l}</span>
+                ))}
               </span>
-              <br />
-              Le API (con le loro key) sono il mio pane quotidiano, e non manca
-              una buona dose di curiosità per nuovi framework e strumenti che
-              possano rendere il mio lavoro più fluido e divertente.
-              <br />
-              <br />
-              Ho esperienza anche come Back-end e programmo con{" "}
-              <span className="text-warning">
-                Java e Spring, Docker e Database relazionali{" "}
-              </span>
-              questo mi permette di avere una visione completa quando serve e di
-              potere sviluppare appplicazioni complete.
-              <br />
-              <br />
-              Inoltre, ho ottime doti comunicative sviluppate durante le mie
-              esperienze come commerciale: so relazionarmi con i clienti,
-              comprendere le loro esigenze e presentare soluzioni in modo
-              chiaro, professionale ed empatico.
             </div>
-
-            <br />
-          </div>
+          ))}
         </div>
+
+        {/* ── Bio cards ──────────────────────────────────── */}
+        <div className="about-cards">
+          {BIO_CARDS.map((card) => (
+            <div key={card.title} className="about-bio-card">
+              <div className="about-bio-icon">{card.icon}</div>
+              <h4 className="about-bio-title">{card.title}</h4>
+              <p className="about-bio-text">{card.text}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
-    </>
+    </div>
   );
 };
+
 export default AboutMe;

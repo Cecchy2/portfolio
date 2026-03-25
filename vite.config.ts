@@ -13,4 +13,13 @@ export default defineConfig({
       typescript: true,
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ["three"],
+        },
+      },
+    },
+  },
 });
