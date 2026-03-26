@@ -202,7 +202,7 @@ const ParticlesBackground = () => {
       vertexColors: true,
       size: 4.8,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.65,
       sizeAttenuation: true,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
@@ -275,8 +275,8 @@ const ParticlesBackground = () => {
         // Colour: base hue shifts on faster clock, zone-based saturation
         const dist = Math.min(1, Math.hypot(px, py) / (sx * 0.42));
         const hue = (baseHue[i] + tc) % 1;
-        const sat = 0.45 + dist * 0.4;
-        const lig = 0.85 - dist * 0.25;
+        const sat = 0.75 + dist * 0.2;
+        const lig = 0.58 - dist * 0.1;
         const [r, g, b] = hsl(hue, sat, lig);
         colors[xi] = r;
         colors[yi] = g;
