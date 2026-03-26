@@ -12,7 +12,7 @@ const CarouselLoghi: React.FC<CarouselLoghiProps> = ({
   const loghi: string[] = useMemo(
     () => [
       "/Icone/intellij.png",
-      "/Icone/koyeb_logo_icon_247887.webp",
+      "/Icone/koyeb_logo_icon_247887.png",
       "/Icone/netlify.png",
       "/Icone/html.png",
       "/Icone/css.png",
@@ -35,7 +35,7 @@ const CarouselLoghi: React.FC<CarouselLoghiProps> = ({
       "/Icone/Bitbucket.png",
       "/Icone/Npm.png",
     ],
-    []
+    [],
   );
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -80,7 +80,7 @@ const CarouselLoghi: React.FC<CarouselLoghiProps> = ({
 
   const totalWidth = useMemo(
     () => loghi.length * (itemWidth + gap),
-    [loghi.length, itemWidth, gap]
+    [loghi.length, itemWidth, gap],
   );
 
   const animate = useCallback(() => {
@@ -150,7 +150,7 @@ const CarouselLoghi: React.FC<CarouselLoghiProps> = ({
         calculateDimensions();
       });
       resizeObserver.observe(
-        carouselRef.current.parentElement || carouselRef.current
+        carouselRef.current.parentElement || carouselRef.current,
       );
     }
 

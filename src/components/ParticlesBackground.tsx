@@ -132,7 +132,7 @@ const N = 17000;
 const DIFFUSION = 0.055; // Brownian motion — breaks up streams
 const DAMPING = 0.968; // higher = slower decay, smoother drift
 const CURL_FORCE = 5;
-const MOUSE_R = 150;
+const MOUSE_R = 70;
 
 const createSprite = (): THREE.Texture => {
   const sz = 64;
@@ -254,7 +254,7 @@ const ParticlesBackground = () => {
         const d2 = dx * dx + dy * dy;
         if (d2 < MOUSE_R * MOUSE_R && d2 > 1) {
           const inv = 1 / Math.sqrt(d2);
-          const str = ((MOUSE_R - Math.sqrt(d2)) / MOUSE_R) * 0.55;
+          const str = ((MOUSE_R - Math.sqrt(d2)) / MOUSE_R) * 0.38;
           vel[xi] += dx * inv * str;
           vel[yi] += dy * inv * str;
         }
