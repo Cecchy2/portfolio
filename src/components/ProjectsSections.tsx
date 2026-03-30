@@ -26,7 +26,7 @@ const PROJECTS = [
     name: "Ristonic",
     logo: "/projects/logoIcon.png",
     image: "/projects/Ristonic.png",
-    link: "https://www.ristonic.com/home",
+    link: "https://ristonic.com/home",
     desc: "Piattaforma HO.RE.CA che collega chi cerca lavoro e chi cerca personale nel settore della ristorazione.",
     tags: ["React", "TypeScript", "Spring Boot", "PostgreSQL"],
     cardClass: "proj-ristonic",
@@ -53,8 +53,16 @@ const PROJECTS = [
 
 type Project = (typeof PROJECTS)[number];
 
-const ProjectCard = ({ project, reversed }: { project: Project; reversed: boolean }) => (
-  <div className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}>
+const ProjectCard = ({
+  project,
+  reversed,
+}: {
+  project: Project;
+  reversed: boolean;
+}) => (
+  <div
+    className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}
+  >
     {/* Image */}
     <div className="proj-card-img-side">
       <img
@@ -85,7 +93,9 @@ const ProjectCard = ({ project, reversed }: { project: Project; reversed: boolea
 
       <div className="proj-card-tags">
         {project.tags.map((t) => (
-          <span key={t} className="proj-card-tag">{t}</span>
+          <span key={t} className="proj-card-tag">
+            {t}
+          </span>
         ))}
       </div>
 
@@ -102,13 +112,12 @@ const ProjectCard = ({ project, reversed }: { project: Project; reversed: boolea
 );
 
 const ProjectsSections = () => {
-  const ref      = useSectionObserver("sicilyFresh", 0.2);
+  const ref = useSectionObserver("sicilyFresh", 0.2);
   const revealRef = useScrollReveal({ threshold: 0.05 });
 
   return (
     <div id="sicilyFresh" ref={ref}>
       <div ref={revealRef} className="proj-section-wrapper">
-
         {/* Header */}
         <div className="proj-header">
           <p className="proj-eyebrow">Portfolio</p>
@@ -122,7 +131,6 @@ const ProjectsSections = () => {
             <ProjectCard key={p.name} project={p} reversed={i % 2 !== 0} />
           ))}
         </div>
-
       </div>
     </div>
   );
