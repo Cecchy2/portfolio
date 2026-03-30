@@ -6,9 +6,7 @@ const Ristonic = () => {
           <img
             src="/projects/Ristonic.png"
             className="sicilyFreshImg rounded-xl"
-            onClick={() =>
-              window.open("https://www.ristonic.com/home", "_blank")
-            }
+            onClick={() => window.open("https://ristonic.com/home", "_blank")}
             style={{
               cursor: "pointer",
               width: "100%",
