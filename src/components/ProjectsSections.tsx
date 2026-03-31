@@ -8,8 +8,8 @@ const PROJECTS = [
     logo: "/projects/BAIETTAWHITE.png",
     image: "/projects/LaBaiettaImage.png",
     link: "http://la-baietta.duckdns.org:8081/",
-    desc: "Il mio capstone FullStack per Epicode. Piattaforma per sfogliare ricette siciliane, aggiungerle al carrello e completare ordini.",
-    tags: ["React", "FastApi", "Python", "PostgreSQL", "Docker"],
+    desc: "Piattaforma completa, sito vetrina con sezione gallery, news, gestione prenotazione e pagamento",
+    tags: ["React", "FastApi", "Python", "PostgreSQL", "Docker", "Stripe"],
     cardClass: "proj-sicilyFresh",
   },
   {
