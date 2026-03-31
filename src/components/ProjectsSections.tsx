@@ -4,12 +4,12 @@ import { FiExternalLink } from "react-icons/fi";
 
 const PROJECTS = [
   {
-    name: "Sicily Fresh",
-    logo: "/projects/limoni.svg",
-    image: "/projects/SicilyFresh.png",
-    link: "http://sicilyfresh.duckdns.org:8088/",
+    name: "La Baietta",
+    logo: "/projects/BAIETTAWHITE.png",
+    image: "/projects/LaBaiettaImage.png",
+    link: "http://la-baietta.duckdns.org:8081/",
     desc: "Il mio capstone FullStack per Epicode. Piattaforma per sfogliare ricette siciliane, aggiungerle al carrello e completare ordini.",
-    tags: ["React", "Spring Boot", "PostgreSQL", "Docker"],
+    tags: ["React", "FastApi", "Python", "PostgreSQL", "Docker"],
     cardClass: "proj-sicilyFresh",
   },
   {
@@ -31,6 +31,16 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Spring Boot", "PostgreSQL"],
     cardClass: "proj-ristonic",
   },
+  {
+    name: "Sicily Fresh",
+    logo: "/projects/limoni.svg",
+    image: "/projects/SicilyFresh.png",
+    link: "http://sicilyfresh.duckdns.org:8088/",
+    desc: "Il mio capstone FullStack per Epicode. Piattaforma per sfogliare ricette siciliane, aggiungerle al carrello e completare ordini.",
+    tags: ["React", "Spring Boot", "PostgreSQL", "Docker"],
+    cardClass: "proj-sicilyFresh",
+  },
+
   {
     name: "Tech Quiz Game",
     logo: null,
