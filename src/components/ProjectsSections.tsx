@@ -4,12 +4,12 @@ import { FiExternalLink } from "react-icons/fi";
 
 const PROJECTS = [
   {
-    name: "Sicily Fresh",
-    logo: "/projects/limoni.svg",
-    image: "/projects/SicilyFresh.png",
-    link: "http://sicilyfresh.duckdns.org:8088/",
+    name: "La Baietta",
+    logo: "/projects/BAIETTAWHITE.png",
+    image: "/projects/LaBaiettaImage.png",
+    link: "http://la-baietta.duckdns.org:8081/",
     desc: "Il mio capstone FullStack per Epicode. Piattaforma per sfogliare ricette siciliane, aggiungerle al carrello e completare ordini.",
-    tags: ["React", "Spring Boot", "PostgreSQL", "Docker"],
+    tags: ["React", "FastApi", "Python", "PostgreSQL", "Docker"],
     cardClass: "proj-sicilyFresh",
   },
   {
@@ -32,6 +32,16 @@ const PROJECTS = [
     cardClass: "proj-ristonic",
   },
   {
+    name: "Sicily Fresh",
+    logo: "/projects/limoni.svg",
+    image: "/projects/SicilyFresh.png",
+    link: "http://sicilyfresh.duckdns.org:8088/",
+    desc: "Il mio capstone FullStack per Epicode. Piattaforma per sfogliare ricette siciliane, aggiungerle al carrello e completare ordini.",
+    tags: ["React", "Spring Boot", "PostgreSQL", "Docker"],
+    cardClass: "proj-sicilyFresh",
+  },
+
+  {
     name: "Tech Quiz Game",
     logo: null,
     image: "/projects/TechQuiz.png",
@@ -53,8 +63,16 @@ const PROJECTS = [
 
 type Project = (typeof PROJECTS)[number];
 
-const ProjectCard = ({ project, reversed }: { project: Project; reversed: boolean }) => (
-  <div className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}>
+const ProjectCard = ({
+  project,
+  reversed,
+}: {
+  project: Project;
+  reversed: boolean;
+}) => (
+  <div
+    className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}
+  >
     {/* Image */}
     <div className="proj-card-img-side">
       <img
@@ -85,7 +103,9 @@ const ProjectCard = ({ project, reversed }: { project: Project; reversed: boolea
 
       <div className="proj-card-tags">
         {project.tags.map((t) => (
-          <span key={t} className="proj-card-tag">{t}</span>
+          <span key={t} className="proj-card-tag">
+            {t}
+          </span>
         ))}
       </div>
 
@@ -102,13 +122,12 @@ const ProjectCard = ({ project, reversed }: { project: Project; reversed: boolea
 );
 
 const ProjectsSections = () => {
-  const ref      = useSectionObserver("sicilyFresh", 0.2);
+  const ref = useSectionObserver("sicilyFresh", 0.2);
   const revealRef = useScrollReveal({ threshold: 0.05 });
 
   return (
     <div id="sicilyFresh" ref={ref}>
       <div ref={revealRef} className="proj-section-wrapper">
-
         {/* Header */}
         <div className="proj-header">
           <p className="proj-eyebrow">Portfolio</p>
@@ -122,7 +141,6 @@ const ProjectsSections = () => {
             <ProjectCard key={p.name} project={p} reversed={i % 2 !== 0} />
           ))}
         </div>
-
       </div>
     </div>
   );
