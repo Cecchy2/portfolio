@@ -7,7 +7,9 @@ const PROJECTS = [
     subtitle: "Piattaforma gestionale per scuola di wakeboard",
     logo: "/projects/BAIETTAWHITE.png",
     image: "/projects/LaBaiettaImage.png",
-    link: "http://la-baietta.duckdns.org:8081/",
+    link: "https://la-baietta.duckdns.org:8443/",
+    desc: "Piattaforma completa, sito vetrina con sezione gallery, news, gestione prenotazione e pagamento",
+
     context:
       "Piattaforma completa per una scuola di wakeboard: sito pubblico con gallery e news, sistema di prenotazione lezioni e corsi con pagamento integrato (Stripe) e control room amministrativa per la gestione di prenotazioni, calendario, contenuti e operativit\u00e0 quotidiana.",
     challenges: [
@@ -50,7 +52,19 @@ const PROJECTS = [
     ],
     results:
       "Flussi pi\u00f9 lineari e interfaccia pi\u00f9 consistente tra le due applicazioni. Componenti riusabili e struttura pi\u00f9 manutenibile.",
-    tags: ["React", "React Native", "TypeScript", "Redux", "Docker", "Firebase", "Tailwind", "Zod", "Jira", "Agile", "MySQL"],
+    tags: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Redux",
+      "Docker",
+      "Firebase",
+      "Tailwind",
+      "Zod",
+      "Jira",
+      "Agile",
+      "MySQL",
+    ],
     cta: "Hai una piattaforma o un prodotto digitale da costruire o far evolvere?",
     cardClass: "proj-smartwage",
   },
