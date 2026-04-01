@@ -7,7 +7,7 @@ const PROJECTS = [
     name: "La Baietta",
     logo: "/projects/BAIETTAWHITE.png",
     image: "/projects/LaBaiettaImage.png",
-    link: "http://la-baietta.duckdns.org:8081/",
+    link: "https://la-baietta.duckdns.org:8443/",
     desc: "Piattaforma completa, sito vetrina con sezione gallery, news, gestione prenotazione e pagamento",
     tags: ["React", "FastApi", "Python", "PostgreSQL", "Docker", "Stripe"],
     cardClass: "proj-sicilyFresh",
