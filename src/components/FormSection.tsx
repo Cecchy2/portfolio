@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { useSectionObserver } from "../hooks/useSectionObserver";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -10,37 +9,45 @@ const CONTACT_LINKS = [
   {
     icon: <MdEmail size={22} />,
     label: "Email",
-    value: "dariocecchinato@gmail.com",
     href: "mailto:dariocecchinato@gmail.com",
   },
   {
     icon: <FaLinkedin size={22} />,
     label: "LinkedIn",
-    value: "linkedin.com/in/cecchy2",
     href: "https://www.linkedin.com/in/cecchy2",
   },
   {
     icon: <FaGithub size={22} />,
     label: "GitHub",
-    value: "github.com/Cecchy2",
     href: "https://github.com/Cecchy2",
   },
 ];
 
+const SERVIZIO_OPTIONS = [
+  "",
+  "Sito web",
+  "Web app",
+  "Integrazione",
+  "Manutenzione",
+  "Altro",
+];
+
 const FormSection = () => {
-  const ref = useSectionObserver("formSection");
   const revealRef = useScrollReveal({ threshold: 0.05 });
 
   const [formValues, setFormValues] = useState({
     nome: "",
     cognome: "",
     email: "",
+    servizio: "",
     messaggio: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
@@ -49,24 +56,38 @@ const FormSection = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
+      const { servizio, messaggio, ...rest } = formValues;
+      const payload = {
+        ...rest,
+        messaggio: servizio
+          ? `[${servizio}] ${messaggio}`
+          : messaggio,
+      };
+
       const response = await fetch(
         "https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formValues),
+          body: JSON.stringify(payload),
         }
       );
 
       if (response.ok) {
         const data = await response.json();
         alert(data.message);
-        setFormValues({ nome: "", cognome: "", email: "", messaggio: "" });
+        setFormValues({
+          nome: "",
+          cognome: "",
+          email: "",
+          servizio: "",
+          messaggio: "",
+        });
       } else {
         const error = await response.json();
         alert(
           error.message ||
-            "Si è verificato un errore durante l'invio del messaggio."
+            "Si \u00e8 verificato un errore durante l'invio del messaggio."
         );
       }
     } catch {
@@ -77,22 +98,21 @@ const FormSection = () => {
   };
 
   return (
-    <div id="formSection" ref={ref}>
+    <div>
       <div ref={revealRef} className="contact-wrapper">
-
-        {/* Header */}
-        <div className="contact-header">
-          <p className="contact-eyebrow">Contatti</p>
-          <h2 className="contact-title">Parliamoci</h2>
-          <div className="contact-title-bar" />
+        <div className="section-header">
+          <p className="section-eyebrow">Contatti</p>
+          <h2 className="section-title">Parliamo del tuo progetto</h2>
+          <div className="section-title-bar" />
         </div>
 
         <div className="contact-body">
           {/* Left — info */}
           <div className="contact-info">
             <p className="contact-info-lead">
-              Hai un progetto in mente o vuoi semplicemente fare una chiacchierata?
-              Scrivimi, rispondo entro 24 ore.
+              Hai un&apos;idea da realizzare, un progetto da migliorare o un
+              problema da risolvere? Scrivimi, rispondo entro 24 ore con una
+              proposta concreta e i prossimi passi.
             </p>
 
             <div className="contact-links">
@@ -105,10 +125,7 @@ const FormSection = () => {
                   className="contact-link-card"
                 >
                   <span className="contact-link-icon">{c.icon}</span>
-                  <div className="contact-link-text">
-                    <span className="contact-link-label">{c.label}</span>
-                    <span className="contact-link-value">{c.value}</span>
-                  </div>
+                  <span className="contact-link-label">{c.label}</span>
                 </a>
               ))}
             </div>
@@ -157,6 +174,25 @@ const FormSection = () => {
             </div>
 
             <div className="contact-field">
+              <label htmlFor="servizio">Che cosa ti serve?</label>
+              <select
+                id="servizio"
+                name="servizio"
+                value={formValues.servizio}
+                onChange={handleChange}
+              >
+                <option value="" disabled>
+                  Seleziona un servizio...
+                </option>
+                {SERVIZIO_OPTIONS.filter(Boolean).map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="contact-field">
               <label htmlFor="messaggio">Messaggio</label>
               <textarea
                 id="messaggio"
@@ -169,11 +205,21 @@ const FormSection = () => {
               />
             </div>
 
-            <button type="submit" className="contact-submit" disabled={isLoading}>
+            <button
+              type="submit"
+              className="contact-submit"
+              disabled={isLoading}
+            >
               {isLoading ? (
                 <>
-                  <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
-                  {" "}Inviando...
+                  <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />{" "}
+                  Inviando...
                 </>
               ) : (
                 <>
@@ -183,7 +229,6 @@ const FormSection = () => {
             </button>
           </form>
         </div>
-
       </div>
     </div>
   );

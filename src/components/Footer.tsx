@@ -1,12 +1,13 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
-  { label: "Home",      href: "#home" },
-  { label: "Chi sono",  href: "#about-me" },
-  { label: "Skills",    href: "#skills" },
-  { label: "Progetti",  href: "#sicilyFresh" },
-  { label: "Contatti",  href: "#formSection" },
+  { label: "Home",        to: "/" },
+  { label: "Casi Studio", to: "/casi-studio" },
+  { label: "Chi Sono",    to: "/chi-sono" },
+  { label: "FAQ",         to: "/faq" },
+  { label: "Contatti",    to: "/contatti" },
 ];
 
 const Footer = () => (
@@ -16,7 +17,7 @@ const Footer = () => (
       {/* Brand col */}
       <div className="footer-brand">
         <span className="footer-name">Dario Cecchinato</span>
-        <span className="footer-role">Front-end Developer</span>
+        <span className="footer-role">Sviluppo soluzioni web su misura</span>
         <div className="footer-socials">
           <a href="mailto:dariocecchinato@gmail.com" className="footer-social-link" aria-label="Email">
             <MdEmail size={20} />
@@ -34,7 +35,14 @@ const Footer = () => (
       <nav className="footer-nav">
         <span className="footer-col-label">Navigazione</span>
         {NAV_LINKS.map((l) => (
-          <a key={l.label} href={l.href} className="footer-nav-link">{l.label}</a>
+          <Link
+            key={l.label}
+            to={l.to}
+            className="footer-nav-link"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            {l.label}
+          </Link>
         ))}
       </nav>
 
@@ -44,14 +52,15 @@ const Footer = () => (
         <span className="footer-stack-item">React &amp; TypeScript</span>
         <span className="footer-stack-item">Spring Boot</span>
         <span className="footer-stack-item">Three.js</span>
-        <span className="footer-stack-item">Vite · Koyeb · Netlify</span>
+        <span className="footer-stack-item">Vite &middot; Koyeb &middot; Netlify</span>
       </div>
 
     </div>
 
     {/* Bottom bar */}
     <div className="footer-bottom">
-      <span>© 2025 Dario Cecchinato. Tutti i diritti riservati.</span>
+      <span>&copy; 2026 Dario Cecchinato &mdash; Sviluppo soluzioni web su misura</span>
+      <span className="footer-bottom-sub">Siti, web app e integrazioni: chiarezza, affidabilit&agrave;, risultati.</span>
     </div>
   </footer>
 );

@@ -1,13 +1,28 @@
 import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { useActiveSection } from "../context/ActiveSectionContext";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const NAV_ITEMS = [
+  { label: "HOME", path: "/" },
+  { label: "CASI STUDIO", path: "/casi-studio" },
+  { label: "CHI SONO", path: "/chi-sono" },
+  { label: "FAQ", path: "/faq" },
+  { label: "CONTATTI", path: "/contatti" },
+];
 
 const MyNavBar = () => {
   const [expanded, setExpanded] = useState(false);
-  const { activeSection } = useActiveSection();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleToggle = () => setExpanded(!expanded);
   const handleClose = () => setExpanded(false);
+
+  const handleNav = (path: string) => {
+    handleClose();
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <Navbar
@@ -18,47 +33,28 @@ const MyNavBar = () => {
       style={{ zIndex: 99999 }}
     >
       <Container>
+        <Navbar.Brand
+          className="navbar-brand-custom"
+          role="button"
+          onClick={() => handleNav("/")}
+        >
+          DC
+        </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           onClick={handleToggle}
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto nav-links">
-            <Nav.Link
-              href="#home"
-              onClick={handleClose}
-              active={activeSection === "home"}
-            >
-              HOME
-            </Nav.Link>
-            <Nav.Link
-              href="#about-me"
-              onClick={handleClose}
-              active={activeSection === "about-me"}
-            >
-              CHI SONO
-            </Nav.Link>
-            <Nav.Link
-              href="#skills"
-              onClick={handleClose}
-              active={activeSection === "skills"}
-            >
-              SKILLS
-            </Nav.Link>
-            <Nav.Link
-              href="#sicilyFresh"
-              onClick={handleClose}
-              active={activeSection === "sicilyFresh"}
-            >
-              PROGETTI
-            </Nav.Link>
-            <Nav.Link
-              href="#formSection"
-              onClick={handleClose}
-              active={activeSection === "formSection"}
-            >
-              CONTATTAMI
-            </Nav.Link>
+            {NAV_ITEMS.map((item) => (
+              <Nav.Link
+                key={item.path}
+                onClick={() => handleNav(item.path)}
+                active={location.pathname === item.path}
+              >
+                {item.label}
+              </Nav.Link>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>
