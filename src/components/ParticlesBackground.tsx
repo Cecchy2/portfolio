@@ -128,7 +128,7 @@ function hsl(h: number, s: number, l: number): [number, number, number] {
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
-const N = 17000;
+const N = 30000;
 const DIFFUSION = 0.055; // Brownian motion — breaks up streams
 const DAMPING = 0.968; // higher = slower decay, smoother drift
 const CURL_FORCE = 5;

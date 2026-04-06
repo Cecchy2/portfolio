@@ -32,10 +32,19 @@ const AboutMe = () => {
           </p>
         </div>
 
-        <div className="chisono-tech">
-          <p className="chisono-tech-label">Tecnologie principali</p>
-          <CorouselLoghi />
+        <p className="chisono-tech-label">Tecnologie principali</p>
+        <div className="chisono-tech-list">
+          Html5 | Css | Javascript | Typescript | Vite | React | Redux |
+          Three.js | Tailwind | Bootstrap | Figma | Firebase | Sass | npm |
+          Java | Spring | Sql | Hibernate | PostgreSql | Docker | Git | GitHub
+          | BitBucket | VsCode | IntelliJ
         </div>
+      </div>
+
+      {/* Carousel full-width, fuori dal contenitore centrato */}
+      <div className="chisono-carousels">
+        <CorouselLoghi direction="left" />
+        <CorouselLoghi direction="right" />
       </div>
     </div>
   );
