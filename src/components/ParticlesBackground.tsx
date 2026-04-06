@@ -216,14 +216,65 @@ const ParticlesBackground = () => {
     };
     window.addEventListener("mousemove", onMouseMove);
 
+    // Scroll explosion state — fires only once
+    let hasExploded = false;
+    let explosionEnergy = 0;
+    let explosionFlash = 0;
+    let postExplosion = false; // after explosion settles, keep center clear
+
+    const onScroll = () => {
+      if (hasExploded) return;
+      if (window.scrollY > 10) {
+        hasExploded = true;
+        explosionEnergy = 30;
+        explosionFlash = 1;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Reset to pre-explosion state when navigating back to home
+    const onReset = () => {
+      hasExploded = false;
+      postExplosion = false;
+      explosionEnergy = 0;
+      explosionFlash = 0;
+      activeCount = N;
+      // Re-scatter all particles uniformly
+      for (let i = 0; i < N; i++) {
+        pos[i * 3 + 0] = (Math.random() - 0.5) * sx;
+        pos[i * 3 + 1] = (Math.random() - 0.5) * sy;
+        pos[i * 3 + 2] = (Math.random() - 0.5) * sz;
+        vel[i * 3 + 0] = (Math.random() - 0.5) * 0.12;
+        vel[i * 3 + 1] = (Math.random() - 0.5) * 0.12;
+      }
+    };
+    window.addEventListener("particles-reset", onReset);
+
     let raf: number,
       t = 0,
-      tc = 0; // separate faster clock for colour cycling
+      tc = 0, // separate faster clock for colour cycling
+      activeCount = N;
 
     const animate = () => {
       raf = requestAnimationFrame(animate);
       t += 0.003; // slow: drives curl field (movement)
       tc += 0.003; // colour clock: ~5s per full hue rotation at 60fps
+
+      // Decay explosion energy
+      explosionEnergy *= 0.94;
+      explosionFlash *= 0.92;
+      if (hasExploded && explosionEnergy < 0.3 && !postExplosion) {
+        postExplosion = true;
+        // Hide half the particles by pushing them far off-screen
+        for (let i = Math.floor(N / 2); i < N; i++) {
+          pos[i * 3] = 99999;
+          pos[i * 3 + 1] = 99999;
+          pos[i * 3 + 2] = 99999;
+          vel[i * 3] = 0;
+          vel[i * 3 + 1] = 0;
+        }
+        activeCount = Math.floor(N / 2);
+      }
 
       // Re-compute flow field grid once per frame
       updateGrid(perlin, t, sx, sy);
@@ -232,7 +283,7 @@ const ParticlesBackground = () => {
         hy = sy / 2,
         hz = sz / 2;
 
-      for (let i = 0; i < N; i++) {
+      for (let i = 0; i < activeCount; i++) {
         const xi = i * 3,
           yi = i * 3 + 1,
           zi = i * 3 + 2;
@@ -247,6 +298,29 @@ const ParticlesBackground = () => {
         // Diffusion — Brownian motion prevents clustering / stripes
         vel[xi] += (Math.random() - 0.5) * DIFFUSION;
         vel[yi] += (Math.random() - 0.5) * DIFFUSION;
+
+        // Scroll explosion — radial burst from center with spin
+        if (explosionEnergy > 0.5) {
+          const edx = px;
+          const edy = py;
+          const dist = Math.sqrt(edx * edx + edy * edy) + 1;
+          const force = explosionEnergy * 0.15;
+          vel[xi] += (edx / dist) * force + (-edy / dist) * force * 0.3;
+          vel[yi] += (edy / dist) * force + (edx / dist) * force * 0.3;
+        }
+
+        // Post-explosion: gentle persistent repulsion from center
+        if (postExplosion) {
+          const edx = px;
+          const edy = py;
+          const dist = Math.sqrt(edx * edx + edy * edy) + 1;
+          const centerR = Math.min(sx, sy) * 0.3;
+          if (dist < centerR) {
+            const push = ((centerR - dist) / centerR) * 0.07;
+            vel[xi] += (edx / dist) * push;
+            vel[yi] += (edy / dist) * push;
+          }
+        }
 
         // Mouse repulsion
         const dx = px - mouse.x,
@@ -276,12 +350,15 @@ const ParticlesBackground = () => {
         const dist = Math.min(1, Math.hypot(px, py) / (sx * 0.42));
         const hue = (baseHue[i] + tc) % 1;
         const sat = 0.75 + dist * 0.2;
-        const lig = 0.58 - dist * 0.1;
+        const lig = 0.58 - dist * 0.1 + explosionFlash * 0.25;
         const [r, g, b] = hsl(hue, sat, lig);
         colors[xi] = r;
         colors[yi] = g;
         colors[zi] = b;
       }
+
+      // Flash: boost opacity during explosion
+      mat.opacity = 0.65 + explosionFlash * 0.2;
 
       geo.attributes.position.needsUpdate = true;
       geo.attributes.color.needsUpdate = true;
@@ -302,6 +379,8 @@ const ParticlesBackground = () => {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("particles-reset", onReset);
       window.removeEventListener("resize", onResize);
       renderer.dispose();
       geo.dispose();

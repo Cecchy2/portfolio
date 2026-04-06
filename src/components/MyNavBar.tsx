@@ -22,6 +22,9 @@ const MyNavBar = () => {
     handleClose();
     navigate(path);
     window.scrollTo(0, 0);
+    if (path === "/") {
+      window.dispatchEvent(new CustomEvent("particles-reset"));
+    }
   };
 
   return (
