@@ -20,6 +20,17 @@
       name="keywords"
       content="Dario Cecchinato, sviluppo web, siti web su misura, web app, integrazioni API, React, Spring Boot"
     />
+    <!-- Google Analytics 4 — consent mode: denied by default (GDPR) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F6TK7RYRQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-7F6TK7RYRQ');
+    </script>
   </head>
   <body>
     <div id="root"></div>

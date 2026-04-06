@@ -9,6 +9,9 @@ import ProjectsSections from "./components/ProjectsSections";
 import AboutMe from "./components/AboutMe";
 import FAQSection from "./components/FAQSection";
 import FormSection from "./components/FormSection";
+import CookiePolicy from "./components/CookiePolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import CookieBanner from "./components/CookieBanner";
 
 function App() {
   return (
@@ -21,7 +24,10 @@ function App() {
         <Route path="/chi-sono" element={<PageWrapper><AboutMe /></PageWrapper>} />
         <Route path="/faq" element={<PageWrapper><FAQSection /></PageWrapper>} />
         <Route path="/contatti" element={<PageWrapper><FormSection /></PageWrapper>} />
+        <Route path="/cookie-policy" element={<PageWrapper><CookiePolicy /></PageWrapper>} />
+        <Route path="/privacy-policy" element={<PageWrapper><PrivacyPolicy /></PageWrapper>} />
       </Routes>
+      <CookieBanner />
     </BrowserRouter>
   );
 }

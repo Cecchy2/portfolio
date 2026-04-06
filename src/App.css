@@ -1526,3 +1526,139 @@ body {
     height: 200px;
   }
 }
+
+/* ── Cookie Banner ────────────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  background: rgba(10, 14, 28, 0.95);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cookie-banner-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.cookie-banner-link {
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 0.5rem 1.4rem;
+  border-radius: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.cookie-btn:hover {
+  opacity: 0.85;
+}
+
+.cookie-btn-accept {
+  background: #f59e0b;
+  color: #06080f;
+}
+
+.cookie-btn-reject {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ── Legal pages (Cookie Policy, Privacy Policy) ──────────── */
+.legal-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.legal-content h3 {
+  color: #f59e0b;
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.legal-content p,
+.legal-content li {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.legal-content ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.legal-content li {
+  margin-bottom: 0.3rem;
+}
+
+.legal-link {
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
+.legal-link:hover {
+  color: #fbbf24;
+}
+
+/* ── Footer legal links ───────────────────────────────────── */
+.footer-legal {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.footer-legal-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal-link:hover {
+  color: #f59e0b;
+}
+
+.footer-legal-sep {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 576px) {
+  .cookie-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 1.2rem;
+  }
+  .cookie-banner-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}

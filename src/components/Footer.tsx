@@ -61,6 +61,15 @@ const Footer = () => (
     <div className="footer-bottom">
       <span>&copy; 2026 Dario Cecchinato &mdash; Sviluppo soluzioni web su misura</span>
       <span className="footer-bottom-sub">Siti, web app e integrazioni: chiarezza, affidabilit&agrave;, risultati.</span>
+      <div className="footer-legal">
+        <Link to="/privacy-policy" className="footer-legal-link" onClick={() => window.scrollTo(0, 0)}>
+          Privacy Policy
+        </Link>
+        <span className="footer-legal-sep">&middot;</span>
+        <Link to="/cookie-policy" className="footer-legal-link" onClick={() => window.scrollTo(0, 0)}>
+          Cookie Policy
+        </Link>
+      </div>
     </div>
   </footer>
 );
