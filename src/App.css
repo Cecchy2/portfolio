@@ -1523,6 +1523,10 @@ body {
   }
 
   .proj-card-img {
+    object-position: left center;
+  }
+
+  .proj-card-img {
     height: 200px;
   }
 }
