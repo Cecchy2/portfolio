@@ -50,7 +50,19 @@ const PROJECTS = [
     ],
     results:
       "Flussi pi\u00f9 lineari e interfaccia pi\u00f9 consistente tra le due applicazioni. Componenti riusabili e struttura pi\u00f9 manutenibile.",
-    tags: ["React", "React Native", "TypeScript", "Redux", "Docker", "Firebase", "Tailwind", "Zod", "Jira", "Agile", "MySQL"],
+    tags: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Redux",
+      "Docker",
+      "Firebase",
+      "Tailwind",
+      "Zod",
+      "Jira",
+      "Agile",
+      "MySQL",
+    ],
     cta: "Hai una piattaforma o un prodotto digitale da costruire o far evolvere?",
     cardClass: "proj-smartwage",
   },
@@ -200,7 +212,7 @@ const ProjectsSections = () => {
     <div>
       <div ref={revealRef} className="proj-section-wrapper">
         <div className="section-header">
-          <p className="section-eyebrow">Case Study</p>
+          <p className="section-eyebrow">Case Studies</p>
           <h2 className="section-title">Progetti reali, risultati concreti</h2>
           <div className="section-title-bar" />
         </div>
