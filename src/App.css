@@ -102,24 +102,60 @@ body {
 }
 
 @keyframes dynamicBorder {
-  0%   { border-radius: 62% 47% 54% 61% / 44% 58% 42% 57%; }
-  6%   { border-radius: 71% 38% 62% 44% / 55% 67% 38% 50%; }
-  12%  { border-radius: 58% 62% 38% 71% / 62% 44% 58% 46%; }
-  18%  { border-radius: 44% 72% 56% 38% / 70% 36% 68% 42%; }
-  24%  { border-radius: 36% 64% 72% 44% / 58% 72% 34% 62%; }
-  30%  { border-radius: 65% 40% 48% 66% / 38% 64% 56% 48%; }
-  36%  { border-radius: 52% 68% 36% 64% / 68% 44% 62% 40%; }
-  42%  { border-radius: 40% 58% 66% 42% / 54% 68% 42% 66%; }
-  48%  { border-radius: 68% 44% 52% 58% / 42% 56% 68% 44%; }
-  54%  { border-radius: 56% 72% 40% 62% / 66% 42% 58% 52%; }
-  60%  { border-radius: 44% 60% 68% 36% / 48% 72% 44% 64%; }
-  66%  { border-radius: 72% 36% 56% 50% / 60% 48% 70% 40%; }
-  72%  { border-radius: 50% 66% 44% 68% / 36% 62% 52% 70%; }
-  78%  { border-radius: 64% 50% 60% 40% / 58% 44% 66% 54%; }
-  84%  { border-radius: 38% 72% 48% 56% / 70% 54% 44% 58%; }
-  90%  { border-radius: 58% 44% 68% 48% / 46% 68% 54% 44%; }
-  96%  { border-radius: 66% 52% 44% 62% / 52% 60% 46% 56%; }
-  100% { border-radius: 62% 47% 54% 61% / 44% 58% 42% 57%; }
+  0% {
+    border-radius: 62% 47% 54% 61% / 44% 58% 42% 57%;
+  }
+  6% {
+    border-radius: 71% 38% 62% 44% / 55% 67% 38% 50%;
+  }
+  12% {
+    border-radius: 58% 62% 38% 71% / 62% 44% 58% 46%;
+  }
+  18% {
+    border-radius: 44% 72% 56% 38% / 70% 36% 68% 42%;
+  }
+  24% {
+    border-radius: 36% 64% 72% 44% / 58% 72% 34% 62%;
+  }
+  30% {
+    border-radius: 65% 40% 48% 66% / 38% 64% 56% 48%;
+  }
+  36% {
+    border-radius: 52% 68% 36% 64% / 68% 44% 62% 40%;
+  }
+  42% {
+    border-radius: 40% 58% 66% 42% / 54% 68% 42% 66%;
+  }
+  48% {
+    border-radius: 68% 44% 52% 58% / 42% 56% 68% 44%;
+  }
+  54% {
+    border-radius: 56% 72% 40% 62% / 66% 42% 58% 52%;
+  }
+  60% {
+    border-radius: 44% 60% 68% 36% / 48% 72% 44% 64%;
+  }
+  66% {
+    border-radius: 72% 36% 56% 50% / 60% 48% 70% 40%;
+  }
+  72% {
+    border-radius: 50% 66% 44% 68% / 36% 62% 52% 70%;
+  }
+  78% {
+    border-radius: 64% 50% 60% 40% / 58% 44% 66% 54%;
+  }
+  84% {
+    border-radius: 38% 72% 48% 56% / 70% 54% 44% 58%;
+  }
+  90% {
+    border-radius: 58% 44% 68% 48% / 46% 68% 54% 44%;
+  }
+  96% {
+    border-radius: 66% 52% 44% 62% / 52% 60% 46% 56%;
+  }
+  100% {
+    border-radius: 62% 47% 54% 61% / 44% 58% 42% 57%;
+  }
 }
 
 /* =============================================
@@ -175,7 +211,9 @@ body {
   border-radius: 1.2rem;
   padding: 1.5rem 1.2rem;
   text-align: left;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hero-usecase-card:hover {
@@ -285,7 +323,9 @@ body {
   border: 1px solid rgba(245, 158, 11, 0.25);
   border-radius: 1.5rem;
   padding: 2rem 1.5rem;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .servizi-card:hover {
@@ -325,6 +365,7 @@ body {
 
 .servizi-cta {
   text-align: center;
+  margin-top: 50px;
 }
 
 .cta-button {
@@ -336,7 +377,9 @@ body {
   font-size: 1rem;
   border-radius: 0.75rem;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
@@ -482,7 +525,8 @@ body {
 }
 
 .faq-accordion .accordion-button::after {
-  filter: brightness(0) saturate(100%) invert(68%) sepia(63%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(68%) sepia(63%) saturate(600%)
+    hue-rotate(5deg) brightness(100%) contrast(96%);
 }
 
 .faq-accordion .accordion-body {
@@ -997,7 +1041,10 @@ body {
   border-radius: 0.75rem;
   text-decoration: none;
   color: inherit;
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
 }
 
 .contact-link-card:hover {
@@ -1063,7 +1110,10 @@ body {
   color: #ffffff;
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
   resize: vertical;
   font-family: inherit;
 }
@@ -1094,7 +1144,10 @@ body {
   border: none;
   border-radius: 0.6rem;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
   margin-top: 0.4rem;
   font-family: inherit;
 }
@@ -1179,7 +1232,10 @@ body {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.7);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .footer-social-link:hover {
@@ -1211,7 +1267,9 @@ body {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
 }
 
 .footer-nav-link:hover {
@@ -1330,7 +1388,9 @@ body {
   padding: 2rem;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .proj-card:hover {
@@ -1506,10 +1566,18 @@ body {
 }
 
 /* Per-project accent borders */
-.proj-sicilyFresh  { border-left: 3px solid #f59e0b; }
-.proj-smartwage    { border-left: 3px solid #3b82f6; }
-.proj-ristonic     { border-left: 3px solid #10b981; }
-.proj-meteo        { border-left: 3px solid #06b6d4; }
+.proj-sicilyFresh {
+  border-left: 3px solid #f59e0b;
+}
+.proj-smartwage {
+  border-left: 3px solid #3b82f6;
+}
+.proj-ristonic {
+  border-left: 3px solid #10b981;
+}
+.proj-meteo {
+  border-left: 3px solid #06b6d4;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
