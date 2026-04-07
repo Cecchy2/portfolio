@@ -50,7 +50,7 @@ const PROJECTS = [
     ],
     results:
       "Flussi pi\u00f9 lineari e interfaccia pi\u00f9 consistente tra le due applicazioni. Componenti riusabili e struttura pi\u00f9 manutenibile.",
-    tags: ["React", "React Native", "Redux", "Spring Boot"],
+    tags: ["React", "React Native", "TypeScript", "Redux", "Docker", "Firebase", "Tailwind", "Zod", "Jira", "Agile", "MySQL"],
     cta: "Hai una piattaforma o un prodotto digitale da costruire o far evolvere?",
     cardClass: "proj-smartwage",
   },
@@ -74,7 +74,7 @@ const PROJECTS = [
     ],
     results:
       "Progetto in sviluppo \u2014 demo/preview disponibile su richiesta.",
-    tags: ["React", "TypeScript", "Spring Boot", "PostgreSQL"],
+    tags: ["React", "TypeScript", "Tailwind", "PostgreSQL"],
     cta: "Stai valutando un marketplace o una piattaforma con pi\u00f9 ruoli utente?",
     cardClass: "proj-ristonic",
   },

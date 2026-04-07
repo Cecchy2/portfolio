@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
@@ -34,6 +34,12 @@ const SERVIZIO_OPTIONS = [
 
 const FormSection = () => {
   const revealRef = useScrollReveal({ threshold: 0.05 });
+
+  useEffect(() => {
+    fetch("https://fellow-jyoti-cecchy-3c2d0121.koyeb.app/messaggi", {
+      method: "HEAD",
+    }).catch(() => {});
+  }, []);
 
   const [formValues, setFormValues] = useState({
     nome: "",
