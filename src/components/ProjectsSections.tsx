@@ -214,7 +214,7 @@ const ProjectsSections = () => {
     <div>
       <div ref={revealRef} className="proj-section-wrapper">
         <div className="section-header">
-          <p className="section-eyebrow">Case Study</p>
+          <p className="section-eyebrow">Case Studies</p>
           <h2 className="section-title">Progetti reali, risultati concreti</h2>
           <div className="section-title-bar" />
         </div>
