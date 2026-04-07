@@ -42,12 +42,13 @@ const FirstSection = () => {
           </Col>
 
           <h1 className="hero-name hero-headline">
-            Sviluppo soluzioni web su misura, chiare, efficaci ed affidabili.
+            Il tuo prossimo sito web lo costruisce qualcuno che capisce il tuo
+            business.
           </h1>
           <p className="hero-lead">
-            Trasformo idee e obiettivi in soluzioni digitali che funzionano:
-            siti web, web app e integrazioni, con un approccio concreto, tempi
-            chiari e comunicazione semplice.
+            Sono Dario. Sviluppo siti, web app e strumenti digitali per aziende
+            e professionisti. Con un background commerciale e un approccio
+            concreto: prima capisco cosa ti serve, poi lo costruisco.
           </p>
 
           <p className="hero-cue">Ecco quando posso esserti utile:</p>

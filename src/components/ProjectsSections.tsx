@@ -102,30 +102,6 @@ const PROJECTS = [
     cta: "Hai bisogno di un\u2019applicazione con flusso e-commerce?",
     cardClass: "proj-sicilyFresh",
   },
-  {
-    name: "Meteo",
-    subtitle: "App con integrazione API e ricerca citt\u00e0",
-    logo: null,
-    image: "/projects/Meteo.png",
-    link: "https://meteocecchy.netlify.app/",
-    context:
-      "Applicazione API-driven con ricerca e previsioni. Dimostra competenze utili in progetti reali: integrazione servizi esterni, gestione errori e UX reattiva ai dati.",
-    challenges: [
-      "Integrazione robusta con API esterne",
-      "Gestione di tutti gli stati UI (caricamento, errore, successo)",
-      "Interfaccia reattiva e piacevole da usare",
-    ],
-    contributions: [
-      "Integrazione con API esterne (OpenWeather)",
-      "Gestione stati (caricamento, errore, successo)",
-      "Interfaccia di ricerca e visualizzazione dati",
-    ],
-    results:
-      "App funzionale e reattiva, ottimo esempio di gestione dati esterni e UX basata su stati.",
-    tags: ["JavaScript", "OpenWeather API", "CSS"],
-    cta: "Ti serve un\u2019applicazione che integri servizi esterni?",
-    cardClass: "proj-meteo",
-  },
 ];
 
 type Project = (typeof PROJECTS)[number];

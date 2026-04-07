@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const STEPS = [
@@ -45,6 +46,13 @@ const MetodoSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="servizi-cta">
+          <p className="metodo-cta-text">Hai un progetto in mente?</p>
+          <Link to="/contatti" className="cta-button">
+            Partiamo dalla prima call
+          </Link>
         </div>
       </div>
     </div>

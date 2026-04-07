@@ -15,20 +15,18 @@ const AboutMe = () => {
 
         <div className="chisono-text">
           <p>
-            Sviluppo soluzioni web affidabili e sostenibili, progettate per
-            aiutare aziende e professionisti a creare reali opportunit&agrave;
-            commerciali e trasformare idee e progetti in risultati concreti.
+            Aiuto aziende e professionisti a trasformare le loro idee in siti e
+            applicazioni che funzionano — e che portano risultati.
           </p>
           <p>
-            Realizzo siti web, applicazioni e strumenti online su misura, e
-            intervengo anche su software gi&agrave; esistenti per migliorarne
-            funzionamento, prestazioni e affidabilit&agrave;.
+            Costruisco da zero e intervengo su progetti esistenti: bugfix,
+            performance, funzionalità nuove. Se il codice c&apos;è già, non
+            riscrivo tutto — miglioro quello che serve.
           </p>
           <p>
-            Grazie all&apos;esperienza maturata in ambito commerciale, affronto
-            lo sviluppo con una visione orientata al business, trasformando le
-            tecnologie in soluzioni concrete e utili per l&apos;attivit&agrave;
-            del cliente.
+            Vengo dal commerciale, non solo dal codice. Per questo quando lavoro
+            a un progetto parto sempre dalla domanda: cosa serve davvero al
+            business? La tecnologia viene dopo.
           </p>
         </div>
 

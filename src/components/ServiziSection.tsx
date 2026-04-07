@@ -6,7 +6,7 @@ const SERVIZI = [
   {
     icon: <FaGlobe size={28} />,
     title: "Siti web e landing page",
-    desc: "Siti e landing page veloci, responsive e orientati all\u2019azione: struttura chiara, contenuti organizzati, UX pulita e ottimizzazione base per performance e leggibilit\u00e0.",
+    desc: "Siti che spiegano bene cosa fai e portano chi li visita a contattarti. Veloci, chiari e facili da usare su qualsiasi dispositivo.",
     ideale: "Professionisti, attivit\u00e0 locali, PMI, servizi B2B.",
     output: "Homepage + pagine servizi + contatti + SEO base.",
   },
@@ -46,10 +46,9 @@ const ServiziSection = () => {
         </div>
 
         <p className="servizi-intro">
-          Sviluppo soluzioni web su misura, progettate per essere comprensibili,
-          affidabili e sostenibili nel tempo. Lavoro sia su progetti nuovi sia su
-          sistemi esistenti, selezionando di volta in volta l&apos;approccio
-          pi&ugrave; adatto in base a obiettivi, tempi e budget.
+          Lavoro su progetti nuovi e su sistemi già esistenti. Ogni progetto è
+          diverso — per questo parto sempre da cosa serve davvero, non da uno
+          schema fisso.
         </p>
 
         <div className="servizi-grid">
