@@ -1438,6 +1438,7 @@ body {
   transition: opacity 0.3s ease;
   border-radius: 0.75rem;
   color: #f59e0b;
+  pointer-events: none;
 }
 
 .proj-card-img-side:hover .proj-card-img-overlay {
@@ -1596,6 +1597,161 @@ body {
 
   .proj-card-img {
     height: 200px;
+  }
+}
+
+/* ── Screenshot Carousel Modal ────────────────────────────── */
+.shot-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(8, 11, 22, 0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: shot-fade-in 0.2s ease-out;
+}
+
+@keyframes shot-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shot-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.shot-img {
+  max-width: min(1400px, 88vw);
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.shot-counter {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.shot-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.shot-close:hover {
+  background: rgba(245, 158, 11, 0.8);
+  transform: scale(1.05);
+}
+
+.shot-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.shot-nav:hover {
+  background: rgba(245, 158, 11, 0.8);
+}
+
+.shot-nav--prev {
+  left: 1.5rem;
+}
+
+.shot-nav--next {
+  right: 1.5rem;
+}
+
+.shot-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.shot-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.shot-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.shot-dot--active {
+  background: #f59e0b;
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .shot-modal {
+    padding: 1rem;
+  }
+  .shot-img {
+    max-width: 85vw;
+    max-height: 75vh;
+  }
+  .shot-nav {
+    width: 42px;
+    height: 42px;
+  }
+  .shot-nav--prev {
+    left: 0.5rem;
+  }
+  .shot-nav--next {
+    right: 0.5rem;
+  }
+  .shot-close {
+    top: 0.8rem;
+    right: 0.8rem;
   }
 }
 

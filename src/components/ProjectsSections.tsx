@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 
 const PROJECTS = [
   {
@@ -65,6 +66,13 @@ const PROJECTS = [
     ],
     cta: "Hai una piattaforma o un prodotto digitale da costruire o far evolvere?",
     cardClass: "proj-smartwage",
+    screenshots: [
+      "/projects/smartwage/home.png",
+      "/projects/smartwage/richieste.png",
+      "/projects/smartwage/carta.png",
+      "/projects/smartwage/analisi.png",
+      "/projects/smartwage/spese.png",
+    ],
   },
   {
     name: "Ristonic",
@@ -89,6 +97,20 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Tailwind", "PostgreSQL"],
     cta: "Stai valutando un marketplace o una piattaforma con pi\u00f9 ruoli utente?",
     cardClass: "proj-ristonic",
+    hideVisitButton: true,
+    screenshots: [
+      "/projects/ristonic/01-homepage.png",
+      "/projects/ristonic/02-home-worker.png",
+      "/projects/ristonic/03-cerca-turni.png",
+      "/projects/ristonic/04-profilo-worker.png",
+      "/projects/ristonic/05-candidature.png",
+      "/projects/ristonic/06-miei-turni.png",
+      "/projects/ristonic/07-home-datore.png",
+      "/projects/ristonic/08-profilo-datore.png",
+      "/projects/ristonic/09-pubblica-turno.png",
+      "/projects/ristonic/10-annunci.png",
+      "/projects/ristonic/11-ingaggi.png",
+    ],
   },
   {
     name: "Sicily Fresh",
@@ -121,20 +143,43 @@ type Project = (typeof PROJECTS)[number];
 const CaseStudyCard = ({
   project,
   reversed,
+  onOpenGallery,
 }: {
   project: Project;
   reversed: boolean;
-}) => (
+  onOpenGallery: (shots: string[]) => void;
+}) => {
+  const screenshots =
+    "screenshots" in project ? (project.screenshots as string[]) : undefined;
+  const handleImageClick = () => {
+    if (screenshots && screenshots.length > 0) {
+      onOpenGallery(screenshots);
+    } else {
+      window.open(project.link, "_blank");
+    }
+  };
+
+  return (
   <div
     className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}
   >
     {/* Image */}
-    <div className="proj-card-img-side">
+    <div
+      className="proj-card-img-side"
+      onClick={handleImageClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleImageClick();
+        }
+      }}
+    >
       <img
         src={project.image}
         alt={project.name}
         className="proj-card-img"
-        onClick={() => window.open(project.link, "_blank")}
       />
       <div className="proj-card-img-overlay">
         <FiExternalLink size={28} />
@@ -192,21 +237,109 @@ const CaseStudyCard = ({
 
       <div className="proj-card-bottom">
         <p className="proj-card-cta-text">{project.cta}</p>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="proj-card-link"
-        >
-          Visita il progetto <FiExternalLink size={13} />
-        </a>
+        {!("hideVisitButton" in project && project.hideVisitButton) && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="proj-card-link"
+          >
+            Visita il progetto <FiExternalLink size={13} />
+          </a>
+        )}
       </div>
     </div>
   </div>
-);
+  );
+};
+
+const ScreenshotCarousel = ({
+  shots,
+  onClose,
+}: {
+  shots: string[];
+  onClose: () => void;
+}) => {
+  const [index, setIndex] = useState(0);
+
+  const goPrev = () => setIndex((i) => (i - 1 + shots.length) % shots.length);
+  const goNext = () => setIndex((i) => (i + 1) % shots.length);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, []);
+
+  return (
+    <div className="shot-modal" onClick={onClose}>
+      <button
+        className="shot-close"
+        onClick={onClose}
+        aria-label="Chiudi"
+      >
+        <FiX size={28} />
+      </button>
+
+      <button
+        className="shot-nav shot-nav--prev"
+        onClick={(e) => {
+          e.stopPropagation();
+          goPrev();
+        }}
+        aria-label="Precedente"
+      >
+        <FiChevronLeft size={32} />
+      </button>
+
+      <div className="shot-stage" onClick={(e) => e.stopPropagation()}>
+        <img
+          src={shots[index]}
+          alt={`Screenshot ${index + 1}`}
+          className="shot-img"
+        />
+        <div className="shot-counter">
+          {index + 1} / {shots.length}
+        </div>
+      </div>
+
+      <button
+        className="shot-nav shot-nav--next"
+        onClick={(e) => {
+          e.stopPropagation();
+          goNext();
+        }}
+        aria-label="Successivo"
+      >
+        <FiChevronRight size={32} />
+      </button>
+
+      <div className="shot-dots" onClick={(e) => e.stopPropagation()}>
+        {shots.map((_, i) => (
+          <button
+            key={i}
+            className={`shot-dot${i === index ? " shot-dot--active" : ""}`}
+            onClick={() => setIndex(i)}
+            aria-label={`Vai a screenshot ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const ProjectsSections = () => {
   const revealRef = useScrollReveal({ threshold: 0.05 });
+  const [galleryShots, setGalleryShots] = useState<string[] | null>(null);
 
   return (
     <div>
@@ -219,10 +352,22 @@ const ProjectsSections = () => {
 
         <div className="proj-grid">
           {PROJECTS.map((p, i) => (
-            <CaseStudyCard key={p.name} project={p} reversed={i % 2 !== 0} />
+            <CaseStudyCard
+              key={p.name}
+              project={p}
+              reversed={i % 2 !== 0}
+              onOpenGallery={setGalleryShots}
+            />
           ))}
         </div>
       </div>
+
+      {galleryShots && (
+        <ScreenshotCarousel
+          shots={galleryShots}
+          onClose={() => setGalleryShots(null)}
+        />
+      )}
     </div>
   );
 };
