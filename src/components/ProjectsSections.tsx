@@ -81,7 +81,7 @@ const PROJECTS = [
     subtitle: "Piattaforma di matching lavoro HO.RE.CA",
     logo: "/projects/logoIcon.png",
     image: "/projects/Ristonic.png",
-    link: "https://ristonic.com/home",
+    link: "https://www.ristonic.com",
     context:
       "Piattaforma che connette chi cerca lavoro e chi cerca personale nel settore HO.RE.CA. Obiettivo: costruire un prodotto con flussi chiari per i due profili (candidato/azienda) e fondamenta solide per crescere nel tempo.",
     challenges: [
@@ -99,7 +99,6 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Tailwind", "PostgreSQL"],
     cta: "Stai valutando un marketplace o una piattaforma con pi\u00f9 ruoli utente?",
     cardClass: "proj-ristonic",
-    hideVisitButton: true,
     screenshots: [
       "/projects/ristonic/01-homepage.png",
       "/projects/ristonic/02-home-worker.png",
