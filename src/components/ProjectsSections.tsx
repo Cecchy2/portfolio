@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import { FiExternalLink, FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
+import {
+  FiExternalLink,
+  FiChevronLeft,
+  FiChevronRight,
+  FiX,
+} from "react-icons/fi";
 
 const PROJECTS = [
   {
@@ -8,7 +13,7 @@ const PROJECTS = [
     subtitle: "Piattaforma gestionale per scuola di wakeboard",
     logo: "/projects/BAIETTAWHITE.png",
     image: "/projects/LaBaiettaImage.png",
-    link: "https://la-baietta.duckdns.org:8443/",
+    link: "https://labaietta.it",
     desc: "Piattaforma completa, sito vetrina con sezione gallery, news, gestione prenotazione e pagamento",
 
     context:
@@ -161,96 +166,92 @@ const CaseStudyCard = ({
   };
 
   return (
-  <div
-    className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}
-  >
-    {/* Image */}
     <div
-      className="proj-card-img-side"
-      onClick={handleImageClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          handleImageClick();
-        }
-      }}
+      className={`proj-card ${project.cardClass}${reversed ? " proj-card--rev" : ""}`}
     >
-      <img
-        src={project.image}
-        alt={project.name}
-        className="proj-card-img"
-      />
-      <div className="proj-card-img-overlay">
-        <FiExternalLink size={28} />
-      </div>
-    </div>
-
-    {/* Info */}
-    <div className="proj-card-info">
-      <div className="proj-card-title-row">
-        {project.logo && (
-          <img
-            src={project.logo}
-            alt={`logo ${project.name}`}
-            className={`proj-card-logo ${"logoClass" in project && project.logoClass ? project.logoClass : ""}`}
-          />
-        )}
-        <div>
-          <h3 className="proj-card-name">{project.name}</h3>
-          <p className="proj-card-subtitle">{project.subtitle}</p>
+      {/* Image */}
+      <div
+        className="proj-card-img-side"
+        onClick={handleImageClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleImageClick();
+          }
+        }}
+      >
+        <img src={project.image} alt={project.name} className="proj-card-img" />
+        <div className="proj-card-img-overlay">
+          <FiExternalLink size={28} />
         </div>
       </div>
 
-      <p className="proj-card-desc">{project.context}</p>
+      {/* Info */}
+      <div className="proj-card-info">
+        <div className="proj-card-title-row">
+          {project.logo && (
+            <img
+              src={project.logo}
+              alt={`logo ${project.name}`}
+              className={`proj-card-logo ${"logoClass" in project && project.logoClass ? project.logoClass : ""}`}
+            />
+          )}
+          <div>
+            <h3 className="proj-card-name">{project.name}</h3>
+            <p className="proj-card-subtitle">{project.subtitle}</p>
+          </div>
+        </div>
 
-      <div className="proj-case-section">
-        <h4 className="proj-case-label">Sfide</h4>
-        <ul className="proj-case-list">
-          {project.challenges.map((c) => (
-            <li key={c}>{c}</li>
+        <p className="proj-card-desc">{project.context}</p>
+
+        <div className="proj-case-section">
+          <h4 className="proj-case-label">Sfide</h4>
+          <ul className="proj-case-list">
+            {project.challenges.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="proj-case-section">
+          <h4 className="proj-case-label">Contributo</h4>
+          <ul className="proj-case-list">
+            {project.contributions.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="proj-case-section">
+          <h4 className="proj-case-label">Risultato</h4>
+          <p className="proj-case-result">{project.results}</p>
+        </div>
+
+        <div className="proj-card-tags">
+          {project.tags.map((t) => (
+            <span key={t} className="proj-card-tag">
+              {t}
+            </span>
           ))}
-        </ul>
-      </div>
+        </div>
 
-      <div className="proj-case-section">
-        <h4 className="proj-case-label">Contributo</h4>
-        <ul className="proj-case-list">
-          {project.contributions.map((c) => (
-            <li key={c}>{c}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="proj-case-section">
-        <h4 className="proj-case-label">Risultato</h4>
-        <p className="proj-case-result">{project.results}</p>
-      </div>
-
-      <div className="proj-card-tags">
-        {project.tags.map((t) => (
-          <span key={t} className="proj-card-tag">
-            {t}
-          </span>
-        ))}
-      </div>
-
-      <div className="proj-card-bottom">
-        <p className="proj-card-cta-text">{project.cta}</p>
-        {!("hideVisitButton" in project && project.hideVisitButton) && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="proj-card-link"
-          >
-            Visita il progetto <FiExternalLink size={13} />
-          </a>
-        )}
+        <div className="proj-card-bottom">
+          <p className="proj-card-cta-text">{project.cta}</p>
+          {!("hideVisitButton" in project && project.hideVisitButton) && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="proj-card-link"
+            >
+              Visita il progetto <FiExternalLink size={13} />
+            </a>
+          )}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 
@@ -283,11 +284,7 @@ const ScreenshotCarousel = ({
 
   return (
     <div className="shot-modal" onClick={onClose}>
-      <button
-        className="shot-close"
-        onClick={onClose}
-        aria-label="Chiudi"
-      >
+      <button className="shot-close" onClick={onClose} aria-label="Chiudi">
         <FiX size={28} />
       </button>
 
