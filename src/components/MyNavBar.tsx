@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
+import NavLogo from "./NavLogo";
 
 const NAV_ITEMS = [
   { label: "HOME", path: "/" },
@@ -40,8 +41,9 @@ const MyNavBar = () => {
           className="navbar-brand-custom"
           role="button"
           onClick={() => handleNav("/")}
+          style={{ padding: "2px 0", lineHeight: 1 }}
         >
-          DC
+          <NavLogo />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"

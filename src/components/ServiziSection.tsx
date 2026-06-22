@@ -4,34 +4,40 @@ import { FaGlobe, FaLaptopCode, FaPlug, FaWrench } from "react-icons/fa";
 
 const SERVIZI = [
   {
-    icon: <FaGlobe size={28} />,
+    icon: <FaGlobe size={26} />,
     title: "Siti web e landing page",
     desc: "Siti che spiegano bene cosa fai e portano chi li visita a contattarti. Veloci, chiari e facili da usare su qualsiasi dispositivo.",
-    ideale: "Professionisti, attivit\u00e0 locali, PMI, servizi B2B.",
+    ideale: "Professionisti, attività locali, PMI, servizi B2B.",
     output: "Homepage + pagine servizi + contatti + SEO base.",
   },
   {
-    icon: <FaLaptopCode size={28} />,
+    icon: <FaLaptopCode size={26} />,
     title: "Web application e dashboard su misura",
     desc: "Progetto e sviluppo web app per gestire dati e processi: aree riservate, dashboard, flussi operativi, CRUD, ruoli e permessi quando necessari.",
     ideale: "Strumenti interni, portali cliente, prodotti digitali.",
     output: "UI + API + database + deploy.",
   },
   {
-    icon: <FaPlug size={28} />,
+    icon: <FaPlug size={26} />,
     title: "Integrazioni e API",
-    desc: "Integrazione di servizi esterni e API: sincronizzazione dati, automazioni, collegamenti tra app e strumenti (CRM, servizi terzi, sistemi interni), con gestione robusta di errori e casi limite.",
+    desc: "Integrazione di servizi esterni e API: sincronizzazione dati, automazioni, collegamenti tra app e strumenti con gestione robusta di errori e casi limite.",
     ideale: "Aziende con sistemi da collegare o automatizzare.",
     output: "Connettori, sync, webhook, automazioni.",
   },
   {
-    icon: <FaWrench size={28} />,
+    icon: <FaWrench size={26} />,
     title: "Supporto, manutenzione ed evoluzione",
-    desc: "Interventi su progetti esistenti: bugfix, refactoring, performance, miglioramenti UX, nuove funzionalit\u00e0.",
-    ideale: "Progetti gi\u00e0 avviati che necessitano di miglioramenti.",
+    desc: "Interventi su progetti esistenti: bugfix, refactoring, performance, miglioramenti UX, nuove funzionalità.",
+    ideale: "Progetti già avviati che necessitano di miglioramenti.",
     output: "Analisi, intervento mirato, documentazione.",
   },
 ];
+
+const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+  e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+};
 
 const ServiziSection = () => {
   const revealRef = useScrollReveal({ threshold: 0.06 });
@@ -51,19 +57,30 @@ const ServiziSection = () => {
           schema fisso.
         </p>
 
-        <div className="servizi-grid">
-          {SERVIZI.map((s) => (
-            <div key={s.title} className="servizi-card">
-              <div className="servizi-card-icon">{s.icon}</div>
-              <h3 className="servizi-card-title">{s.title}</h3>
-              <p className="servizi-card-desc">{s.desc}</p>
-              <div className="servizi-card-meta">
-                <span className="servizi-card-label">Ideale per:</span>{" "}
-                {s.ideale}
+        <div className="servizi-list">
+          {SERVIZI.map((s, i) => (
+            <div
+              key={s.title}
+              className="servizi-item"
+              onMouseMove={handleMouseMove}
+            >
+              <span className="servizi-item-num">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="servizi-item-icon">{s.icon}</div>
+              <div className="servizi-item-body">
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
               </div>
-              <div className="servizi-card-meta">
-                <span className="servizi-card-label">Output tipici:</span>{" "}
-                {s.output}
+              <div className="servizi-item-meta">
+                <div>
+                  <span className="servizi-meta-label">Ideale per: </span>
+                  {s.ideale}
+                </div>
+                <div>
+                  <span className="servizi-meta-label">Output: </span>
+                  {s.output}
+                </div>
               </div>
             </div>
           ))}

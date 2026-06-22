@@ -5,22 +5,22 @@ const STEPS = [
   {
     number: "1",
     title: "Call e obiettivi",
-    desc: "Parliamo del contesto in cui operi e delle tue priorit\u00e0. Niente giri: condividi i tuoi obiettivi e definiamo il percorso migliore per raggiungerli.",
+    desc: "Parliamo del contesto in cui operi e delle tue priorità. Condividi i tuoi obiettivi e definiamo il percorso migliore per raggiungerli.",
   },
   {
     number: "2",
     title: "Proposta chiara",
-    desc: "Consegno una proposta con perimetro, tempi e modalit\u00e0 operative (a progetto o continuativo).",
+    desc: "Consegno una proposta con perimetro, tempi e modalità operative — a progetto o continuativo.",
   },
   {
     number: "3",
     title: "Sviluppo per step",
-    desc: "Lavoro per fasi, con feedback costante. Sai sempre a che punto siamo.",
+    desc: "Lavoro per fasi, con feedback costante. Sai sempre a che punto siamo e puoi correggere il tiro.",
   },
   {
     number: "4",
-    title: "Consegna + supporto",
-    desc: "Rilascio, verifica e (se serve) manutenzione: il progetto resta affidabile nel tempo.",
+    title: "Consegna e supporto",
+    desc: "Rilascio, verifica e (se serve) manutenzione continuativa: il progetto resta affidabile nel tempo.",
   },
 ];
 
@@ -36,14 +36,12 @@ const MetodoSection = () => {
           <div className="section-title-bar" />
         </div>
 
-        <div className="metodo-timeline">
+        <div className="metodo-steps">
           {STEPS.map((step) => (
-            <div key={step.number} className="metodo-step">
-              <div className="metodo-step-badge">{step.number}</div>
-              <div className="metodo-step-content">
-                <h3 className="metodo-step-title">{step.title}</h3>
-                <p className="metodo-step-desc">{step.desc}</p>
-              </div>
+            <div key={step.number} className="metodo-step-card">
+              <div className="metodo-step-num">{step.number}</div>
+              <h3 className="metodo-step-title">{step.title}</h3>
+              <p className="metodo-step-desc">{step.desc}</p>
             </div>
           ))}
         </div>
