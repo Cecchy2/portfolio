@@ -1,31 +1,25 @@
 import { Link } from "react-router-dom";
-import { useScrollReveal } from "../hooks/useScrollReveal";
-import { FaGlobe, FaLaptopCode, FaPlug, FaWrench } from "react-icons/fa";
 
 const SERVIZI = [
   {
-    icon: <FaGlobe size={26} />,
     title: "Siti web e landing page",
     desc: "Siti che spiegano bene cosa fai e portano chi li visita a contattarti. Veloci, chiari e facili da usare su qualsiasi dispositivo.",
     ideale: "Professionisti, attività locali, PMI, servizi B2B.",
     output: "Homepage + pagine servizi + contatti + SEO base.",
   },
   {
-    icon: <FaLaptopCode size={26} />,
     title: "Web application e dashboard su misura",
     desc: "Progetto e sviluppo web app per gestire dati e processi: aree riservate, dashboard, flussi operativi, CRUD, ruoli e permessi quando necessari.",
     ideale: "Strumenti interni, portali cliente, prodotti digitali.",
     output: "UI + API + database + deploy.",
   },
   {
-    icon: <FaPlug size={26} />,
     title: "Integrazioni e API",
     desc: "Integrazione di servizi esterni e API: sincronizzazione dati, automazioni, collegamenti tra app e strumenti con gestione robusta di errori e casi limite.",
     ideale: "Aziende con sistemi da collegare o automatizzare.",
     output: "Connettori, sync, webhook, automazioni.",
   },
   {
-    icon: <FaWrench size={26} />,
     title: "Supporto, manutenzione ed evoluzione",
     desc: "Interventi su progetti esistenti: bugfix, refactoring, performance, miglioramenti UX, nuove funzionalità.",
     ideale: "Progetti già avviati che necessitano di miglioramenti.",
@@ -33,67 +27,52 @@ const SERVIZI = [
   },
 ];
 
-const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-  const rect = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-  e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
-};
-
-const ServiziSection = () => {
-  const revealRef = useScrollReveal({ threshold: 0.06 });
-
-  return (
-    <div>
-      <div ref={revealRef} className="servizi-wrapper">
-        <div className="section-header">
-          <p className="section-eyebrow">Servizi</p>
-          <h2 className="section-title">Cosa posso fare per te</h2>
-          <div className="section-title-bar" />
+/**
+ * Lo scorrimento verticale diventa pan laterale: i quattro servizi sono
+ * paritetici, e il pan li presenta come un percorso unico invece che come
+ * una lista da scorrere. Sotto i 1024px diventa uno swipe nativo.
+ */
+const ServiziSection = () => (
+  <section className="pan" id="servizi" data-pan>
+    <div className="pan-sticky">
+      <div className="pan-track" data-pan-track>
+        <div className="pan-panel pan-panel--intro">
+          <p className="eyebrow" style={{ marginBottom: "1rem" }}>Servizi</p>
+          <h2 className="h-sec" style={{ marginBottom: "1.2rem" }}>Cosa posso fare per te</h2>
+          <p className="pan-desc">
+            Lavoro su progetti nuovi e su sistemi già esistenti. Ogni progetto è
+            diverso — per questo parto sempre da cosa serve davvero, non da uno
+            schema fisso.
+          </p>
         </div>
 
-        <p className="servizi-intro">
-          Lavoro su progetti nuovi e su sistemi già esistenti. Ogni progetto è
-          diverso — per questo parto sempre da cosa serve davvero, non da uno
-          schema fisso.
-        </p>
-
-        <div className="servizi-list">
-          {SERVIZI.map((s, i) => (
-            <div
-              key={s.title}
-              className="servizi-item"
-              onMouseMove={handleMouseMove}
-            >
-              <span className="servizi-item-num">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="servizi-item-icon">{s.icon}</div>
-              <div className="servizi-item-body">
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-              </div>
-              <div className="servizi-item-meta">
-                <div>
-                  <span className="servizi-meta-label">Ideale per: </span>
-                  {s.ideale}
-                </div>
-                <div>
-                  <span className="servizi-meta-label">Output: </span>
-                  {s.output}
-                </div>
-              </div>
+        {SERVIZI.map((s, i) => (
+          <article className="pan-panel" key={s.title}>
+            <p className="pan-index">
+              <b>{String(i + 1).padStart(2, "0")}</b> / 04
+            </p>
+            <h3 className="pan-title">{s.title}</h3>
+            <p className="pan-desc">{s.desc}</p>
+            <div className="pan-meta">
+              <div><span>Ideale per:</span> {s.ideale}</div>
+              <div><span>Output:</span> {s.output}</div>
             </div>
-          ))}
-        </div>
-
-        <div className="servizi-cta">
-          <Link to="/contatti" className="cta-button">
-            Raccontami cosa ti serve
-          </Link>
-        </div>
+            {i === SERVIZI.length - 1 && (
+              <Link
+                to="/contatti"
+                className="btn btn-line"
+                style={{ marginTop: "1.8rem", alignSelf: "flex-start" }}
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Raccontami cosa ti serve
+              </Link>
+            )}
+          </article>
+        ))}
       </div>
+      <div className="pan-progress" aria-hidden="true"><i data-pan-bar /></div>
     </div>
-  );
-};
+  </section>
+);
 
 export default ServiziSection;

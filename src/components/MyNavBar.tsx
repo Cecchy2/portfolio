@@ -1,69 +1,74 @@
 import { useState } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
-import NavLogo from "./NavLogo";
 
 const NAV_ITEMS = [
-  { label: "HOME", path: "/" },
-  { label: "PROGETTI", path: "/casi-studio" },
-  { label: "CHI SONO", path: "/chi-sono" },
+  { label: "Servizi", path: "/", hash: "#servizi" },
+  { label: "Progetti", path: "/casi-studio" },
+  { label: "Chi sono", path: "/chi-sono" },
   { label: "FAQ", path: "/faq" },
-  { label: "CONTATTI", path: "/contatti" },
+  { label: "Contatti", path: "/contatti" },
 ];
 
 const MyNavBar = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleToggle = () => setExpanded(!expanded);
-  const handleClose = () => setExpanded(false);
-
-  const handleNav = (path: string) => {
-    handleClose();
+  const go = (path: string, hash?: string) => {
+    setOpen(false);
+    if (hash && location.pathname === path) {
+      document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
     navigate(path);
     window.scrollTo(0, 0);
-    if (path === "/") {
-      window.dispatchEvent(new CustomEvent("particles-reset"));
+    if (hash) {
+      // la sezione esiste solo dopo il render della nuova route
+      window.setTimeout(() => document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" }), 80);
     }
   };
 
   return (
-    <Navbar
-      expand="lg"
-      className="bg-body-tertiary navbarIndex"
-      fixed="top"
-      expanded={expanded}
-      style={{ zIndex: 99999 }}
-    >
-      <Container>
-        <Navbar.Brand
-          className="navbar-brand-custom"
+    <header className="nav" data-open={open} data-stuck={location.pathname !== "/"}>
+      <div className="nav-inner">
+        <a
+          className="brand"
           role="button"
-          onClick={() => handleNav("/")}
-          style={{ padding: "2px 0", lineHeight: 1 }}
+          tabIndex={0}
+          onClick={() => go("/")}
+          onKeyDown={(e) => e.key === "Enter" && go("/")}
         >
-          <NavLogo />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          onClick={handleToggle}
-        />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto nav-links">
-            {NAV_ITEMS.map((item) => (
-              <Nav.Link
-                key={item.path}
-                onClick={() => handleNav(item.path)}
-                active={location.pathname === item.path}
-              >
-                {item.label}
-              </Nav.Link>
-            ))}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          Dario Cecchinato
+        </a>
+
+        <nav className="nav-links" id="navLinks">
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.label}
+              className="nav-link"
+              role="button"
+              tabIndex={0}
+              aria-current={location.pathname === item.path && !item.hash ? "true" : undefined}
+              onClick={() => go(item.path, item.hash)}
+              onKeyDown={(e) => e.key === "Enter" && go(item.path, item.hash)}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <button
+          className="nav-toggle"
+          aria-label={open ? "Chiudi menu" : "Apri menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+            <path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" />
+          </svg>
+        </button>
+      </div>
+    </header>
   );
 };
 
