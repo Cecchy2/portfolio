@@ -66,12 +66,22 @@ export function initScrollFx(): () => void {
   const panBar = pan?.querySelector<HTMLElement>("[data-pan-bar]") ?? null;
   let panDist = 0;
 
-  const panOff = () => reduceMQ.matches || mobileMQ.matches;
+  // Il pan vale anche su mobile: lo scroll verticale muove i pannelli in
+  // orizzontale, come la rotella su desktop. Si spegne solo per chi ha
+  // chiesto meno animazioni, e li' torna una lista scorrevole a dito.
+  const panOff = () => reduceMQ.matches;
 
   function measure() {
     ribbons.forEach((r) => {
       r.half = r.group.getBoundingClientRect().width;
     });
+    stackOn =
+      stackItems.length > 1 && getComputedStyle(stackItems[0]).position === "sticky";
+    if (!stackOn)
+      for (const it of stackItems) {
+        const inner = it.querySelector<HTMLElement>("[data-stackscale]");
+        if (inner) { inner.style.transform = ""; inner.style.opacity = ""; }
+      }
     if (pan && panTrack) {
       if (panOff()) {
         pan.style.height = "";
@@ -86,6 +96,11 @@ export function initScrollFx(): () => void {
 
   const bar = document.querySelector<HTMLElement>("[data-progress]");
   const stackItems = Array.from(document.querySelectorAll<HTMLElement>(".stack-item"));
+  /* Chi comanda sullo stack e' il CSS: se le card non sono sticky (schermo
+     troppo basso o stretto) scalarle e sfumarle non ha senso, perche' non si
+     impilano. Il JS legge la decisione invece di duplicarla in un media query
+     parallelo — e cosi' non servono !important per zittirlo. */
+  let stackOn = false;
 
   let lastY = window.scrollY;
   let lastT = performance.now();
@@ -127,16 +142,13 @@ export function initScrollFx(): () => void {
           "translate3d(" + (c * it.px).toFixed(1) + "px," + (c * it.py).toFixed(1) + "px,0)";
       }
 
-      // Lo sticky stack non esiste sotto i 1024px: le card scorrono normali.
-      if (!mobileMQ.matches) {
-        for (let k = 0; k < stackItems.length - 1; k++) {
-          const inner = stackItems[k].querySelector<HTMLElement>("[data-stackscale]");
-          if (!inner) continue;
-          const nt = stackItems[k + 1].getBoundingClientRect().top;
-          const q = 1 - clamp(nt / vh, 0, 1);
-          inner.style.transform = "scale(" + (1 - 0.07 * q).toFixed(4) + ")";
-          inner.style.opacity = (1 - 0.55 * q).toFixed(3);
-        }
+      if (stackOn) for (let k = 0; k < stackItems.length - 1; k++) {
+        const inner = stackItems[k].querySelector<HTMLElement>("[data-stackscale]");
+        if (!inner) continue;
+        const nt = stackItems[k + 1].getBoundingClientRect().top;
+        const q = 1 - clamp(nt / vh, 0, 1);
+        inner.style.transform = "scale(" + (1 - 0.07 * q).toFixed(4) + ")";
+        inner.style.opacity = (1 - 0.55 * q).toFixed(3);
       }
 
       if (panDist > 0 && panTrack && pan) {

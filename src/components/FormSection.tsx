@@ -104,7 +104,7 @@ const FormSection = () => {
   };
 
   return (
-    <div>
+    <div id="contatti">
       <div ref={revealRef} className="contact-wrapper">
         <div className="section-header">
           <p className="section-eyebrow">Contatti</p>

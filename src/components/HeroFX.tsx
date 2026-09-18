@@ -19,6 +19,10 @@ import * as THREE from "three";
 const small = () => window.innerWidth <= 1024;
 let N_FLY = 2000;
 let N_GLOW = 1400;
+/** Quanto e' larga una farfalla su mobile, in frazione di schermo. Tarato
+ *  guardando il rendering, non calcolato: il quad delle ali ha una sua
+ *  dimensione di base che le formule sulla carta non tengono. */
+const FLY_FRAC = 0.009;
 /** Pixel di scorrimento dedicati all'animazione: e' anche l'altezza extra
  *  del contenitore agganciato in App.css. */
 let SCRUB = 1100;
@@ -471,7 +475,7 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
     /* Le farfalle sono figlie del gruppo: con un piano grande quanto una
        foto da 142px diventerebbero capocchie di spillo. Le riporto a una
        frazione fissa della larghezza inquadrata. */
-    flyMat.uniforms.uFlyScale.value = lite ? (0.028 * visW) / (0.165 * fit) : 1;
+    flyMat.uniforms.uFlyScale.value = lite ? (FLY_FRAC * visW) / (0.165 * fit) : 1;
   }
   resize();
   addEventListener("resize", resize, { passive: true });
