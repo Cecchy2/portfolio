@@ -14,11 +14,14 @@ import * as THREE from "three";
    che evita che l'animazione si accavalli a una sezione di destinazione.
    ========================================================================== */
 
-const N_FLY = 2000;
-const N_GLOW = 1400;
+/* Su schermi piccoli la scena gira lo stesso, ma con meno insetti, meno
+   pixel e uno scrub piu' corto: il pollice non deve scorrere un chilometro. */
+const small = () => window.innerWidth <= 1024;
+let N_FLY = 2000;
+let N_GLOW = 1400;
 /** Pixel di scorrimento dedicati all'animazione: e' anche l'altezza extra
  *  del contenitore agganciato in App.css. */
-const SCRUB = 1100;
+let SCRUB = 1100;
 
 const HeroFX = () => {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -29,7 +32,6 @@ const HeroFX = () => {
     const front = frontRef.current;
     if (!host || !front) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (window.matchMedia("(max-width: 1024px)").matches) return;
     if (window.scrollY > 40) return; // pagina gia' scorsa: scena fuori contesto
 
     let disposed = false;
@@ -40,7 +42,7 @@ const HeroFX = () => {
       if (disposed || !img.naturalWidth) return;
       cleanup = build(host, front, img);
     };
-    img.src = "/macbook.png";
+    img.src = small() ? "/Fotoprofilo.jpg" : "/macbook.png";
 
     return () => {
       disposed = true;
@@ -59,12 +61,55 @@ const HeroFX = () => {
 };
 
 function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElement): () => void {
+  const lite = small();
+  N_FLY = lite ? 700 : 2000;
+  N_GLOW = lite ? 420 : 1400;
+  SCRUB = lite ? 620 : 1100;
   /* ── Pixel del mockup: le farfalle devono nascere da li' ─────────────── */
   const cv = document.createElement("canvas");
   cv.width = 460;
-  cv.height = Math.round((460 * img.naturalHeight) / img.naturalWidth);
+  cv.height = lite ? 460 : Math.round((460 * img.naturalHeight) / img.naturalWidth);
   const cx = cv.getContext("2d")!;
-  cx.drawImage(img, 0, 0, cv.width, cv.height);
+  if (lite) {
+    /* Su mobile non c'e' spazio per il portatile accanto al testo: il
+       soggetto diventa la foto stessa. La ritaglio a cerchio con lo stesso
+       inquadramento del CSS (cover, 50% 20%) e le disegno intorno l'anello
+       ambra. Da qui in poi nulla cambia: riquadro utile, pixel sorgente
+       delle farfalle e texture del piano nascono tutti da questo canvas,
+       quindi e' la foto a bruciare e a sfarfallare via. */
+    const S = 460, ring = 10;  // 3px su un blob da 142 = 2.1%, come il CSS
+    /* Non un cerchio: la stessa silhouette del blob in CSS, presa dal
+       fotogramma 0% di "blobMorph". Un border-radius non e' che quattro
+       quarti di ellisse, quindi si ridisegna arco per arco. */
+    const HX = [0.58, 0.42, 0.55, 0.45], VY = [0.45, 0.57, 0.43, 0.55];
+    const blobPath = (inset: number) => {
+      const a = inset, sz = S - inset * 2, b = a + sz;
+      const H = HX.map((v) => v * sz), V = VY.map((v) => v * sz);
+      const q = new Path2D();
+      q.moveTo(a + H[0], a);
+      q.lineTo(b - H[1], a);
+      q.ellipse(b - H[1], a + V[1], H[1], V[1], 0, -Math.PI / 2, 0);
+      q.lineTo(b, b - V[2]);
+      q.ellipse(b - H[2], b - V[2], H[2], V[2], 0, 0, Math.PI / 2);
+      q.lineTo(a + H[3], b);
+      q.ellipse(a + H[3], b - V[3], H[3], V[3], 0, Math.PI / 2, Math.PI);
+      q.lineTo(a, a + V[0]);
+      q.ellipse(a + H[0], a + V[0], H[0], V[0], 0, Math.PI, Math.PI * 1.5);
+      q.closePath();
+      return q;
+    };
+    const k = Math.max(S / img.naturalWidth, S / img.naturalHeight);
+    const dw = img.naturalWidth * k, dh = img.naturalHeight * k;
+    cx.save();
+    cx.clip(blobPath(ring));
+    cx.drawImage(img, (S - dw) * 0.5, (S - dh) * 0.2, dw, dh);
+    cx.restore();
+    cx.lineWidth = ring;
+    cx.strokeStyle = "#f59e0b";
+    cx.stroke(blobPath(ring / 2));
+  } else {
+    cx.drawImage(img, 0, 0, cv.width, cv.height);
+  }
   const px = cx.getImageData(0, 0, cv.width, cv.height).data;
 
   // Il PNG ha ampi margini trasparenti: ne calcolo il riquadro utile, cosi'
@@ -97,7 +142,7 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
   };
 
   /* ── Il mockup come piano, con disgregazione a rumore ─────────────────── */
-  const tex = new THREE.Texture(img);
+  const tex = new THREE.Texture(lite ? cv : img);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.minFilter = THREE.LinearFilter;
   tex.generateMipmaps = false;
@@ -110,13 +155,14 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
     uniforms: {
       uMap: { value: tex },
       uProg: { value: 0 },
+      uFade: { value: 1 },
       uEdge: { value: new THREE.Color("#f59e0b") },
     },
     vertexShader: `
       varying vec2 vUv;
       void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
     fragmentShader: `
-      uniform sampler2D uMap; uniform float uProg; uniform vec3 uEdge;
+      uniform sampler2D uMap; uniform float uProg; uniform vec3 uEdge; uniform float uFade;
       varying vec2 vUv;
       float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
       float vnoise(vec2 p){
@@ -129,9 +175,9 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
         if (t.a < .02) discard;
         float n = vnoise(vUv * 9.0) * .72 + vnoise(vUv * 26.0) * .28;
         float cut = smoothstep(n - .10, n + .10, uProg * 1.35);
-        float a = t.a * (1.0 - cut);
+        float a = t.a * (1.0 - cut) * uFade;
         if (a < .01) discard;
-        float rim = (1.0 - abs(cut - .5) * 2.0) * step(.001, uProg);
+        float rim = (1.0 - abs(cut - .5) * 2.0) * smoothstep(0.0, .05, uProg);
         gl_FragColor = vec4(t.rgb + uEdge * rim * .85, a);
       }`,
   });
@@ -298,9 +344,9 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
     depthWrite: false,
     depthTest: false,
     side: THREE.DoubleSide,
-    uniforms: { uTime: { value: 0 }, uProg: { value: 0 }, uTravel: { value: 15 }, uWing: { value: wingTex } },
+    uniforms: { uTime: { value: 0 }, uProg: { value: 0 }, uTravel: { value: 15 }, uFlyScale: { value: 1 }, uWing: { value: wingTex } },
     vertexShader: `
-      uniform float uTime; uniform float uProg; uniform float uTravel;
+      uniform float uTime; uniform float uProg; uniform float uTravel; uniform float uFlyScale;
       attribute float aSide;
       attribute vec3 iOrg; attribute vec3 iDir; attribute vec4 iRnd; attribute vec3 iCol; attribute float iScl;
       varying vec2 vUvw; varying vec3 vCol; varying float vA; varying float vShade; varying float vType;
@@ -316,7 +362,7 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
         vec3 vel = normalize(iDir * 1.2 + vec3(sw1 * .55, .42 + sw2 * .5, 0.0));
         float beat = sin(uTime * (10.0 + iRnd.y * 12.0) + iRnd.z);
         float ang = .30 + 1.05 * (.5 + .5 * beat);
-        float grow = smoothstep(0.0, .18, t) * iScl;
+        float grow = smoothstep(0.0, .18, t) * iScl * uFlyScale;
         float isBody = step(abs(aSide), .001);
         vec3 wingL = vec3(aSide * position.x * cos(ang), position.x * sin(ang), position.z);
         vec3 lw = mix(wingL, position, isBody) * grow;
@@ -368,7 +414,7 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
 
   const mkRenderer = () => {
     const r = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
-    r.setPixelRatio(Math.min(devicePixelRatio, 2));
+    r.setPixelRatio(Math.min(devicePixelRatio, lite ? 1.5 : 2));
     r.setClearAlpha(0);
     return r;
   };
@@ -377,30 +423,76 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
   host.appendChild(rBack.domElement);
   front.appendChild(rFront.domElement);
 
+  let visH = 0, visW = 0;
+
+  /* Aggancio al blob.
+
+     Va rifatto a ogni frame, non solo al resize: la foto ha data-py, quindi
+     il parallax la sposta di una trentina di pixel mentre si scorre. Misurarla
+     una volta sola lasciava il piano indietro, e durante la dissolvenza si
+     vedevano due anelli separarsi. Un getBoundingClientRect per frame costa
+     meno di quanto costi sbagliare. */
+  function placeOnBlob() {
+    const b = document.querySelector(".blob")?.getBoundingClientRect();
+    if (!b || !b.width) return 0;
+    const f = (b.width * (visW / innerWidth)) / PLANE_W;
+    for (const g of [groupBack, groupFront]) {
+      g.scale.setScalar(f);
+      g.position.x = ((b.left + b.width / 2) / innerWidth - 0.5) * visW;
+      g.position.y = -((b.top + b.height / 2) / innerHeight - 0.5) * visH;
+    }
+    return f;
+  }
+
   function resize() {
     const w = innerWidth, h = innerHeight;
     rBack.setSize(w, h, false);
     rFront.setSize(w, h, false);
     cam.aspect = w / h;
     cam.updateProjectionMatrix();
-    const visH = 2 * Math.tan(((cam.fov * Math.PI) / 180) / 2) * cam.position.z;
-    const visW = visH * cam.aspect;
-    const fit = Math.min((visW * 0.4) / PLANE_W, (visH * 0.7) / PLANE_H);
-    for (const g of [groupBack, groupFront]) {
-      g.scale.setScalar(fit);
-      g.position.set(visW * 0.265, -visH * 0.045, 0);
+    visH = 2 * Math.tan(((cam.fov * Math.PI) / 180) / 2) * cam.position.z;
+    visW = visH * cam.aspect;
+
+    /* Desktop: il portatile occupa la meta' destra, accanto alla colonna di
+       testo, e la sua posizione e' una frazione del viewport.
+       Portrait: il soggetto e' la foto stessa, e il piano ci va sopra preciso. */
+    let fit: number;
+    if (lite) {
+      fit = placeOnBlob() || (visW * 0.4) / PLANE_W;
+    } else {
+      fit = Math.min((visW * 0.4) / PLANE_W, (visH * 0.7) / PLANE_H);
+      for (const g of [groupBack, groupFront]) {
+        g.scale.setScalar(fit);
+        g.position.set(visW * 0.265, -visH * 0.045, 0);
+      }
     }
-    glowMat.uniforms.uScale.value = Math.max(0.55, Math.min(1.2, fit * 1.5));
+    glowMat.uniforms.uScale.value = Math.max(0.55, Math.min(1.6, fit * (lite ? 5 : 1.5)));
     flyMat.uniforms.uTravel.value = (visW * 1.25) / Math.max(fit, 0.001);
+    /* Le farfalle sono figlie del gruppo: con un piano grande quanto una
+       foto da 142px diventerebbero capocchie di spillo. Le riporto a una
+       frazione fissa della larghezza inquadrata. */
+    flyMat.uniforms.uFlyScale.value = lite ? (0.028 * visW) / (0.165 * fit) : 1;
   }
   resize();
   addEventListener("resize", resize, { passive: true });
   host.dataset.ready = "true";
+  /* A riposo su mobile comanda il blob in CSS, col suo morph. Il piano 3D
+     resta spento e prende la mano solo quando la bruciatura comincia: da li'
+     in poi l'img e' invisibile, ma resta nel flusso perche' e' lei a dire a
+     resize() dove e quanto grande disegnare la scena. */
+  const photo = lite ? document.querySelector<HTMLElement>(".hero-photo") : null;
+  if (lite) {
+    plane.visible = false;
+    // L'alone ambra su mobile ce l'ha gia' .photo-halo in CSS: accenderne un
+    // secondo qui faceva arrivare tutto l'arancione in un colpo solo.
+    halo.visible = false;
+  }
 
   // L'avanzamento non dipende piu' dal tempo ma dalla posizione di scroll:
   // fermi lo scroll, le farfalle restano dove sono.
   const scrub = document.querySelector<HTMLElement>("[data-hero-scrub]");
   scrub?.setAttribute("data-scrub", "1");
+  scrub?.style.setProperty("--scrub", SCRUB + "px");
 
   const t0 = performance.now();
   let done = false, raf = 0;
@@ -409,6 +501,7 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
     if (done) return;
     done = true;
     host.dataset.ready = "false";
+    photo?.style.removeProperty("--fx-fade");
     cancelAnimationFrame(raf);
     removeEventListener("resize", resize);
     glowGeo.dispose(); glowMat.dispose();
@@ -429,6 +522,8 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
 
     // Il mockup ha gia' la sua prospettiva: basta un'oscillazione lenta e
     // autonoma. Nessuna reazione al puntatore.
+    if (lite) placeOnBlob();
+
     const ry = Math.sin(el * 0.26) * 0.05;
     const rx = Math.sin(el * 0.2) * 0.028;
     const pz = Math.sin(el * 0.33) * 0.12;
@@ -441,6 +536,16 @@ function build(host: HTMLDivElement, front: HTMLDivElement, img: HTMLImageElemen
       // superata la sezione, la scena non serve piu': libera la GPU
       if (r.bottom < -200) { teardown(); return; }
       const pr = Math.min(1, Math.max(0, -r.top / SCRUB));
+      if (photo) {
+        /* Il passaggio blob CSS -> piano 3D e' una dissolvenza, non uno
+           scambio: nei primi 6% dello scrub (~37px di dito) uno sale e
+           l'altro scende, cosi' la differenza di sagoma non si legge come
+           uno scatto. */
+        const fade = Math.min(1, pr / 0.06);
+        photo.style.setProperty("--fx-fade", fade.toFixed(3));
+        plane.visible = fade > 0.001;
+        planeMat.uniforms.uFade.value = fade;
+      }
       flyMat.uniforms.uProg.value = pr;
       glowMat.uniforms.uProg.value = pr;
       haloMat.uniforms.uProg.value = pr;

@@ -163,7 +163,7 @@ section{position:relative;z-index:2}
    L'altezza extra viene attivata da HeroFX solo quando la scena parte
    davvero: senza (mobile, riduci animazioni, WebGL assente) resterebbe
    spazio vuoto da scorrere per nulla. */
-.hero-scrub[data-scrub="1"]{height:calc(100dvh + 1100px)}
+.hero-scrub[data-scrub="1"]{height:calc(100dvh + var(--scrub,1100px))}
 .hero-scrub[data-scrub="1"] .hero{position:sticky;top:0;min-height:100dvh}
 .hero-fx--front{z-index:65;opacity:1}
 .hero-fx[data-ready="true"]{opacity:1}
@@ -200,8 +200,20 @@ section{position:relative;z-index:2}
 }
 @media (max-width:1024px){
   .hero{padding-top:calc(66px + 3.6rem)}
-  .hero-fx{display:none}
-  .blob{width:120px;height:120px}.photo-halo{width:165px;height:165px}
+  /* Sagoma bloccata sul fotogramma 0% di blobMorph: sono gli stessi raggi
+     che HeroFX ridisegna nel canvas. Se qui morphasse e li' no, durante la
+     dissolvenza si vedrebbero due sagome diverse sovrapposte. */
+  .blob{width:142px;height:142px;animation:none;
+    border-radius:58% 42% 55% 45% / 45% 57% 43% 55%}
+  /* La foto e' il soggetto della scena, non una spalla: va centrata.
+     L'alone si centra con margin, non con transform: l'animazione "halo"
+     usa gia' transform e lo sovrascriverebbe. */
+  .hero-photo{justify-content:center}
+  .photo-halo{width:192px;height:192px;left:50%;margin-left:-96px}
+  /* HeroFX alza --fx-fade da 0 a 1 all'inizio dello scroll: l'img sfuma
+     mentre il piano 3D sale. Resta nel flusso anche a 0 — e' lei a dare
+     posizione e misura alla scena. */
+  .hero-photo .blob{opacity:calc(1 - var(--fx-fade,0))}
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -317,7 +329,6 @@ section{position:relative;z-index:2}
   .stack-item{position:relative;min-height:auto;padding-block:3.5rem}
   .stack-inner{grid-template-columns:1fr;gap:1.8rem}
   .shot{order:-1}
-  .shot{transform:none !important}
   .stack-scale{transform:none !important;opacity:1 !important}
 }
 

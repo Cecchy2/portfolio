@@ -116,15 +116,19 @@ export function initScrollFx(): () => void {
           "translate3d(" + r.x.toFixed(2) + "px,0,0)" + (sk ? " skewX(" + sk.toFixed(2) + "deg)" : "");
       }
 
-      if (!mobileMQ.matches) {
-        for (const it of parEls) {
-          const box = it.el.getBoundingClientRect();
-          if (box.bottom < -160 || box.top > vh + 160) continue;
-          const c = 1 - 2 * clamp((vh - box.top) / (vh + box.height), 0, 1);
-          it.el.style.transform =
-            "translate3d(" + (c * it.px).toFixed(1) + "px," + (c * it.py).toFixed(1) + "px,0)";
-        }
+      // Il parallax gira anche su mobile, con ampiezza dimezzata: sono solo
+      // transform, e senza di esse le sezioni sembrano immagini incollate.
+      const amp = mobileMQ.matches ? 0.5 : 1;
+      for (const it of parEls) {
+        const box = it.el.getBoundingClientRect();
+        if (box.bottom < -160 || box.top > vh + 160) continue;
+        const c = (1 - 2 * clamp((vh - box.top) / (vh + box.height), 0, 1)) * amp;
+        it.el.style.transform =
+          "translate3d(" + (c * it.px).toFixed(1) + "px," + (c * it.py).toFixed(1) + "px,0)";
+      }
 
+      // Lo sticky stack non esiste sotto i 1024px: le card scorrono normali.
+      if (!mobileMQ.matches) {
         for (let k = 0; k < stackItems.length - 1; k++) {
           const inner = stackItems[k].querySelector<HTMLElement>("[data-stackscale]");
           if (!inner) continue;
