@@ -54,6 +54,27 @@ const PROJECTS = [
     ],
   },
   {
+    name: "RUNWAY: Startup Simulator",
+    subtitle: "Gioco gestionale strategico per macOS e Windows",
+    image: "/projects/runway/02-ufficio-e-settimana.png",
+    link: "https://apps.apple.com/it/app/runway-startup-simulator/id6818247526?mt=12",
+    stores: [
+      { label: "Mac App Store", href: "https://apps.apple.com/it/app/runway-startup-simulator/id6818247526?mt=12" },
+      { label: "Microsoft Store", href: "https://apps.microsoft.com/detail/9n9f2swf2hht?ocid=webpdpshare" },
+    ],
+    context:
+      "Fondi una startup e portala dal garage al decollo, settimana dopo settimana. Ogni settimana scegli come usare il tuo tempo: costruire il prodotto, parlare con gli utenti, vendere, riposare, assumere. Il team lavora sulla board dello sprint, i numeri si muovono e arrivano imprevisti, clienti esigenti, concorrenti e opportunità. Sotto il cofano: monorepo TypeScript con un motore di simulazione puro e deterministico (RNG con seed), eventi definiti come dati JSON validati con Zod, un AI Advisor basato su Claude dietro un server Fastify, e un'app desktop Electron pubblicata su Mac App Store e Microsoft Store con build automatizzate via GitHub Actions.",
+    tags: ["TypeScript", "React", "Vite", "Zustand", "Zod", "Fastify", "Claude API", "Electron", "pnpm monorepo", "Vitest", "Docker", "GitHub Actions"],
+    cta: "Hai un'idea di prodotto complessa da trasformare in un'app pubblicata?",
+    screenshots: [
+      "/projects/runway/01-scegli-la-startup.png",
+      "/projects/runway/02-ufficio-e-settimana.png",
+      "/projects/runway/03-sprint-kanban.png",
+      "/projects/runway/04-numeri-e-diagnosi.png",
+      "/projects/runway/05-team.png",
+    ],
+  },
+  {
     name: "Sicily Fresh",
     subtitle: "Web app con browsing, carrello e checkout",
     image: "/projects/SicilyFresh.png",
@@ -139,9 +160,17 @@ const ProjectsSections = () => {
                     {p.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
                   </div>
                   <p className="stack-cta-text">{p.cta}</p>
-                  <a className="stack-link" href={p.link} target="_blank" rel="noopener noreferrer">
-                    Visita il progetto <FiExternalLink size={13} />
-                  </a>
+                  {"stores" in p && p.stores ? (
+                    p.stores.map((s) => (
+                      <a className="stack-link" key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" style={{ marginRight: "1.4rem" }}>
+                        {s.label} <FiExternalLink size={13} />
+                      </a>
+                    ))
+                  ) : (
+                    <a className="stack-link" href={p.link} target="_blank" rel="noopener noreferrer">
+                      Visita il progetto <FiExternalLink size={13} />
+                    </a>
+                  )}
                 </div>
                 <div
                   className="shot"
