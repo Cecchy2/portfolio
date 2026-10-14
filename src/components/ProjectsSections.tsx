@@ -63,7 +63,7 @@ const PROJECTS = [
       { label: "Microsoft Store", href: "https://apps.microsoft.com/detail/9n9f2swf2hht?ocid=webpdpshare" },
     ],
     context:
-      "Fondi una startup e portala dal garage al decollo, settimana dopo settimana. Ogni settimana scegli come usare il tuo tempo: costruire il prodotto, parlare con gli utenti, vendere, riposare, assumere. Il team lavora sulla board dello sprint, i numeri si muovono e arrivano imprevisti, clienti esigenti, concorrenti e opportunità. Sotto il cofano: monorepo TypeScript con un motore di simulazione puro e deterministico (RNG con seed), eventi definiti come dati JSON validati con Zod, un AI Advisor basato su Claude dietro un server Fastify, e un'app desktop Electron pubblicata su Mac App Store e Microsoft Store con build automatizzate via GitHub Actions.",
+      "Fondi una startup e portala dal garage al decollo, settimana dopo settimana. Ogni settimana scegli come usare il tuo tempo: costruire il prodotto, parlare con gli utenti, vendere, riposare, assumere. Il team lavora sulla board dello sprint, i numeri si muovono e arrivano imprevisti, clienti esigenti, concorrenti e opportunità. Sotto il cofano: monorepo TypeScript con un motore di simulazione puro e deterministico (RNG con seed), un server Fastify e un'app desktop Electron pubblicata su Mac App Store e Microsoft Store.",
     tags: ["TypeScript", "React", "Vite", "Zustand", "Zod", "Fastify", "Claude API", "Electron", "pnpm monorepo", "Vitest", "Docker", "GitHub Actions"],
     cta: "Hai un'idea di prodotto complessa da trasformare in un'app pubblicata?",
     screenshots: [
